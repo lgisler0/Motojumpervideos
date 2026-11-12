@@ -331,6 +331,209 @@ VIDEOS = {
 }
 
 
+# ---------------- Vorlagen-Videos aus fakten_daten.py ----------------
+THEMEN = {  # oben, unten, zweite Farbe, Schild, Hashtags, Tags
+    "space": ("070a1c", "1b1f52", "4de1ff", "SPACE", "#space #astronomy #universe", ["space facts", "astronomy", "universe"]),
+    "animals": ("0b2418", "14532d", "7cffb2", "ANIMALS", "#animals #wildlife #animalfacts", ["animal facts", "wildlife", "amazing animals"]),
+    "body": ("2a0a1c", "5a1233", "ff9fbd", "HUMAN BODY", "#humanbody #biology #anatomy", ["human body facts", "biology", "anatomy"]),
+    "earth": ("1c1408", "4a3212", "ffb36b", "PLANET EARTH", "#earth #geography #nature", ["earth facts", "geography", "nature"]),
+    "ocean": ("031a33", "0a4a7a", "4de1ff", "OCEAN", "#ocean #sea #nature", ["ocean facts", "sea", "nature"]),
+    "tech": ("160a2e", "3a1670", "c9a0ff", "SCIENCE", "#physics #mindblown #learnsomethingnew", ["physics facts", "math facts", "mind blowing facts"]),
+}
+BALKENFARBEN = [CYAN, PINK, rgb("7cffb2"), rgb("ffb36b"), rgb("c9a0ff")]
+_BOKEH = [(random.Random(i * 5).uniform(0, W), random.Random(i * 5 + 1).uniform(0, H), random.Random(i * 5 + 2).uniform(30, 120), random.Random(i * 5 + 3).uniform(12, 40)) for i in range(16)]
+KLEIN = {"a", "an", "the", "of", "in", "on", "at", "to", "for", "and", "or", "by", "per"}
+FEST = {"km/h": "km/h", "km": "km", "dna": "DNA", "m": "m", "cm": "cm", "mm": "mm", "kg": "kg", "km²": "km²", "t.": "T.", "usa": "USA", "iss": "ISS"}
+
+
+def titelform(s):
+    """'JUPITER IS|THE GIANT' -> 'Jupiter Is the Giant'"""
+    w = s.replace("|", " ").split()
+    out = []
+    for i, x in enumerate(w):
+        l = x.lower()
+        kern = l.strip("?!:,.")
+        if kern in FEST:
+            out.append(l.replace(kern, FEST[kern]))
+        elif i and kern in KLEIN and not w[i - 1].endswith(":"):
+            out.append(l)
+        else:
+            out.append(l[:1].upper() + l[1:])
+    return " ".join(out)
+
+
+def pille(ctx, s, x, y, size, farbe, alpha=1.0, textfarbe=DUNKEL):
+    ctx.select_font_face(SCHRIFT, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); ctx.set_font_size(size)
+    b = ctx.text_extents(s).x_advance + size * 1.4; h = size * 1.9
+    rund(ctx, x - b / 2, y - h / 2, b, h, h / 2); ctx.set_source_rgba(*farbe, alpha); ctx.fill()
+    text(ctx, s, x, y, size, textfarbe, alpha=alpha)
+
+
+def rund(ctx, x, y, b, h, r):
+    r = min(r, b / 2, h / 2)
+    ctx.new_sub_path(); ctx.arc(x + b - r, y + r, r, -math.pi / 2, 0); ctx.arc(x + b - r, y + h - r, r, 0, math.pi / 2)
+    ctx.arc(x + r, y + h - r, r, math.pi / 2, math.pi); ctx.arc(x + r, y + r, r, math.pi, 1.5 * math.pi); ctx.close_path()
+
+
+def hintergrund(ctx, thema, t):
+    oben, unten, zweit = rgb(THEMEN[thema][0]), rgb(THEMEN[thema][1]), rgb(THEMEN[thema][2])
+    verlauf(ctx, oben, unten)
+    if thema == "space":
+        sterne(ctx, t)
+    else:
+        for x, y, r, v in _BOKEH:
+            glut(ctx, x + math.sin(t * .4 + r) * 30, (y - t * v) % (H + 240) - 120, r, zweit, .16)
+
+
+def hoch(ctx, s, x, y, size, farbe=WEISS, rand=0.0, maxw=None, alpha=1.0):
+    """Wie text(), zeichnet aber '10^80' mit hochgestelltem Exponenten."""
+    m = re.match(r"^(.*?\d)\^(\d+)(.*)$", s)
+    if not m:
+        return text(ctx, s, x, y, size, farbe, rand, maxw, alpha)
+    ctx.select_font_face(SCHRIFT, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+    def breite(sz):
+        b = []
+        for teil, f in zip(m.groups(), (1, .55, 1)):
+            ctx.set_font_size(sz * f); b.append(ctx.text_extents(teil).x_advance)
+        return b
+    b = breite(size)
+    if maxw and sum(b) > maxw:
+        size *= maxw / sum(b); b = breite(size)
+    x0 = x - sum(b) / 2
+    text(ctx, m.group(1), x0, y, size, farbe, rand, None, alpha, "links")
+    text(ctx, m.group(2), x0 + b[0], y - size * .3, size * .55, farbe, rand / .55 if rand else 0, None, alpha, "links")
+    text(ctx, m.group(3), x0 + b[0] + b[1], y, size, farbe, rand, None, alpha, "links")
+
+
+def wertform(v, k=1.0):
+    if isinstance(v, int):
+        return zahl(v * k)
+    st = len(str(v).split(".")[1])
+    return f"{v * k:.{st}f}"
+
+
+def zaehl(s, k):
+    """Zaehlt ganze Zahlen am Anfang hoch ('384,400 KM'), laesst alles andere stehen."""
+    m = re.match(r"^(\d[\d,]*)((?:[ +%x].*)?)$", s)
+    if not m or k >= 1:
+        return s
+    n = int(m.group(1).replace(",", ""))
+    if n < 10 or ("," not in m.group(1) and 1500 <= n <= 2100 and not m.group(2).strip()):
+        return s
+    return (zahl(n * k) if "," in m.group(1) else str(int(round(n * k)))) + m.group(2)
+
+
+def mache_vorlage(art, thema, frage, einheit, items, schluss, opt):
+    zweit = rgb(THEMEN[thema][2]); f1, f2 = frage.upper().split("|"); s1, s2 = schluss.split("|")
+    n = len(items)
+    if art == "b":
+        werte = [it[1] for it in items]; vmax = max(werte)
+        if opt.get("log"):
+            lo = math.log(min(werte)) - .7; anteil = [(math.log(v) - lo) / (math.log(vmax) - lo) for v in werte]
+        else:
+            anteil = [v / vmax for v in werte]
+        sieger = werte.index(vmax)
+
+    def kopf(ctx):
+        text(ctx, f"{f1} {f2}", W / 2, 190, 58, GELB, .15, maxw=980)
+
+    def anfang(ctx, tl, t):
+        pille(ctx, THEMEN[thema][3], W / 2, 400, 40, zweit, ease(tl / .4))
+        k = ease(tl / .35)
+        text(ctx, f1, W / 2, 640, 112 * (.9 + .1 * k), WEISS, .12, maxw=980); text(ctx, f2, W / 2, 800, 140 * (.9 + .1 * k), GELB, .12, maxw=980)
+        if art == "b":
+            for j in range(4):
+                b = (300 + 170 * j) * (.75 + .25 * math.sin(t * 2.2 + j * 1.3)) * ease((tl - .15 * j) / .5)
+                rund(ctx, 110, 1010 + j * 82, b, 52, 26); ctx.set_source_rgba(*BALKENFARBEN[j], .55); ctx.fill()
+        else:
+            for j in range(3):
+                r = 110 + j * 70 + 12 * math.sin(t * 2 + j)
+                ctx.arc(W / 2, 1160, r, 0, 2 * math.pi); ctx.set_source_rgba(*zweit, .5 - j * .14); ctx.set_line_width(10); ctx.stroke()
+            text(ctx, "?", W / 2, 1160, 170, GELB, .1)
+
+    def ende(ctx, tl, t):
+        a = ease(tl / .5)
+        for j in range(3):
+            r = 330 + j * 90 + 14 * math.sin(t * 1.6 + j)
+            ctx.arc(W / 2, 760, r, 0, 2 * math.pi); ctx.set_source_rgba(*zweit, (.22 - j * .06) * a); ctx.set_line_width(8); ctx.stroke()
+        text(ctx, s1, W / 2, 680, 104, WEISS, .12, maxw=960, alpha=a); text(ctx, s2, W / 2, 830, 124, GELB, .12, maxw=960, alpha=a)
+        if art == "b":
+            lab, v, _ = items[sieger]
+            pille(ctx, f"{lab}: {wertform(v)} {einheit}", W / 2, 1050, 40, zweit, ease((tl - .4) / .4))
+        pille(ctx, "FOLLOW FOR MORE", W / 2, 1290, 46 * (1 + .04 * math.sin(t * 5)), GELB, ease((tl - .8) / .4))
+
+    def balken(ctx, i, tl, d, t):
+        kopf(ctx)
+        zh = min(215, 960 / n); y0 = 330 + (960 - zh * n) / 2
+        for j in range(min(i, n)):
+            akt = j == i - 1
+            k = ease(tl / 1.1) if akt else 1
+            a = 1 if akt else .78
+            lab, v, _ = items[j]; farbe = GELB if j == sieger else BALKENFARBEN[j % 5]
+            y = y0 + j * zh
+            ws = f"{wertform(v, k)} {einheit}"
+            ctx.select_font_face(SCHRIFT, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); ctx.set_font_size(56)
+            wb = min(ctx.text_extents(f"{wertform(v)} {einheit}").x_advance, 560)
+            text(ctx, ws, 1010, y + 30, 56, farbe, .14, maxw=560, alpha=a, anker="rechts")
+            text(ctx, lab, 70, y + 30, 50, WEISS, .14, maxw=940 - wb - 40, alpha=a, anker="links")
+            rund(ctx, 70, y + 78, 940, 60, 30); ctx.set_source_rgba(1, 1, 1, .08); ctx.fill()
+            b = max(60, 940 * anteil[j]) * max(k, .001)
+            if akt:
+                glut(ctx, 70 + b, y + 108, 90, farbe, .5 * k)
+            rund(ctx, 70, y + 78, max(b, 2), 60, 30); ctx.set_source_rgba(*farbe, a); ctx.fill()
+
+    def zahlen(ctx, i, tl, d, t):
+        kopf(ctx)
+        j = min(i, n) - 1
+        for q in range(j):
+            gross, lab, _ = items[q]
+            hoch(ctx, f"{gross}  ·  {lab}", W / 2, 330 + q * 92, 42, mix(WEISS, zweit, .35), .14, maxw=960, alpha=.8)
+        gross, lab, _ = items[j]
+        k = ease(tl / .45); kz = ease(tl / 1.0)
+        cy = 930
+        glut(ctx, W / 2, cy, 520, zweit, .22 * k)
+        for q in range(2):
+            ctx.arc(W / 2, cy + 40, 400 + q * 60 + 10 * math.sin(t * 2 + q), 0, 2 * math.pi); ctx.set_source_rgba(*zweit, (.16 - q * .07) * k); ctx.set_line_width(6); ctx.stroke()
+        hoch(ctx, zaehl(gross, kz), W / 2, cy, 190 * (.8 + .2 * k), GELB, .09, maxw=960, alpha=k)
+        text(ctx, lab, W / 2, cy + 175, 60, WEISS, .14, maxw=960, alpha=ease((tl - .25) / .4))
+        for q in range(n):
+            kreis(ctx, W / 2 + (q - (n - 1) / 2) * 44, 1300, 11 if q == j else 8, GELB if q <= j else WEISS, 1 if q <= j else .3)
+
+    def zeichne(ctx, i, tl, d, t, V):
+        hintergrund(ctx, thema, t)
+        if i == 0:
+            anfang(ctx, tl, t)
+        elif i > n:
+            ende(ctx, tl, t)
+        else:
+            (balken if art == "b" else zahlen)(ctx, i, tl, d, t)
+    return zeichne
+
+
+TEASER = ["Watch to the end for the full answer! 👀", "The last one surprised us! 🤯", "Did you know all of them? 🤔", "Can you guess the last one? 👇", "Save it for your next quiz night! 🧠"]
+
+
+def lade_daten():
+    try:
+        from fakten_daten import DATEN
+    except ImportError:
+        return
+    for nr, e in enumerate(DATEN):
+        key, art, thema, frage, einheit, items, schluss, satz, emoji = e[:9]
+        opt = e[9] if len(e) > 9 else {}
+        fr = frage.replace("|", " ")
+        th = THEMEN[thema]
+        VIDEOS[key] = dict(
+            zeichne=mache_vorlage(art, thema, frage, einheit, items, schluss, opt),
+            titel=f"{titelform(frage)} {emoji} {titelform(schluss)} #shorts",
+            text=f"{emoji} {fr} {satz} {TEASER[nr % len(TEASER)]}",
+            hashtags=th[4], tags=[fr.lower().rstrip("?"), *th[5], "science facts", "did you know", "facts in 30 seconds"],
+            szenen=[(fr, .3)] + [(it[2], .4) for it in items] + [(satz + " Follow for more.", .6)])
+
+
+lade_daten()
+
+
 # ---------------- Ton ----------------
 _K, _CACHE = None, {}
 
@@ -454,7 +657,7 @@ class Video:
         p.stdin.close(); p.wait(); os.remove(wav)
         v = self.v
         with open(out.replace(".mp4", ".txt"), "w") as fh:
-            fh.write(f"TITEL:\n{v['titel']}\n\nBESCHREIBUNG:\n{v['text']}\n\n#shorts {v['hashtags']} #sciencefacts #didyouknow #facts #science\n\nTAGS:\n{', '.join(v['tags'])}\n\nSPRECHTEXT:\n" + "\n".join(s[0] for s in v["szenen"]) + "\n")
+            fh.write(f"TITEL:\n{v['titel']}\n\nBESCHREIBUNG:\n{v['text']}\n\n⏱️ Big questions, answered in 30 seconds. Follow for more! 🚀\n\n#shorts {v['hashtags']} #sciencefacts #didyouknow #facts #science\n\nTAGS:\n{', '.join(v['tags'])}\n\nSPRECHTEXT:\n" + "\n".join(s[0] for s in v["szenen"]) + "\n")
         return out
 
 
