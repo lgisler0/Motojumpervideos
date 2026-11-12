@@ -33,8 +33,8 @@
 | missing | The Missing Number | Zahlenreihe 1-4 | 2026-11-25 21:00 |
 | mix | Mixing Colors | Farben mischen | 2026-11-26 17:00 |
 | tidy | Clean Up Time | Aufraeumen | 2026-11-26 21:00 |
-| full | Empty and Full | Leer und voll | 2026-11-27 17:00 |
-| race | The Big Race | Erster, Zweiter, Dritter | 2026-11-27 21:00 |
+| full | Empty and Full | Leer und voll | 2026-11-13 21:00 |
+| race | The Big Race | Erster, Zweiter, Dritter | 2026-11-12 21:00 |
 
 Ideen fuer spaeter: Buchstaben G-I, Zahlen 6-10, Wetter, Tag und Nacht, Gefuehle, Fahrzeuge, Haende waschen,
 Bauernhof-Tiere, schnell/langsam, Wochentage, Formen Herz/Stern/Rechteck, Bitte sagen.

@@ -34,7 +34,8 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
 - Brand/blogId: `8045262`, Zeitzone `Europe/Zurich`, zwei Sendeplaetze pro Tag: **17:00** und **21:00**.
 - Zuerst `getScheduledPosts` aufrufen: Sendeplaetze, die schon belegt sind, auslassen. Neue Folgen fruehestens
   **2 Tage im Voraus** einplanen, damit Loris sie vorher ansehen und stoppen kann.
-- Video-Link: `https://raw.githubusercontent.com/lgisler0/Motojumpervideos/main/videos/motojumper_<key>.mp4`
+- Video-Link mit Commit-Hash (nicht `main`, wegen Zwischenspeicher):
+  `https://raw.githubusercontent.com/lgisler0/Motojumpervideos/<commit>/videos/motojumper_<key>.mp4`
 - `createScheduledPost` mit: `providers: [{"network":"youtube"}]` und
   `youtubeData: {title, type: "short", privacy: "public", tags, category: "EDUCATION", madeForKids: true, isAiGeneratedContent: false}`.
   `madeForKids` muss immer `true` sein.
@@ -44,8 +45,7 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
   `Learning goals: ...`; Leerzeile; `🌈 New learning stories every day on Motojumper, with Momo, Juju and friends!`;
   Leerzeile; genau 4 Hashtags: `#shorts`, zwei zum Thema der Folge (z. B. `#learnshapes #shapesforkids`), `#kidslearning`.
 - **Tags:** 6-8 Suchbegriffe zum Thema, dazu immer `preschool learning`, `toddler learning`, `Momo and Juju`, `Motojumper`.
-- Kostenloser Metricool-Plan: 20 Posts pro Monat. Meldet Metricool ein Limit oder einen Fehler: nicht umgehen,
-  sondern aufhoeren und Loris berichten.
+- Meldet Metricool ein Limit oder einen Fehler: nicht umgehen, sondern aufhoeren und Loris berichten.
 
 ## Abschluss
 
