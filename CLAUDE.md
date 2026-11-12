@@ -1,0 +1,47 @@
+# Motojumper – Arbeitsanleitung
+
+Dieses Repository gehoert zum YouTube-Kanal **Motojumper** von Loris: kurze Lern-Geschichten (Shorts, 1080x1920,
+Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter monetarisieren. Deshalb gilt:
+**Qualitaet und Abwechslung vor Menge.** Keine Vorlagen-Massenware.
+
+## Feste Regeln
+
+- Jede Folge hat ein **eigenes, neu geschriebenes Drehbuch**: kleine Geschichte (Anfang, Mitte, Schluss) + ein klares
+  Lernziel, das ein Kind nach dem Video wirklich kann. Nie eine bestehende Folge nur mit anderen Tieren/Zahlen kopieren.
+- Nur die eigenen Figuren: Sunny (Sonne, Erzaehlerin), Momo (Baer), Juju (Hase), Freddy (Frosch), Pip (Kueken),
+  Kiki (Katze), Dodo (Hund). Keine geschuetzten Figuren, Marken oder Musik von anderen.
+- Inhalte sind fuer kleine Kinder: freundlich, gewaltfrei, nichts Gruseliges, keine Werbung.
+- Titel und Beschreibung versprechen nur, was das Video zeigt. Keine Stichwort-Listen.
+- Hoechstens **1 Video pro Tag**. Kanalname bleibt "Motojumper".
+- Vor dem Lesen von `EPISODES.md` kein neues Thema waehlen: dort stehen alle bisherigen Folgen. Themen nicht wiederholen.
+
+## Neue Folgen erstellen
+
+1. `./setup.sh` ausfuehren (installiert Pakete, Schrift, Stimm-Modell).
+2. In `studio/motojumper_studio.py` pro Folge einen neuen Eintrag in `EPISODEN` schreiben (Aufbau wie die bestehenden:
+   `titel`, `lernziel`, `yt_titel`, `yt_text`, `tags`, `buehne`, `zeilen`). Neue Requisiten als `p_<name>`-Funktion
+   ergaenzen und in `PROPS` eintragen. Laenge: 20-35 Sekunden.
+3. Rendern: `cd studio && python3 motojumper_studio.py <key> --ordner ../videos`
+4. **Pruefen, bevor etwas hochgeht:** aus jeder Folge 2-3 Standbilder ziehen (`ffmpeg -ss <t> -i <mp4> -frames:v 1`)
+   und ansehen: Figuren ueberlappen nicht, Text ist lesbar und nicht abgeschnitten, nichts ragt aus dem Bild.
+   Bei einzelnen Buchstaben/Lauten die Aussprache mit `kw._K.tokenizer.phonemize(text, "en-us")` kontrollieren.
+5. Folge in `EPISODES.md` eintragen.
+6. Committen und pushen (Branch `main`, **ein Video pro Push**, damit der Push klein bleibt).
+
+## Einplanen (Metricool)
+
+- Brand/blogId: `8045262`, Zeitzone `Europe/Zurich`, Uhrzeit **17:00**.
+- Zuerst `getScheduledPosts` aufrufen: Tage, an denen schon ein Post geplant ist, auslassen. Neue Folgen fruehestens
+  **2 Tage im Voraus** einplanen, damit Loris sie vorher ansehen und stoppen kann.
+- Video-Link: `https://raw.githubusercontent.com/lgisler0/Motojumpervideos/main/videos/motojumper_<key>.mp4`
+- `createScheduledPost` mit: `providers: [{"network":"youtube"}]`, `text` = `yt_text` + Leerzeile +
+  `#shorts #kidslearning #storyforkids #preschool`, und
+  `youtubeData: {title: yt_titel, type: "short", privacy: "public", tags, category: "EDUCATION", madeForKids: true, isAiGeneratedContent: false}`.
+  `madeForKids` muss immer `true` sein.
+- Kostenloser Metricool-Plan: 20 Posts pro Monat. Meldet Metricool ein Limit oder einen Fehler: nicht umgehen,
+  sondern aufhoeren und Loris berichten.
+
+## Abschluss
+
+Loris kurz auf Deutsch berichten: welche Folgen (Titel, Lernziel, Datum) eingeplant sind, was nicht geklappt hat,
+und dass er sie im Ordner `videos/` ansehen kann. Keine erfundenen Zahlen oder Erfolgsversprechen.
