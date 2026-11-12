@@ -27,7 +27,8 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
    und ansehen: Figuren ueberlappen nicht, Text ist lesbar und nicht abgeschnitten, nichts ragt aus dem Bild.
    Bei einzelnen Buchstaben/Lauten die Aussprache mit `kw._K.tokenizer.phonemize(text, "en-us")` kontrollieren.
 5. Folge in `EPISODES.md` eintragen.
-6. Committen und pushen (Branch `main`, **ein Video pro Push**, damit der Push klein bleibt).
+6. Qualitaet: immer 1080x1920, 60 Bilder/s, `-preset slow -crf 15`, Ton 256k (so ist das Studio eingestellt, nicht senken).
+7. Committen und pushen (Branch `main`, **ein Video pro Push**, damit der Push klein bleibt).
 
 ## Einplanen (Metricool)
 
@@ -41,9 +42,13 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
   `madeForKids` muss immer `true` sein.
 - **Titel:** kurz und natuerlich, hoechstens 60 Zeichen, Aufbau `<Was passiert>! <1 Emoji> <Lernthema> #shorts`,
   z. B. `Kiki Builds a House! 🏠 Learn Shapes #shorts`. Keine Stichwort-Ketten, kein "| Story for Kids".
-- **Beschreibung (`text`):** 2-3 Saetze, die die Geschichte anreissen und das Kind ansprechen; Leerzeile;
-  `Learning goals: ...`; Leerzeile; `🌈 New learning stories every day on Motojumper, with Momo, Juju and friends!`;
-  Leerzeile; genau 4 Hashtags: `#shorts`, zwei zum Thema der Folge (z. B. `#learnshapes #shapesforkids`), `#kidslearning`.
+- **Beschreibung (`text`):** lebhaft und mit Emojis, nicht monoton. Aufbau:
+  1. passendes Emoji + 2-3 kurze Saetze, die die Geschichte anreissen und neugierig machen (1-2 weitere Emojis im Text);
+  2. Leerzeile, dann `✨ What you learn: ...`;
+  3. Leerzeile, dann `🌈 New learning stories every day on Motojumper, with Momo, Juju and friends! 💛`;
+  4. Leerzeile, dann genau 8 Hashtags: `#shorts`, drei zum Thema der Folge (z. B. `#learnshapes #shapesforkids #shapes`),
+     dann immer `#kidslearning #preschool #toddlerlearning #educationalvideos`.
+  Nur Hashtags, die zum Video passen. Nie mehr als 10 (zu viele wirken wie Spam).
 - **Tags:** 6-8 Suchbegriffe zum Thema, dazu immer `preschool learning`, `toddler learning`, `Momo and Juju`, `Motojumper`.
 - Meldet Metricool ein Limit oder einen Fehler: nicht umgehen, sondern aufhoeren und Loris berichten.
 

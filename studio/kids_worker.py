@@ -17,7 +17,7 @@ import argparse, math, os, random, subprocess, urllib.request, wave
 import cairo
 import numpy as np
 
-B, H, FPS, SR = 1080, 1920, 30, 44100
+B, H, FPS, SR = 1080, 1920, 60, 48000
 SCHRIFT = "Lilita One"
 STIMME, TEMPO, TONHOEHE = "af_heart", 0.92, 1.06   # freundliche Stimme, etwas langsamer, etwas heller
 HIER = os.path.dirname(os.path.abspath(__file__))

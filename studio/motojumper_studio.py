@@ -1349,8 +1349,8 @@ class Folge:
         wav, out = os.path.join(ordner, f"_{self.key}.wav"), os.path.join(ordner, f"motojumper_{self.key}.mp4")
         self.vertonen(wav)
         cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{B}x{H}", "-r", str(FPS),
-               "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p",
-               "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", out]
+               "-i", "-", "-i", wav, "-c:v", "libx264", "-preset", "slow", "-crf", "15", "-pix_fmt", "yuv420p",
+               "-c:a", "aac", "-b:a", "256k", "-shortest", "-movflags", "+faststart", out]
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, B, H)
         for i in range(int(self.dauer * FPS)):
@@ -1363,7 +1363,7 @@ class Folge:
             ziele = f"\n\nLearning goals: {ep['ziele']}" if ep.get("ziele") else ""
             f.write(f"TITEL:\n{ep['yt_titel']}\n\nBESCHREIBUNG:\n{ep['yt_text']}{ziele}\n\n"
                     f"🌈 A new learning story every day on Motojumper, with Momo, Juju and friends!\n\n"
-                    f"#shorts {ep.get('hashtags', '#storyforkids #preschool')} #kidslearning\n\n"
+                    f"#shorts {ep.get('hashtags', '#storyforkids')} #kidslearning #preschool #toddlerlearning #educationalvideos\n\n"
                     f"TAGS:\n{', '.join(ep['tags'])}\n\nLERNZIEL:\n{ep['lernziel']}\n\nDREHBUCH:\n"
                     + "\n".join(f"{z[0].capitalize()}: {z[1]}" for z in ep["zeilen"]) + "\n")
         return out

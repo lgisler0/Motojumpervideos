@@ -13,7 +13,7 @@ import argparse, math, os, random, re, subprocess, wave
 import cairo
 import numpy as np
 
-W, H, FPS, SR = 1080, 1920, 30, 44100
+W, H, FPS, SR = 1080, 1920, 60, 48000
 HIER = os.path.dirname(os.path.abspath(__file__))
 MODELLE = os.path.join(HIER, "modelle")
 STIMME, TEMPO = "am_michael", 1.02
@@ -310,21 +310,21 @@ VIDEOS = {
     "sun": dict(
         zeichne=v_sun, titel="How Big Is the Sun? ☀️ 1.3 Million Earths Fit Inside #shorts",
         text="The Sun is so big that 109 Earths fit side by side across it, and about 1.3 million Earths would fit inside. Here is the size of Earth, Jupiter and the Sun, to scale.",
-        hashtags="#space #sun #sciencefacts", tags=["how big is the sun", "size comparison", "sun vs earth", "space facts", "astronomy", "science facts"],
+        hashtags="#space #sun #astronomy", tags=["how big is the sun", "size comparison", "sun vs earth", "space facts", "astronomy", "science facts"],
         szenen=[("How big is the Sun, really?", .3), ("This is Earth. It feels huge to us.", .3), ("Jupiter is eleven times wider.", .5),
                 ("But the Sun? You could line up one hundred and nine Earths, side by side.", .4), ("And inside, there is room for 1.3 million Earths.", .5),
                 ("And the Sun is just an average star. Follow for more.", .6)]),
     "light": dict(
         zeichne=v_light, titel="How Fast Is Light? ⚡ 7.5 Times Around Earth in 1 Second #shorts",
         text="Light travels about 300,000 kilometers every second. That is seven and a half times around the Earth in one second, and still it needs more than eight minutes to reach us from the Sun.",
-        hashtags="#speedoflight #physics #sciencefacts", tags=["speed of light", "how fast is light", "physics facts", "light from the sun", "science facts", "space facts"],
+        hashtags="#speedoflight #physics #space", tags=["speed of light", "how fast is light", "physics facts", "light from the sun", "science facts", "space facts"],
         szenen=[("How fast is light? Faster than you can imagine.", .3), ("Light travels three hundred thousand kilometers, every second.", .4),
                 ("In one second, it could circle the Earth seven and a half times.", .4), ("It reaches the Moon in just over one second.", .5),
                 ("But even light needs more than eight minutes to get here from the Sun.", .4), ("So the sunlight you see is already eight minutes old. Follow for more.", .6)]),
     "ocean": dict(
         zeichne=v_ocean, titel="How Deep Is the Ocean? 🌊 Deeper Than Mount Everest #shorts",
         text="A dive to the deepest point of the ocean: sunlight fades at 200 meters, the Titanic rests at 3,800 meters, and Challenger Deep lies almost 11,000 meters down. Mount Everest would fit in with room to spare.",
-        hashtags="#ocean #deepsea #sciencefacts", tags=["how deep is the ocean", "challenger deep", "mariana trench", "deep sea facts", "titanic depth", "science facts"],
+        hashtags="#ocean #deepsea #marianatrench", tags=["how deep is the ocean", "challenger deep", "mariana trench", "deep sea facts", "titanic depth", "science facts"],
         szenen=[("How deep is the ocean? Let's dive.", .3), ("At two hundred meters, sunlight fades away.", .4), ("At one thousand meters, it is completely dark.", .4),
                 ("The Titanic rests at three thousand eight hundred meters.", .4), ("Mount Everest would fit in here, with two kilometers of water above its peak.", .4),
                 ("The deepest point is Challenger Deep, almost eleven thousand meters down.", .4), ("Only a few dozen people have ever been there. Follow for more.", .6)]),
@@ -446,7 +446,7 @@ class Video:
         wav, out = os.path.join(ordner, f"_{self.key}.wav"), os.path.join(ordner, f"fakten_{self.key}.mp4")
         self.vertonen(wav)
         cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", wav,
-               "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", out]
+               "-c:v", "libx264", "-preset", "slow", "-crf", "15", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k", "-shortest", "-movflags", "+faststart", out]
         p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
         for f in range(int(self.dauer * FPS)):
@@ -454,7 +454,7 @@ class Video:
         p.stdin.close(); p.wait(); os.remove(wav)
         v = self.v
         with open(out.replace(".mp4", ".txt"), "w") as fh:
-            fh.write(f"TITEL:\n{v['titel']}\n\nBESCHREIBUNG:\n{v['text']}\n\n#shorts {v['hashtags']}\n\nTAGS:\n{', '.join(v['tags'])}\n\nSPRECHTEXT:\n" + "\n".join(s[0] for s in v["szenen"]) + "\n")
+            fh.write(f"TITEL:\n{v['titel']}\n\nBESCHREIBUNG:\n{v['text']}\n\n#shorts {v['hashtags']} #sciencefacts #didyouknow #facts #science\n\nTAGS:\n{', '.join(v['tags'])}\n\nSPRECHTEXT:\n" + "\n".join(s[0] for s in v["szenen"]) + "\n")
         return out
 
 
