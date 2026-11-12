@@ -325,6 +325,95 @@ EPISODEN = {
             ("sunny", "Yes! Red means stop, yellow means wait, green means go. Great job! Bye bye!",
              [("set", "light", 2, {"at": .28}), ("set", "light", 3, {"at": .48}), ("confetti", {"at": .65}), ("word", "GREAT JOB!", "rainbow", {"at": .65}), ("wave", "juju", {"at": .7})]),
         ]),
+
+    "snowman": dict(
+        titel="MOMO'S SNOWMAN", welt="winter",
+        lernziel="Groessen: gross, mittel, klein; fuer andere sorgen",
+        yt_titel="Momo Builds a Snowman! ⛄ Big, Medium, Small #shorts",
+        yt_text="It is snowing! Momo the bear builds a snowman: a big snowball, a medium snowball and a small snowball on top. "
+                "Then Juju the bunny brings a warm scarf.",
+        ziele="big, medium and small, caring for others.",
+        hashtags="#snowman #sizesforkids",
+        tags=["snowman for kids", "big medium small", "sizes for kids", "winter story for kids"],
+        buehne=[
+            ("s1", "snowball", dict(x=690, y=GY - 150, z=1, s=0, size=155)), ("s2", "snowball", dict(x=690, y=GY - 385, z=2, s=0, size=112)),
+            ("s3", "snowball", dict(x=690, y=GY - 555, z=3, s=0, size=80)),
+            ("face", "snowface", dict(x=690, y=GY - 560, z=4, s=0, size=80)), ("nose", "carrot", dict(x=700, y=GY - 548, z=5, s=0, size=46)),
+            ("scarf", "scarf", dict(x=690, y=GY - 478, z=5, s=0, size=100)),
+            ("momo", "actor", dict(x=225, z=6, size=118)), ("juju", "actor", dict(x=1300, z=6, size=92, s=1)),
+        ],
+        zeilen=[
+            ("sunny", "Hi friends! Look, it is snowing! Momo wants to build a snowman.", [("show", "momo"), ("wave", "momo")]),
+            ("momo", "I love snow! Let's build!", [("jump", "momo")]),
+            ("sunny", "First, a big snowball.", [("show", "s1", {"at": .3}), ("word", "BIG", "blue", {"at": .3})]),
+            ("sunny", "Next, a medium snowball.", [("show", "s2", {"at": .3}), ("word", "MEDIUM", "green", {"at": .3})]),
+            ("sunny", "And on top, a small snowball.", [("show", "s3", {"at": .45}), ("word", "SMALL", "pink", {"at": .45})]),
+            ("momo", "Big, medium, small!", [("wiggle", "s1"), ("wiggle", "s2", {"at": .35}), ("wiggle", "s3", {"at": .7}), ("jump", "momo", {"at": .7})]),
+            ("sunny", "Now the snowman needs a face. Two eyes, and a carrot nose!", [("word", None), ("show", "face", {"at": .5}), ("show", "nose", {"at": .78})]),
+            ("sunny", "Oh! Here comes Juju, with a warm scarf.", [("move", "juju", 965, None, 1.0)]),
+            ("juju", "Here you go, snowman! Now you are warm.", [("show", "scarf", {"at": .2}), ("sparkle", "scarf", {"at": .2}), ("jump", "juju", {"at": .5})]),
+            ("sunny", "What a happy snowman! Great job, friends! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("jump", "momo"), ("jump", "juju", {"at": .3}), ("wave", "momo", {"at": .6})]),
+        ]),
+
+    "xtree": dict(
+        titel="THE STAR ON TOP", welt="winter",
+        lernziel="Ortswoerter: unten, in der Mitte, oben; zusammen schafft man mehr",
+        yt_titel="Kiki and Pip Decorate the Tree! 🎄 Top, Middle, Bottom #shorts",
+        yt_text="Kiki the cat and Pip the chick decorate the Christmas tree. A red ball at the bottom, a blue ball in the middle... "
+                "but who can put the star on the top? Little Pip needs a friend to help!",
+        ziele="bottom, middle and top, working together.",
+        hashtags="#christmastree #positionwords",
+        tags=["christmas tree for kids", "top middle bottom", "position words", "christmas story for kids"],
+        buehne=[
+            ("tree", "xtree", dict(x=640, y=GY, z=0, s=1, size=100)),
+            ("b1", "ball", dict(x=575, y=GY - 215, z=2, s=0, size=115, farbe="red")), ("b2", "ball", dict(x=700, y=GY - 430, z=2, s=0, size=115, farbe="blue")),
+            ("star", "star", dict(x=640, y=GY - 830, z=3, s=0, size=85)),
+            ("kiki", "actor", dict(x=175, z=4, size=105)), ("pip", "actor", dict(x=985, z=4, size=62)),
+        ],
+        zeilen=[
+            ("sunny", "Hi friends! Kiki and Pip decorate the Christmas tree.", [("show", "kiki"), ("show", "pip", {"at": .4})]),
+            ("kiki", "Let's make it pretty!", [("jump", "kiki")]),
+            ("sunny", "A red ball goes at the bottom.", [("show", "b1", {"at": .25}), ("word", "BOTTOM", "red", {"at": .55})]),
+            ("sunny", "A blue ball goes in the middle.", [("show", "b2", {"at": .25}), ("word", "MIDDLE", "blue", {"at": .55})]),
+            ("pip", "I want to put the star on the top! But I am too small.", [("word", None), ("jump", "pip", {"at": .5}), ("jump", "pip", {"at": .75})], .4),
+            ("kiki", "I will help you, Pip! Up you go!", [("move", "kiki", 330, None, .7), ("move", "pip", 800, GY - 700, 1.0, {"at": .55})]),
+            ("sunny", "The star goes on the top!", [("show", "star", {"at": .2}), ("sparkle", "star", {"at": .2}), ("word", "TOP", "yellow", {"at": .5})]),
+            ("pip", "We did it together!", [("move", "pip", 985, GY - 93, .9), ("jump", "kiki", {"at": .5})]),
+            ("sunny", "Bottom, middle, top. What a beautiful tree! Happy holidays, friends!",
+             [("wiggle", "b1"), ("wiggle", "b2", {"at": .2}), ("wiggle", "star", {"at": .4}), ("confetti", {"at": .5}), ("word", "HAPPY HOLIDAYS!", "rainbow", {"at": .5}),
+              ("jump", "pip", {"at": .7}), ("wave", "kiki", {"at": .6})]),
+        ]),
+
+    "gifts": dict(
+        titel="A GIFT FOR YOU", welt="winter",
+        lernziel="Schenken macht Freude; welches Tier mag was (Katze-Fisch, Hund-Knochen, Hase-Karotte)",
+        yt_titel="Juju's Gifts! 🎁 Who Likes Fish? Who Likes Bones? #shorts",
+        yt_text="Juju the bunny has gifts for her friends! Look, a fish. Who likes fish? Look, a bone. Who likes bones? "
+                "And then there is a surprise for Juju, too.",
+        ziele="giving makes everyone happy, which animal likes what.",
+        hashtags="#giving #animalsforkids",
+        tags=["gifts for kids", "giving and sharing", "what do animals eat", "holiday story for kids"],
+        buehne=[
+            ("g1", "gift", dict(x=540, y=GY - 95, z=2, s=0, size=95, farbe="blue")), ("g2", "gift", dict(x=540, y=GY - 95, z=2, s=0, size=95, farbe="green")),
+            ("g3", "gift", dict(x=540, y=GY - 95, z=2, s=0, size=95, farbe="red")),
+            ("fish", "fish", dict(x=540, y=GY - 330, z=5, s=0, size=110)), ("bone", "bone", dict(x=540, y=GY - 330, z=5, s=0, size=110)),
+            ("carrot", "carrot", dict(x=540, y=GY - 330, z=5, s=0, size=120)),
+            ("kiki", "actor", dict(x=905, z=3, size=102)), ("dodo", "actor", dict(x=905, z=3, size=105)), ("momo", "actor", dict(x=905, z=3, size=112)),
+            ("juju", "actor", dict(x=175, z=3, size=105)),
+        ],
+        zeilen=[
+            ("sunny", "Hi friends! Juju has gifts for her friends today.", [("show", "juju"), ("wave", "juju"), ("show", "g1", {"at": .6})]),
+            ("juju", "Giving makes me happy!", [("jump", "juju")]),
+            ("sunny", "Look, a fish! Who likes fish?", [("wiggle", "g1"), ("show", "fish", {"at": .2}), ("hide", "g1", {"at": .25}), ("word", "?", "yellow", {"at": .6})], .6),
+            ("kiki", "Me! Meow! Thank you, Juju!", [("show", "kiki"), ("word", "CAT", "pink"), ("move", "fish", 760, GY - 150, .6, {"at": .3}), ("jump", "kiki", {"at": .5})]),
+            ("sunny", "Look, a bone! Who likes bones?",
+             [("hide", "kiki"), ("hide", "fish"), ("word", None), ("show", "g2"), ("show", "bone", {"at": .3}), ("hide", "g2", {"at": .35}), ("word", "?", "yellow", {"at": .65})], .6),
+            ("dodo", "Me! Woof! Thank you, Juju!", [("show", "dodo"), ("word", "DOG", "orange"), ("move", "bone", 760, GY - 150, .6, {"at": .3}), ("jump", "dodo", {"at": .5})]),
+            ("sunny", "But wait! There is one more gift.", [("hide", "dodo"), ("hide", "bone"), ("word", None), ("show", "g3", {"at": .3})]),
+            ("momo", "This one is for you, Juju! A carrot!", [("show", "momo"), ("wiggle", "g3", {"at": .3}), ("show", "carrot", {"at": .6}), ("hide", "g3", {"at": .65}), ("word", "CARROT", "orange", {"at": .7})]),
+            ("juju", "For me? Thank you, Momo!", [("jump", "juju"), ("move", "carrot", 350, GY - 150, .7, {"at": .3}), ("sparkle", "juju", {"at": .4})]),
+            ("sunny", "Giving makes everyone happy! Happy holidays! Bye bye!", [("confetti",), ("word", "HAPPY HOLIDAYS!", "rainbow"), ("jump", "momo"), ("jump", "juju", {"at": .3}), ("wave", "momo", {"at": .6})]),
+        ]),
 }
 
 
@@ -494,7 +583,143 @@ def p_road(ctx, x, y, g, o, v, t):
         kw_rund(ctx, xx, y + 45, 100, 16, 8); fuell(ctx, kw.WEISS)
 
 
-PROPS = dict(shape=p_shape, pond=p_pond, lily=p_lily, box=p_box, ball=p_ball, basket=p_basket, banana=p_banana,
+def p_snowball(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    ellipse(ctx, x, y, r, r * .97); fuell(ctx, rgb("ffffff"), 9, rgb("7fa6d6"))
+    ctx.save(); ellipse(ctx, x, y, r - 5, r - 5); ctx.clip()
+    ellipse(ctx, x + r * .25, y + r * .35, r, r); fuell(ctx, rgb("dcecff"))
+    ellipse(ctx, x - r * .1, y - r * .1, r, r); fuell(ctx, rgb("ffffff")); ctx.restore()
+
+
+def p_snowface(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    for sx in (-1, 1):
+        ellipse(ctx, x + sx * r * .36, y - r * .22, r * .11, r * .13); fuell(ctx, kw.INK)
+    for k in range(5):
+        a = math.radians(30 + k * 30)
+        ellipse(ctx, x + math.cos(a) * r * .5 * (1 if k != 2 else 1), y + r * .12 + math.sin(a) * r * .36, r * .055, r * .055); fuell(ctx, kw.INK)
+
+
+def p_carrot(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.rotate(.25)
+    for k in (-1, 0, 1):
+        ellipse(ctx, -r * .95, k * r * .16, r * .3, r * .1, k * .5); fuell(ctx, rgb("4cd964"), max(3, r * .05))
+    ctx.move_to(-r * .7, -r * .3); ctx.curve_to(-r * .2, -r * .32, r * .6, -r * .1, r, 0)
+    ctx.curve_to(r * .6, r * .1, -r * .2, r * .32, -r * .7, r * .3); ctx.close_path(); fuell(ctx, COLORS["orange"], max(4, r * .07))
+    ctx.restore()
+
+
+def p_scarf(ctx, x, y, g, o, v, t):
+    g = g / 100
+    if g < .05:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.scale(g, g)
+    kw_rund(ctx, 40, 0, 46, 120, 14); fuell(ctx, COLORS["red"], 8)
+    kw_rund(ctx, -92, -24, 184, 50, 24); fuell(ctx, COLORS["red"], 8)
+    for xx in (-50, 0, 50):
+        ctx.rectangle(xx - 9, -20, 18, 42)
+    fuell(ctx, rgb("ffffff"), alpha=.85)
+    ctx.restore()
+
+
+def p_xtree(ctx, x, y, g, o, v, t):
+    ctx.rectangle(x - 45, y - 110, 90, 115); fuell(ctx, rgb("a8683d"), 9)
+    for i, (yy, w, h) in enumerate([(y - 90, 290, 300), (y - 300, 235, 270), (y - 500, 180, 250)]):
+        ctx.move_to(x, yy - h); ctx.line_to(x + w, yy); ctx.line_to(x - w, yy); ctx.close_path(); fuell(ctx, rgb("2fae4e"), 10)
+        ctx.move_to(x, yy - h + 8); ctx.line_to(x + w * .34, yy - h * .62); ctx.line_to(x + w * .1, yy - h * .68)
+        ctx.line_to(x - w * .12, yy - h * .58); ctx.line_to(x - w * .32, yy - h * .66); ctx.close_path(); fuell(ctx, rgb("ffffff"))
+
+
+def p_star(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    kw.stern_pfad(ctx, x, y, r, math.sin(t * 2) * .08); fuell(ctx, COLORS["yellow"], max(5, r * .1), rgb("e07b00"))
+    kw.stern_pfad(ctx, x, y - r * .05, r * .45, math.sin(t * 2) * .08); fuell(ctx, rgb("fff3a0"))
+
+
+def p_gift(ctx, x, y, h, o, v, t):
+    if h < 3:
+        return
+    f = COLORS[o["farbe"]]
+    kw_rund(ctx, x - h, y - h * .75, 2 * h, h * 1.75, h * .1); fuell(ctx, f, 9)
+    ctx.rectangle(x - h * .17, y - h * .75, h * .34, h * 1.75); fuell(ctx, COLORS["yellow"])
+    kw_rund(ctx, x - h * 1.1, y - h * 1.02, 2.2 * h, h * .38, h * .1); fuell(ctx, kw.mix(f, kw.WEISS, .2), 9, kw.kontur(f))
+    ctx.rectangle(x - h * .17, y - h * 1.0, h * .34, h * .34); fuell(ctx, COLORS["yellow"])
+    for sx in (-1, 1):
+        ellipse(ctx, x + sx * h * .3, y - h * 1.22, h * .3, h * .19, sx * -.5); fuell(ctx, COLORS["yellow"], 7, rgb("e07b00"))
+    ellipse(ctx, x, y - h * 1.1, h * .12, h * .12); fuell(ctx, COLORS["yellow"], 6, rgb("e07b00"))
+
+
+def p_fish(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    lw = max(5, r * .08)
+    wag = math.sin(t * 8) * r * .1
+    ctx.move_to(x - r * .7, y); ctx.line_to(x - r * 1.35, y - r * .5 + wag); ctx.line_to(x - r * 1.35, y + r * .5 + wag); ctx.close_path(); fuell(ctx, rgb("2f7de0"), lw)
+    ellipse(ctx, x, y, r, r * .6); fuell(ctx, COLORS["blue"], lw)
+    ellipse(ctx, x + r * .1, y + r * .2, r * .55, r * .28); fuell(ctx, rgb("9dd0ff"))
+    ellipse(ctx, x + r * .5, y - r * .12, r * .14, r * .16); fuell(ctx, kw.INK)
+    ellipse(ctx, x + r * .46, y - r * .17, r * .05, r * .05); fuell(ctx, kw.WEISS)
+
+
+def p_bone(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    lw = max(5, r * .08)
+    ctx.save(); ctx.translate(x, y); ctx.rotate(-.3)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            ellipse(ctx, sx * r * .85, sy * r * .2, r * .26, r * .26); fuell(ctx, rgb("fff6e0"), lw, rgb("b8a27a"))
+    kw_rund(ctx, -r * .85, -r * .2, r * 1.7, r * .4, r * .1); fuell(ctx, rgb("fff6e0"), lw, rgb("b8a27a"))
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            ellipse(ctx, sx * r * .82, sy * r * .17, r * .2, r * .2); fuell(ctx, rgb("fff6e0"))
+    ctx.restore()
+
+
+_WINTER = None
+
+
+def welt_winter(ctx, t, offen):
+    global _WINTER
+    if _WINTER is None:
+        _WINTER = cairo.ImageSurface(cairo.FORMAT_ARGB32, B, H)
+        c = cairo.Context(_WINTER); c.set_line_join(cairo.LINE_JOIN_ROUND)
+        g = cairo.LinearGradient(0, 0, 0, 1500)
+        g.add_color_stop_rgb(0, *rgb("4aa8f0")); g.add_color_stop_rgb(1, *rgb("d8f1ff"))
+        c.set_source(g); c.paint()
+        kw.huegel(c, 1330, 60, 210, .4, rgb("cfe6fb"))
+        rnd = random.Random(8)
+        for px in (90, 300, 470, 880, 1010):
+            h = rnd.uniform(170, 260); base = 1390 + rnd.uniform(-10, 30)
+            c.rectangle(px - 12, base - 30, 24, 40); fuell(c, rgb("a8683d"), 6)
+            for k in range(3):
+                yy = base - 25 - k * h * .27; w = h * (.42 - k * .09)
+                c.move_to(px, yy - h * .42); c.line_to(px + w, yy); c.line_to(px - w, yy); c.close_path(); fuell(c, rgb("3aa76a"), 7)
+                c.move_to(px, yy - h * .42); c.line_to(px + w * .4, yy - h * .25); c.line_to(px - w * .4, yy - h * .25); c.close_path(); fuell(c, rgb("ffffff"))
+        kw.huegel(c, 1410, 45, 170, 1.0, rgb("eef7ff"))
+        kw.huegel(c, 1500, 35, 230, 3.2, rgb("ffffff"))
+        for _ in range(60):
+            x, y = rnd.uniform(0, B), rnd.uniform(1560, H)
+            ellipse(c, x, y, rnd.uniform(14, 40), 6); fuell(c, rgb("e3f0fd"))
+    ctx.set_source_surface(_WINTER, 0, 0); ctx.paint()
+    for i, (y, s, v) in enumerate([(470, 95, 22), (780, 70, 14)]):
+        kw.wolke(ctx, (i * 520 + t * v) % (B + 400) - 200, y, s)
+    rnd = random.Random(3)
+    for i in range(70):
+        x = (rnd.uniform(0, B) + math.sin(t * 1.3 + i) * 30) % B
+        y = (rnd.uniform(0, H) + t * rnd.uniform(90, 190)) % H
+        r = rnd.uniform(5, 13)
+        ellipse(ctx, x, y, r, r); fuell(ctx, kw.WEISS, alpha=.92)
+    kw.sonne(ctx, 170, 215, 100, t, offen)
+
+
+PROPS = dict(snowball=p_snowball, snowface=p_snowface, carrot=p_carrot, scarf=p_scarf, xtree=p_xtree, star=p_star, gift=p_gift,
+             fish=p_fish, bone=p_bone, shape=p_shape, pond=p_pond, lily=p_lily, box=p_box, ball=p_ball, basket=p_basket, banana=p_banana,
              orange=p_orange, letter=p_letter, light=p_light, road=p_road)
 
 
@@ -628,8 +853,9 @@ class Folge:
     # ----- Bild -----
     def zeichne(self, ctx, i):
         t = i / FPS
-        kw.welt(ctx, t, self.laut("sunny", i))
-        kw.titel(ctx, self.ep["titel"], 660, 215, 120, REGENBOGEN, t, maxw=690)
+        (welt_winter if self.ep.get("welt") == "winter" else kw.welt)(ctx, t, self.laut("sunny", i))
+        kw.titel(ctx, "MOTOJUMPER", 660, 92, 50, kw.WEISS, t, welle=0)  # Kanalname in jeder Folge
+        kw.titel(ctx, self.ep["titel"], 660, 222, 118, REGENBOGEN, t, maxw=690)
         for oid, o in sorted(self.obj.items(), key=lambda kv: kv[1]["z"]):
             x, y, s, v = (self.wert(oid, a, t) for a in ATTR)
             j = self.emote(oid, "jump", t)
@@ -679,7 +905,10 @@ class Folge:
         p.stdin.close(); p.wait(); os.remove(wav)
         ep = self.ep
         with open(out.replace(".mp4", ".txt"), "w") as f:  # alles fuers Hochladen
-            f.write(f"TITEL:\n{ep['yt_titel']}\n\nBESCHREIBUNG:\n{ep['yt_text']}\n\n#shorts #kidslearning #storyforkids #preschool\n\n"
+            ziele = f"\n\nLearning goals: {ep['ziele']}" if ep.get("ziele") else ""
+            f.write(f"TITEL:\n{ep['yt_titel']}\n\nBESCHREIBUNG:\n{ep['yt_text']}{ziele}\n\n"
+                    f"🌈 A new learning story every day on Motojumper, with Momo, Juju and friends!\n\n"
+                    f"#shorts {ep.get('hashtags', '#storyforkids #preschool')} #kidslearning\n\n"
                     f"TAGS:\n{', '.join(ep['tags'])}\n\nLERNZIEL:\n{ep['lernziel']}\n\nDREHBUCH:\n"
                     + "\n".join(f"{z[0].capitalize()}: {z[1]}" for z in ep["zeilen"]) + "\n")
         return out
