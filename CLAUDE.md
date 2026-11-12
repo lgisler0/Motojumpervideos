@@ -12,7 +12,8 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
   Kiki (Katze), Dodo (Hund). Keine geschuetzten Figuren, Marken oder Musik von anderen.
 - Inhalte sind fuer kleine Kinder: freundlich, gewaltfrei, nichts Gruseliges, keine Werbung.
 - Titel und Beschreibung versprechen nur, was das Video zeigt. Keine Stichwort-Listen.
-- Hoechstens **1 Video pro Tag**. Kanalname bleibt "Motojumper".
+- **2 Videos pro Tag** (17:00 und 21:00), nie mehr als 3. Kanalname bleibt "Motojumper".
+- Mehr Folgen heisst nicht weniger Sorgfalt: lieber eine Folge weniger als eine, die einer alten zu aehnlich ist.
 - Vor dem Lesen von `EPISODES.md` kein neues Thema waehlen: dort stehen alle bisherigen Folgen. Themen nicht wiederholen.
 
 ## Neue Folgen erstellen
@@ -30,8 +31,8 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
 
 ## Einplanen (Metricool)
 
-- Brand/blogId: `8045262`, Zeitzone `Europe/Zurich`, Uhrzeit **17:00**.
-- Zuerst `getScheduledPosts` aufrufen: Tage, an denen schon ein Post geplant ist, auslassen. Neue Folgen fruehestens
+- Brand/blogId: `8045262`, Zeitzone `Europe/Zurich`, zwei Sendeplaetze pro Tag: **17:00** und **21:00**.
+- Zuerst `getScheduledPosts` aufrufen: Sendeplaetze, die schon belegt sind, auslassen. Neue Folgen fruehestens
   **2 Tage im Voraus** einplanen, damit Loris sie vorher ansehen und stoppen kann.
 - Video-Link: `https://raw.githubusercontent.com/lgisler0/Motojumpervideos/main/videos/motojumper_<key>.mp4`
 - `createScheduledPost` mit: `providers: [{"network":"youtube"}]` und
@@ -40,7 +41,7 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
 - **Titel:** kurz und natuerlich, hoechstens 60 Zeichen, Aufbau `<Was passiert>! <1 Emoji> <Lernthema> #shorts`,
   z. B. `Kiki Builds a House! 🏠 Learn Shapes #shorts`. Keine Stichwort-Ketten, kein "| Story for Kids".
 - **Beschreibung (`text`):** 2-3 Saetze, die die Geschichte anreissen und das Kind ansprechen; Leerzeile;
-  `Learning goals: ...`; Leerzeile; `🌈 A new learning story every day on Motojumper, with Momo, Juju and friends!`;
+  `Learning goals: ...`; Leerzeile; `🌈 New learning stories every day on Motojumper, with Momo, Juju and friends!`;
   Leerzeile; genau 4 Hashtags: `#shorts`, zwei zum Thema der Folge (z. B. `#learnshapes #shapesforkids`), `#kidslearning`.
 - **Tags:** 6-8 Suchbegriffe zum Thema, dazu immer `preschool learning`, `toddler learning`, `Momo and Juju`, `Motojumper`.
 - Kostenloser Metricool-Plan: 20 Posts pro Monat. Meldet Metricool ein Limit oder einen Fehler: nicht umgehen,
