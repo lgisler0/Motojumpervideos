@@ -12,6 +12,9 @@
 | picnic | Momo's Picnic | Apfel, Banane, Orange | 2026-11-19 |
 | abc | Pip's ABC | Buchstaben A, B, C | 2026-11-20 |
 | light | Stop and Go | Ampel: Rot, Gelb, Gruen | 2026-11-21 |
+| snowman | Momo's Snowman (Winter) | Gross, mittel, klein; fuer andere sorgen | 2026-12-05 |
+| xtree | The Star on Top (Winter) | Unten, Mitte, oben; zusammen helfen | 2026-12-12 |
+| gifts | A Gift for You (Winter) | Schenken macht Freude; wer mag was | 2026-12-19 |
 
 Ideen fuer spaeter: Buchstaben D-F, Zahlen 6-10, Wetter, Tag und Nacht, Koerperteile, Gefuehle, Fahrzeuge,
 Aufraeumen, Haende waschen, Bauernhof-Tiere, Gegensaetze (schnell/langsam, laut/leise), Wochentage.
