@@ -414,6 +414,392 @@ EPISODEN = {
             ("juju", "For me? Thank you, Momo!", [("jump", "juju"), ("move", "carrot", 350, GY - 150, .7, {"at": .3}), ("sparkle", "juju", {"at": .4})]),
             ("sunny", "Giving makes everyone happy! Happy holidays! Bye bye!", [("confetti",), ("word", "HAPPY HOLIDAYS!", "rainbow"), ("jump", "momo"), ("jump", "juju", {"at": .3}), ("wave", "momo", {"at": .6})]),
         ]),
+
+    "rainbow": dict(
+        titel="RAINBOW COLORS", lernziel="Die sechs Regenbogenfarben in der richtigen Reihenfolge",
+        yt_titel="Colors of the Rainbow! 🌈 Learn 6 Colors with Juju #shorts",
+        yt_text="Look at the rainbow in the sky! Juju the bunny names its colors, one by one: red, orange, yellow, green, blue and purple. Can you say them too?",
+        ziele="the six rainbow colors in order.", hashtags="#rainbowcolors #learncolors",
+        tags=["rainbow colors", "learn colors", "colors for kids", "rainbow for kids"],
+        buehne=[("c%d" % i, "ball", dict(x=165 + 150 * i, y=900 - [0, 70, 110, 110, 70, 0][i], z=2, s=0, size=140, farbe=f))
+                for i, f in enumerate(["red", "orange", "yellow", "green", "blue", "purple"])] + [("juju", "actor", dict(x=540, z=3, size=108))],
+        zeilen=[
+            ("sunny", "Hi friends! Look at the rainbow in the sky! Let's name its colors.", [("show", "juju"), ("wave", "juju")]),
+            ("sunny", "Red!", [("show", "c0"), ("word", "RED", "red")]), ("sunny", "Orange!", [("show", "c1"), ("word", "ORANGE", "orange")]),
+            ("sunny", "Yellow!", [("show", "c2"), ("word", "YELLOW", "yellow")]), ("sunny", "Green!", [("show", "c3"), ("word", "GREEN", "green")]),
+            ("sunny", "Blue!", [("show", "c4"), ("word", "BLUE", "blue")]), ("sunny", "Purple!", [("show", "c5"), ("word", "PURPLE", "purple")]),
+            ("juju", "So many colors! I love the rainbow!", [("jump", "juju"), ("word", None)] + [("wiggle", "c%d" % i, {"at": i * .15}) for i in range(6)]),
+            ("sunny", "Red, orange, yellow, green, blue, purple. You know the rainbow! Bye bye!",
+             [("jump", "c%d" % i, {"at": .02 + i * .1}) for i in range(6)] + [("confetti", {"at": .65}), ("word", "RAINBOW!", "rainbow", {"at": .65}), ("wave", "juju", {"at": .7})]),
+        ]),
+
+    "inout": dict(
+        titel="KIKI AND THE BOX", lernziel="Gegensatz: drin und draussen (in / out)",
+        yt_titel="Kiki Jumps In the Box! 📦 In and Out #shorts",
+        yt_text="Kiki the cat found a big box, and cats love boxes! She jumps in. She jumps out. In, out, in, out. Where is Kiki now?",
+        ziele="in and out.", hashtags="#inandout #oppositesforkids",
+        tags=["in and out", "opposites for kids", "cat in a box", "position words"],
+        buehne=[("kiki", "actor", dict(x=215, z=1, size=100)), ("box", "box", dict(x=540, y=GY - 115, z=2, s=0, size=115))],
+        zeilen=[
+            ("sunny", "Hi friends! Kiki found a big box.", [("show", "kiki"), ("show", "box", {"at": .45})]),
+            ("kiki", "I love boxes! Meow!", [("jump", "kiki")]),
+            ("sunny", "Kiki jumps in the box.", [("move", "kiki", 540, GY - 262, .6, {"at": .25}), ("jump", "kiki", {"at": .25}), ("word", "IN", "green", {"at": .6})]),
+            ("sunny", "Kiki jumps out of the box.", [("move", "kiki", 865, GY - 150, .6, {"at": .25}), ("jump", "kiki", {"at": .25}), ("word", "OUT", "orange", {"at": .6})]),
+            ("sunny", "In!", [("move", "kiki", 540, GY - 262, .5), ("jump", "kiki"), ("word", "IN", "green")]),
+            ("sunny", "Out!", [("move", "kiki", 215, GY - 150, .5), ("jump", "kiki"), ("word", "OUT", "orange")]),
+            ("sunny", "Where is Kiki now?", [("move", "kiki", 540, GY - 262, .5), ("jump", "kiki"), ("word", "?", "yellow", {"at": .5})], .7),
+            ("kiki", "I am in the box! Peekaboo!", [("jump", "kiki"), ("word", "IN", "green"), ("sparkle", "kiki")]),
+            ("sunny", "In and out. Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "kiki", {"at": .4})]),
+        ]),
+
+    "onemore": dict(
+        titel="ONE MORE BALLOON", lernziel="Erstes Rechnen: eins mehr und eins weniger (bis 3)",
+        yt_titel="One More Balloon! 🎈 First Math for Kids #shorts",
+        yt_text="Juju the bunny has one balloon. Here comes one more! How many are there now? And what happens when one balloon flies away? Count along with Juju!",
+        ziele="one more and one less, numbers 1 to 3.", hashtags="#mathforkids #countingforkids",
+        tags=["math for kids", "one more one less", "addition for kids", "counting to 3"],
+        buehne=[("b1", "balloon", dict(x=470, y=1000, z=4, size=95, farbe="red")), ("b2", "balloon", dict(x=640, y=930, z=4, size=95, farbe="blue")),
+                ("b3", "balloon", dict(x=810, y=1000, z=4, size=95, farbe="yellow")), ("juju", "actor", dict(x=215, z=3, size=112))],
+        zeilen=[
+            ("sunny", "Hi friends! Juju has one balloon.", [("show", "juju"), ("show", "b1", {"at": .5}), ("word", "1", "red", {"at": .6})]),
+            ("sunny", "Here comes one more. One, and one more, makes...", [("show", "b2", {"at": .2})], .6),
+            ("juju", "Two!", [("word", "2", "blue"), ("jump", "juju")]),
+            ("sunny", "And one more! Two, and one more, makes...", [("show", "b3", {"at": .15})], .6),
+            ("juju", "Three!", [("word", "3", "orange"), ("jump", "juju")]),
+            ("sunny", "Oh! One balloon flies away. Three, take away one, is...", [("away", "b3", {"at": .15})], .6),
+            ("juju", "Two! Bye bye, balloon!", [("word", "2", "blue"), ("wave", "juju")]),
+            ("sunny", "One more, and one less. You can do math! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("jump", "juju", {"at": .4})]),
+        ]),
+
+    "def": dict(
+        titel="PIP'S D E F", lernziel="Die Buchstaben D, E und F mit je einem Wort",
+        yt_titel="D E F with Pip! 🐥 D Is for Dog #shorts",
+        yt_text="Pip the chick already knows A, B, C. Today he learns D, E and F! Who starts with D? What starts with E? Guess along with Pip and his friends.",
+        ziele="the letters D, E and F.", hashtags="#abcforkids #learnletters",
+        tags=["abc for kids", "learn letters", "d is for dog", "alphabet"],
+        buehne=[("D", "letter", dict(x=540, y=1010, z=4, s=0, size=150, text="D", farbe="orange")), ("E", "letter", dict(x=540, y=1010, z=4, s=0, size=150, text="E", farbe="purple")),
+                ("F", "letter", dict(x=540, y=1010, z=4, s=0, size=150, text="F", farbe="green")), ("egg", "egg", dict(x=880, y=GY - 110, z=3, s=0, size=110)),
+                ("dodo", "actor", dict(x=870, z=3, size=105)), ("freddy", "actor", dict(x=870, z=3, size=95)), ("pip", "actor", dict(x=165, z=3, size=85))],
+        zeilen=[
+            ("sunny", "Hi friends! Pip knows A, B, C. Today we learn D, E, F!", [("show", "pip"), ("wave", "pip")]),
+            ("sunny", "This is the letter D. Who starts with D?", [("show", "D")], .5),
+            ("dodo", "Me! D! Dodo the dog!", [("show", "dodo"), ("jump", "dodo", {"at": .3}), ("word", "DOG", "orange")]),
+            ("sunny", "This is the letter E. What starts with E?", [("move", "D", 290, 760, .5), ("scale", "D", .55), ("hide", "dodo"), ("word", None), ("show", "E", {"at": .25})], .5),
+            ("pip", "E! Egg! I came from an egg!", [("show", "egg"), ("jump", "pip", {"at": .3}), ("word", "EGG", "purple")]),
+            ("sunny", "This is the letter F. Who starts with F?", [("move", "E", 540, 760, .5), ("scale", "E", .55), ("hide", "egg"), ("word", None), ("show", "F", {"at": .25})], .5),
+            ("freddy", "Me! F! Freddy the frog!", [("show", "freddy"), ("jump", "freddy", {"at": .3}), ("word", "FROG", "green")]),
+            ("sunny", "D, E, F! Great job! Bye bye!", [("move", "F", 790, 760, .5), ("scale", "F", .55), ("confetti", {"at": .4}), ("word", "GREAT JOB!", "rainbow", {"at": .4}), ("jump", "pip", {"at": .5})]),
+        ]),
+
+    "sorry": dict(
+        titel="OOPS! SORRY!", lernziel="Sich entschuldigen und beim Wiedergutmachen helfen",
+        yt_titel="Oops! Dodo Says Sorry 🧱 Kindness Story for Kids #shorts",
+        yt_text="Kiki the cat builds a tall tower. Then Dodo the dog runs by, and oops, the tower falls down! What does a good friend do now?",
+        ziele="saying sorry and helping to fix a mistake.", hashtags="#sayingsorry #kindnessforkids",
+        tags=["saying sorry", "kindness for kids", "manners for kids", "friendship story"],
+        buehne=[("t1", "shape", dict(x=560, y=GY - 78, z=1, s=0, size=78, art="square", farbe="red")), ("t2", "shape", dict(x=560, y=GY - 234, z=1, s=0, size=78, art="square", farbe="yellow")),
+                ("t3", "shape", dict(x=560, y=GY - 390, z=1, s=0, size=78, art="square", farbe="blue")),
+                ("kiki", "actor", dict(x=170, z=3, size=100)), ("dodo", "actor", dict(x=1300, z=3, size=105, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Kiki builds a tall tower.", [("show", "kiki"), ("show", "t1", {"at": .3}), ("show", "t2", {"at": .55}), ("show", "t3", {"at": .8})]),
+            ("kiki", "One, two, three blocks! So tall!", [("jump", "kiki")]),
+            ("sunny", "Here comes Dodo. He runs very fast.", [("move", "dodo", 905, None, .8, {"at": .35})]),
+            ("sunny", "Oops! The tower falls down.", [("wiggle", "t1"), ("drop", "t3", 730, GY - 78), ("drop", "t2", 390, GY - 78, {"at": .15}), ("word", "OOPS!", "red")]),
+            ("kiki", "Oh no! My tower!", [("wiggle", "kiki")]),
+            ("dodo", "I am sorry, Kiki. It was an accident.", [("word", "SORRY", "blue")]),
+            ("kiki", "It's okay, Dodo.", [("word", "IT'S OKAY", "green")]),
+            ("sunny", "Dodo helps to build it again.", [("move", "t2", 560, GY - 234, .6), ("move", "t3", 560, GY - 390, .6, {"at": .45}), ("word", None)]),
+            ("sunny", "When we make a mistake, we say sorry. Good friends! Bye bye!", [("confetti",), ("word", "GOOD FRIENDS!", "rainbow"), ("jump", "kiki"), ("jump", "dodo", {"at": .3})]),
+        ]),
+
+    "body": dict(
+        titel="MOMO'S BODY", lernziel="Koerperteile: Augen, Ohren, Nase, Bauch und was sie tun",
+        yt_titel="Eyes, Ears, Nose! 🐻 Body Parts with Momo #shorts",
+        yt_text="Let's learn about our body with Momo the bear! We see with our eyes, we hear with our ears and we smell with our nose. Can you touch your nose?",
+        ziele="eyes, ears, nose and tummy, and what they do.", hashtags="#bodyparts #bodypartsforkids",
+        tags=["body parts for kids", "eyes ears nose", "my body", "parts of the body"],
+        buehne=[("momo", "actor", dict(x=540, z=3, size=190))],
+        zeilen=[
+            ("sunny", "Hi friends! Let's learn about our body, with Momo!", [("show", "momo"), ("wave", "momo")]),
+            ("sunny", "These are Momo's eyes. We see with our eyes.", [("spark", 540, GY - 305), ("word", "EYES", "blue")]),
+            ("sunny", "These are Momo's ears. We hear with our ears.", [("spark", 403, GY - 410), ("spark", 677, GY - 410, {"at": .1}), ("word", "EARS", "purple")]),
+            ("sunny", "This is Momo's nose. We smell with our nose.", [("spark", 540, GY - 245), ("word", "NOSE", "red")]),
+            ("sunny", "And this is Momo's tummy!", [("spark", 540, GY - 85), ("word", "TUMMY", "orange"), ("jump", "momo", {"at": .6})]),
+            ("momo", "Now you! Can you touch your nose?", [("word", "YOUR TURN!", "green")], 1.0),
+            ("sunny", "Eyes, ears, nose and tummy. Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "momo")]),
+        ]),
+
+    "rocket": dict(
+        titel="BLAST OFF!", lernziel="Rueckwaerts zaehlen von 5 bis 1",
+        yt_titel="5, 4, 3, 2, 1, Blast Off! 🚀 Count Down with Pip #shorts",
+        yt_text="Pip the chick built a rocket! Help him count down: five, four, three, two, one... blast off! Can you count backwards too?",
+        ziele="counting backwards from 5 to 1.", hashtags="#countdown #countingforkids",
+        tags=["count down for kids", "counting backwards", "rocket for kids", "5 4 3 2 1"],
+        buehne=[("rocket", "rocket", dict(x=640, y=GY - 215, z=2, s=0, size=105)), ("pip", "actor", dict(x=250, z=3, size=80)), ("kiki", "actor", dict(x=925, z=3, size=92))],
+        zeilen=[
+            ("sunny", "Hi friends! Pip built a rocket! Let's count down from five.", [("show", "pip"), ("show", "rocket", {"at": .3}), ("show", "kiki", {"at": .6})]),
+            ("pip", "I am ready to fly!", [("jump", "pip"), ("move", "pip", 640, GY - 300, .5, {"at": .5}), ("hide", "pip", {"at": .75})]),
+            ("sunny", "Five!", [("word", "5", "red"), ("wiggle", "rocket")]), ("sunny", "Four!", [("word", "4", "orange")]),
+            ("sunny", "Three!", [("word", "3", "green"), ("wiggle", "rocket")]), ("sunny", "Two!", [("word", "2", "blue")]),
+            ("sunny", "One!", [("word", "1", "purple"), ("wiggle", "rocket"), ("set", "rocket", 1, {"at": .5})]),
+            ("sunny", "Blast off!", [("word", "BLAST OFF!", "rainbow"), ("away", "rocket", {"at": .15}), ("confetti", {"at": .3}), ("jump", "kiki", {"at": .4})]),
+            ("kiki", "Bye bye, Pip! Fly safe!", [("wave", "kiki")]),
+            ("sunny", "Five, four, three, two, one. You can count backwards! Bye bye!", [("word", "GREAT JOB!", "rainbow", {"at": .6})]),
+        ]),
+
+    "sort": dict(
+        titel="SORT THE COLORS", lernziel="Sortieren nach Farbe: Rot zu Rot, Blau zu Blau",
+        yt_titel="Red or Blue? 🔴🔵 Sort the Balls with Dodo #shorts",
+        yt_text="Dodo the dog has a red box and a blue box. Where does the red ball go? Where does the blue ball go? Help Dodo sort the balls by color!",
+        ziele="sorting by color, red and blue.", hashtags="#sortingforkids #learncolors",
+        tags=["sorting for kids", "sort by color", "red and blue", "matching colors"],
+        buehne=[("binr", "shape", dict(x=300, y=GY - 120, z=1, s=0, size=120, art="square", farbe="red")), ("binb", "shape", dict(x=780, y=GY - 120, z=1, s=0, size=120, art="square", farbe="blue")),
+                ("ra", "ball", dict(x=540, y=800, z=4, s=0, size=130, farbe="red")), ("ba", "ball", dict(x=540, y=800, z=4, s=0, size=130, farbe="blue")),
+                ("rb", "ball", dict(x=540, y=800, z=4, s=0, size=130, farbe="red")), ("dodo", "actor", dict(x=540, z=3, size=88))],
+        zeilen=[
+            ("sunny", "Hi friends! Dodo has a red box, and a blue box. Let's sort the balls!", [("show", "dodo"), ("show", "binr", {"at": .35}), ("show", "binb", {"at": .55})]),
+            ("sunny", "A red ball! Where does it go?", [("show", "ra", {"at": .1}), ("word", "?", "yellow", {"at": .55})], .6),
+            ("dodo", "On the red box!", [("move", "ra", 300, GY - 300, .6), ("word", "RED", "red"), ("jump", "dodo", {"at": .4})]),
+            ("sunny", "A blue ball! Where does it go?", [("show", "ba", {"at": .1}), ("word", "?", "yellow", {"at": .55})], .6),
+            ("dodo", "On the blue box!", [("move", "ba", 780, GY - 300, .6), ("word", "BLUE", "blue"), ("jump", "dodo", {"at": .4})]),
+            ("sunny", "One more ball. What color is it?", [("show", "rb", {"at": .1}), ("word", "?", "yellow", {"at": .55})], .6),
+            ("dodo", "Red! On the red box! Woof!", [("move", "rb", 300, GY - 420, .6, {"at": .2}), ("word", "RED", "red"), ("jump", "dodo", {"at": .6})]),
+            ("sunny", "Red with red, blue with blue. You can sort! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "dodo", {"at": .4})]),
+        ]),
+
+    "leftright": dict(
+        titel="LEFT AND RIGHT", lernziel="Richtungen: links und rechts",
+        yt_titel="Hop Left, Hop Right! 🐰 Left and Right with Juju #shorts",
+        yt_text="Play a game with Juju the bunny! Juju hops to the left. Juju hops to the right. Now it is your turn: can you point to the left and to the right?",
+        ziele="left and right.", hashtags="#leftandright #directionsforkids",
+        tags=["left and right", "directions for kids", "movement game for kids", "bunny hop"],
+        buehne=[("juju", "actor", dict(x=540, z=3, size=118))],
+        zeilen=[
+            ("sunny", "Hi friends! Let's play a game with Juju. Left, and right!", [("show", "juju"), ("wave", "juju")]),
+            ("sunny", "Juju hops to the left!", [("move", "juju", 215, None, .6, {"at": .3}), ("jump", "juju", {"at": .3}), ("word", "LEFT", "blue", {"at": .3})]),
+            ("sunny", "Juju hops to the right!", [("move", "juju", 865, None, .7, {"at": .3}), ("jump", "juju", {"at": .3}), ("word", "RIGHT", "red", {"at": .3})]),
+            ("sunny", "Now you! Point to the left!", [("move", "juju", 215, None, .7, {"at": .5}), ("jump", "juju", {"at": .5}), ("word", "LEFT", "blue", {"at": .5})], .6),
+            ("sunny", "Point to the right!", [("move", "juju", 865, None, .7, {"at": .3}), ("jump", "juju", {"at": .3}), ("word", "RIGHT", "red", {"at": .3})], .6),
+            ("juju", "Left, right, left, right! That was fun!", [("move", "juju", 380, None, .35), ("move", "juju", 700, None, .35, {"at": .25}), ("move", "juju", 380, None, .35, {"at": .5}),
+                                                             ("move", "juju", 540, None, .35, {"at": .75}), ("word", None)]),
+            ("sunny", "You know left and right! Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("jump", "juju", {"at": .3})]),
+        ]),
+
+    "seesaw": dict(
+        titel="HEAVY AND LIGHT", lernziel="Gegensatz schwer und leicht; gemeinsam schafft man es",
+        yt_titel="Momo on the Seesaw! ⚖️ Heavy and Light #shorts",
+        yt_text="Momo the bear and Pip the chick play on the seesaw. Momo is heavy, so down he goes. Pip is light, so up he goes! How can little Pip come down again?",
+        ziele="heavy and light, and that friends are stronger together.", hashtags="#heavyandlight #oppositesforkids",
+        tags=["heavy and light", "opposites for kids", "seesaw", "weight for kids"],
+        buehne=[("saw", "seesaw", dict(x=540, y=GY - 90, z=1, s=1)),
+                ("momo", "actor", dict(x=270, y=GY - 255, z=3, size=100)), ("pip", "actor", dict(x=770, y=GY - 187, z=3, size=55)),
+                ("kiki", "actor", dict(x=660, y=GY - 237, z=3, size=72)), ("freddy", "actor", dict(x=870, y=GY - 264, z=3, size=62))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo and Pip play on the seesaw.", [("show", "pip"), ("show", "momo", {"at": .5})]),
+            ("sunny", "Momo is heavy. Down goes Momo!", [("tilt", "saw", -.2, {"at": .35}), ("move", "momo", None, GY - 201, .6, {"at": .35}), ("move", "pip", None, GY - 233, .6, {"at": .35}), ("word", "HEAVY", "blue", {"at": .35})]),
+            ("sunny", "Pip is light. Up goes Pip!", [("word", "LIGHT", "pink"), ("wiggle", "pip", {"at": .5})]),
+            ("pip", "Help! I am stuck up here!", [("wiggle", "pip")]),
+            ("sunny", "Here come Kiki and Freddy. They sit next to Pip.", [("word", None), ("show", "kiki", {"at": .2}), ("show", "freddy", {"at": .5})]),
+            ("sunny", "Now both sides are the same. The seesaw is balanced!",
+             [("tilt", "saw", 0), ("move", "momo", None, GY - 255, .6), ("move", "pip", None, GY - 187, .6), ("move", "kiki", None, GY - 213, .6), ("move", "freddy", None, GY - 198, .6),
+              ("word", "BALANCED", "green", {"at": .5})]),
+            ("momo", "Three little friends are as heavy as me!", [("wave", "momo")]),
+            ("sunny", "Heavy and light. Great job, friends! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow")]),
+        ]),
+
+    "quiet": dict(
+        titel="SHH! PIP IS SLEEPING", lernziel="Gegensatz laut und leise; Ruecksicht nehmen",
+        yt_titel="Shh! Pip Is Sleeping 😴 Loud and Quiet #shorts",
+        yt_text="Shh! Pip the chick is sleeping. Kiki is very quiet. But here comes Dodo the dog: woof, woof! That was loud! What happens now?",
+        ziele="loud and quiet, being considerate of others.", hashtags="#loudandquiet #oppositesforkids",
+        tags=["loud and quiet", "opposites for kids", "quiet time", "bedtime story for kids"],
+        buehne=[("zzz", "text", dict(x=890, y=GY - 290, z=5, s=0, size=80, text="Zzz", farbe="purple")),
+                ("pip", "actor", dict(x=790, z=3, size=70)), ("kiki", "actor", dict(x=160, z=3, size=98)), ("dodo", "actor", dict(x=-250, z=3, size=105, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Shh. Pip is sleeping.", [("show", "pip"), ("show", "kiki", {"at": .2}), ("show", "zzz", {"at": .5}), ("word", "SHH...", "purple", {"at": .5})]),
+            ("kiki", "We must be quiet.", [("word", "QUIET", "blue")]),
+            ("sunny", "Here comes Dodo.", [("move", "dodo", 450, None, .9), ("word", None)]),
+            ("dodo", "Woof! Woof! Let's play!", [("jump", "dodo"), ("jump", "dodo", {"at": .4}), ("word", "LOUD", "red"), ("hide", "zzz", {"at": .25}), ("jump", "pip", {"at": .35})]),
+            ("sunny", "Oh no! That was loud. Pip woke up!", [("wiggle", "pip")]),
+            ("dodo", "Sorry, Pip. I will be quiet now.", [("word", "QUIET", "blue", {"at": .45})]),
+            ("sunny", "Dodo is as quiet as a mouse. Pip goes back to sleep.", [("show", "zzz", {"at": .65})]),
+            ("sunny", "Loud and quiet. When a friend sleeps, we are quiet. Bye bye!", [("word", "SHH...", "purple", {"at": .55})]),
+        ]),
+
+    "pattern": dict(
+        titel="WHAT COMES NEXT?", lernziel="Muster erkennen und fortsetzen (Rot, Blau, Rot, Blau ...)",
+        yt_titel="What Comes Next? 🔴🔵 Patterns for Kids with Pip #shorts",
+        yt_text="Pip the chick makes a pattern: red, blue, red, blue... What comes next? Think along with Pip and find the answer!",
+        ziele="recognizing and continuing a simple pattern.", hashtags="#patternsforkids #thinkinggames",
+        tags=["patterns for kids", "what comes next", "logic for kids", "preschool math"],
+        buehne=[("p%d" % i, "ball", dict(x=190 + 175 * i, y=900, z=2, s=0, size=150, farbe=f)) for i, f in enumerate(["red", "blue", "red", "blue", "red"])]
+               + [("q", "text", dict(x=890, y=900, z=3, s=0, size=170, text="?", farbe="yellow")), ("pip", "actor", dict(x=540, z=3, size=88))],
+        zeilen=[
+            ("sunny", "Hi friends! Pip makes a pattern. Look!", [("show", "pip"), ("wave", "pip")]),
+            ("sunny", "Red, blue, red, blue.", [("show", "p0"), ("show", "p1", {"at": .27}), ("show", "p2", {"at": .54}), ("show", "p3", {"at": .8})]),
+            ("sunny", "What comes next?", [("show", "q")], 1.0),
+            ("pip", "Hmm. Red, blue, red, blue...", [("wiggle", "p0"), ("wiggle", "p1", {"at": .3}), ("wiggle", "p2", {"at": .55}), ("wiggle", "p3", {"at": .8})], .5),
+            ("pip", "Red!", [("hide", "q"), ("show", "p4", {"at": .1}), ("sparkle", "p4", {"at": .15}), ("word", "RED", "red"), ("jump", "pip")]),
+            ("sunny", "Yes! Red comes next. Red, blue, red, blue, red. That is a pattern!", [("word", "PATTERN", "rainbow", {"at": .75})] + [("jump", "p%d" % i, {"at": .3 + i * .09}) for i in range(5)]),
+            ("sunny", "Great thinking! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("jump", "pip", {"at": .3})]),
+        ]),
+
+    "homes": dict(
+        titel="WHO LIVES HERE?", lernziel="Tiere und ihr Zuhause: Teich, Nest, Hundehuette",
+        yt_titel="Who Lives Here? 🏡 Animal Homes for Kids #shorts",
+        yt_text="Every animal has a home! Who lives in the pond? Who lives in a nest, up in the tree? And who lives in the little house? Guess along!",
+        ziele="animal homes: pond, nest and dog house.", hashtags="#animalhomes #animalsforkids",
+        tags=["animal homes", "where do animals live", "animals for kids", "habitats for kids"],
+        buehne=[("pond", "pond", dict(x=540, y=GY + 15, z=0, s=0)), ("tree", "tree", dict(x=600, y=GY, z=0, s=0)), ("nest", "nest", dict(x=600, y=GY - 560, z=2, s=0, size=100)),
+                ("hs", "shape", dict(x=620, y=GY - 135, z=1, s=0, size=135, art="square", farbe="red")), ("hr", "shape", dict(x=620, y=GY - 350, z=1, s=0, size=80, art="triangle", farbe="blue")),
+                ("hd", "shape", dict(x=620, y=GY - 95, z=2, s=0, size=75, art="circle", farbe="purple")),
+                ("freddy", "actor", dict(x=540, z=3, size=88)), ("pip", "actor", dict(x=600, y=GY - 650, z=3, size=52)), ("dodo", "actor", dict(x=225, z=3, size=102))],
+        zeilen=[
+            ("sunny", "Hi friends! Every animal has a home. Who lives here?", [("show", "pond", {"at": .5}), ("word", "?", "yellow", {"at": .7})], .6),
+            ("freddy", "Me! I live in the pond!", [("show", "freddy"), ("word", "POND", "blue"), ("jump", "freddy", {"at": .4})]),
+            ("sunny", "And who lives here, up in the tree?", [("hide", "pond"), ("hide", "freddy"), ("word", None), ("show", "tree", {"at": .15}), ("show", "nest", {"at": .45}), ("word", "?", "yellow", {"at": .7})], .6),
+            ("pip", "Me! I live in a nest!", [("show", "pip"), ("word", "NEST", "orange"), ("sparkle", "nest", {"at": .2})]),
+            ("sunny", "And who lives in this little house?", [("hide", "tree"), ("hide", "nest"), ("hide", "pip"), ("word", None), ("show", "hs", {"at": .2}), ("show", "hr", {"at": .35}), ("show", "hd", {"at": .5}),
+                                                         ("word", "?", "yellow", {"at": .7})], .6),
+            ("dodo", "Me! Woof! I live in the dog house!", [("show", "dodo"), ("word", "DOG HOUSE", "red"), ("jump", "dodo", {"at": .4})]),
+            ("sunny", "A pond, a nest and a house. Where do you live? Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "dodo", {"at": .4})]),
+        ]),
+
+    "more": dict(
+        titel="WHO HAS MORE?", lernziel="Mengen vergleichen: mehr, weniger, gleich viel",
+        yt_titel="Who Has More Apples? 🍎 More, Fewer, the Same #shorts",
+        yt_text="Momo the bear has three apples. Juju the bunny has only one. Who has more? And what can Momo do to make it fair?",
+        ziele="more, fewer and the same.", hashtags="#moreandless #mathforkids",
+        tags=["more and less", "comparing for kids", "math for kids", "more fewer same"],
+        buehne=[("m1", "apple", dict(x=130, y=GY + 50, z=5, s=0, size=110)), ("m2", "apple", dict(x=245, y=GY + 50, z=5, s=0, size=110)), ("m3", "apple", dict(x=360, y=GY + 50, z=5, s=0, size=110)),
+                ("j1", "apple", dict(x=770, y=GY + 50, z=5, s=0, size=110)), ("momo", "actor", dict(x=245, z=3, size=118)), ("juju", "actor", dict(x=830, z=3, size=105))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo and Juju have apples.", [("show", "momo"), ("show", "juju", {"at": .2}), ("show", "m1", {"at": .45}), ("show", "m2", {"at": .55}), ("show", "m3", {"at": .65}), ("show", "j1", {"at": .85})]),
+            ("sunny", "Momo has three apples. Juju has one apple.", [("wiggle", "m1"), ("wiggle", "m2", {"at": .1}), ("wiggle", "m3", {"at": .2}), ("wiggle", "j1", {"at": .6})]),
+            ("sunny", "Who has more?", [("word", "?", "yellow")], .8),
+            ("sunny", "Momo has more! Juju has fewer.", [("word", "MORE", "blue"), ("sparkle", "momo"), ("word", "FEWER", "pink", {"at": .55})]),
+            ("momo", "That is not fair. Here, Juju!", [("word", None), ("move", "m3", 885, GY + 50, .8, {"at": .45})]),
+            ("sunny", "Now Momo has two, and Juju has two. That is the same!", [("word", "THE SAME", "green", {"at": .6}), ("jump", "momo", {"at": .65}), ("jump", "juju", {"at": .75})]),
+            ("juju", "Thank you, Momo!", [("wave", "juju")]),
+            ("sunny", "More, fewer, the same. Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow")]),
+        ]),
+
+    "turns": dict(
+        titel="TAKING TURNS", lernziel="Sich abwechseln: erst du, dann ich",
+        yt_titel="Dodo and Kiki Take Turns! ⚽ Sharing Story for Kids #shorts",
+        yt_text="Dodo the dog and Kiki the cat both want the ball. I want it! No, I want it! Oh dear. What can they do? A little story about taking turns.",
+        ziele="taking turns and playing together.", hashtags="#takingturns #kindnessforkids",
+        tags=["taking turns", "sharing for kids", "social skills for kids", "friendship story"],
+        buehne=[("ball", "ball", dict(x=540, y=GY - 62, z=4, s=0, size=130, farbe="blue")), ("dodo", "actor", dict(x=205, z=3, size=105)), ("kiki", "actor", dict(x=875, z=3, size=100))],
+        zeilen=[
+            ("sunny", "Hi friends! Dodo and Kiki both want the ball.", [("show", "dodo"), ("show", "kiki", {"at": .2}), ("show", "ball", {"at": .5})]),
+            ("dodo", "I want it!", [("jump", "dodo"), ("move", "ball", 390, None, .3)]),
+            ("kiki", "No, I want it!", [("jump", "kiki"), ("move", "ball", 690, None, .3)]),
+            ("sunny", "Oh dear. What can they do? They can take turns!", [("move", "ball", 540, None, .5), ("word", "TAKE TURNS", "green", {"at": .6})]),
+            ("sunny", "First, it is Dodo's turn.", [("move", "ball", 380, None, .5, {"at": .3}), ("jump", "ball", {"at": .3}), ("word", "DODO'S TURN", "orange", {"at": .3}), ("jump", "dodo", {"at": .6})]),
+            ("sunny", "Then, it is Kiki's turn.", [("move", "ball", 700, None, .6, {"at": .3}), ("jump", "ball", {"at": .3}), ("word", "KIKI'S TURN", "pink", {"at": .3}), ("jump", "kiki", {"at": .6})]),
+            ("dodo", "This is fun!", [("move", "ball", 380, None, .5), ("jump", "ball"), ("word", None)]),
+            ("kiki", "Yes! Playing together is the best!", [("move", "ball", 700, None, .5), ("jump", "ball")]),
+            ("sunny", "Taking turns is fair. Great job, friends! Bye bye!", [("move", "ball", 540, None, .5), ("confetti",), ("word", "GREAT JOB!", "rainbow"), ("jump", "dodo", {"at": .3}), ("jump", "kiki", {"at": .45})]),
+        ]),
+
+    "missing": dict(
+        titel="THE MISSING NUMBER", lernziel="Zahlenreihe 1 bis 4: welche Zahl fehlt?",
+        yt_titel="Which Number Is Missing? 🔢 Count 1 to 4 with Freddy #shorts",
+        yt_text="Freddy the frog counts his number blocks: one, two... four? Something is missing! Which number is it? Help Freddy find it!",
+        ziele="the number order 1, 2, 3, 4.", hashtags="#numbersforkids #countingforkids",
+        tags=["missing number", "numbers for kids", "counting 1 to 4", "number order"],
+        buehne=[("n1", "letter", dict(x=195, y=880, z=2, s=0, size=95, text="1", farbe="red")), ("n2", "letter", dict(x=425, y=880, z=2, s=0, size=95, text="2", farbe="orange")),
+                ("n3", "letter", dict(x=655, y=880, z=2, s=0, size=95, text="3", farbe="green")), ("n4", "letter", dict(x=885, y=880, z=2, s=0, size=95, text="4", farbe="blue")),
+                ("q", "text", dict(x=655, y=880, z=3, s=0, size=170, text="?", farbe="yellow")), ("freddy", "actor", dict(x=540, z=3, size=98))],
+        zeilen=[
+            ("sunny", "Hi friends! Freddy counts his number blocks.", [("show", "freddy"), ("show", "n1", {"at": .4}), ("show", "n2", {"at": .6}), ("show", "n4", {"at": .8})]),
+            ("freddy", "One, two... four? Something is missing!", [("wiggle", "n1"), ("wiggle", "n2", {"at": .2}), ("wiggle", "n4", {"at": .45}), ("show", "q", {"at": .65})], .5),
+            ("sunny", "Which number is missing? One, two, hmm, four.", [], .9),
+            ("freddy", "Three! Three is missing!", [("hide", "q"), ("show", "n3", {"at": .1}), ("sparkle", "n3", {"at": .15}), ("word", "3", "green"), ("jump", "freddy", {"at": .4})]),
+            ("sunny", "One, two, three, four. Now they are all here!", [("jump", "n1"), ("jump", "n2", {"at": .2}), ("jump", "n3", {"at": .4}), ("jump", "n4", {"at": .6}), ("word", None)]),
+            ("sunny", "Great counting! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "freddy")]),
+        ]),
+
+    "mix": dict(
+        titel="MIXING COLORS", lernziel="Farben mischen: Rot + Gelb = Orange, Blau + Gelb = Gruen",
+        yt_titel="Red and Yellow Make...? 🎨 Mixing Colors with Juju #shorts",
+        yt_text="Juju the bunny mixes colors! Red and yellow: mix, mix, mix. What color do they make? And what happens with blue and yellow? Guess before Juju tells you!",
+        ziele="mixing colors: red and yellow make orange, blue and yellow make green.", hashtags="#mixingcolors #learncolors",
+        tags=["mixing colors", "color mixing for kids", "learn colors", "art for kids"],
+        buehne=[("r", "ball", dict(x=440, y=900, z=2, s=0, size=160, farbe="red")), ("y1", "ball", dict(x=760, y=900, z=2, s=0, size=160, farbe="yellow")),
+                ("o", "ball", dict(x=600, y=900, z=3, s=0, size=240, farbe="orange")), ("b", "ball", dict(x=440, y=900, z=2, s=0, size=160, farbe="blue")),
+                ("y2", "ball", dict(x=760, y=900, z=2, s=0, size=160, farbe="yellow")), ("g", "ball", dict(x=600, y=900, z=3, s=0, size=240, farbe="green")),
+                ("juju", "actor", dict(x=185, z=3, size=105))],
+        zeilen=[
+            ("sunny", "Hi friends! Juju has colors. Let's mix them!", [("show", "juju"), ("show", "r", {"at": .5}), ("show", "y1", {"at": .7})]),
+            ("juju", "Red, and yellow. What will happen?", [("wiggle", "r"), ("wiggle", "y1", {"at": .35})], .4),
+            ("sunny", "Mix, mix, mix!", [("move", "r", 600, None, .6), ("move", "y1", 600, None, .6), ("hide", "r", {"at": .7}), ("hide", "y1", {"at": .7}), ("show", "o", {"at": .7}), ("sparkle", "o", {"at": .75})]),
+            ("juju", "Orange! Red and yellow make orange!", [("word", "ORANGE", "orange"), ("jump", "juju")]),
+            ("sunny", "Now blue, and yellow. What will happen?", [("hide", "o"), ("word", None), ("show", "b", {"at": .2}), ("show", "y2", {"at": .45})], .5),
+            ("sunny", "Mix, mix, mix!", [("move", "b", 600, None, .6), ("move", "y2", 600, None, .6), ("hide", "b", {"at": .7}), ("hide", "y2", {"at": .7}), ("show", "g", {"at": .7}), ("sparkle", "g", {"at": .75})]),
+            ("juju", "Green! Blue and yellow make green!", [("word", "GREEN", "green"), ("jump", "juju")]),
+            ("sunny", "You can mix colors! Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "juju", {"at": .4})]),
+        ]),
+
+    "tidy": dict(
+        titel="CLEAN UP TIME", lernziel="Aufraeumen nach dem Spielen; zaehlen bis 3",
+        yt_titel="Clean Up Time! 🧸 Juju Tidies Up Her Toys #shorts",
+        yt_text="Playtime is over, and the toys are everywhere! Juju the bunny puts them back in the box: the ball, the star and the block. One, two, three. All clean!",
+        ziele="tidying up after playing, counting to 3.", hashtags="#cleanuptime #goodhabits",
+        tags=["clean up time", "tidy up for kids", "good habits for kids", "toys"],
+        buehne=[("box", "box", dict(x=850, y=GY - 115, z=4, s=0, size=115)),
+                ("ball", "ball", dict(x=150, y=GY - 20, z=5, s=0, size=120, farbe="red")), ("star", "star", dict(x=330, y=GY - 30, z=5, s=0, size=62)),
+                ("blk", "letter", dict(x=510, y=GY - 30, z=5, s=0, size=60, text="A", farbe="green")), ("juju", "actor", dict(x=620, z=3, size=100))],
+        zeilen=[
+            ("sunny", "Hi friends! Playtime is over. Look at all the toys!", [("show", "juju"), ("show", "ball", {"at": .3}), ("show", "star", {"at": .45}), ("show", "blk", {"at": .6}), ("show", "box", {"at": .8})]),
+            ("juju", "Clean up time! I can do it!", [("jump", "juju")]),
+            ("sunny", "The ball goes in the box. One!", [("move", "ball", 850, GY - 290, .6, {"at": .1}), ("jump", "ball", {"at": .1}), ("hide", "ball", {"at": .5}), ("word", "1", "red", {"at": .65})]),
+            ("sunny", "The star goes in the box. Two!", [("move", "star", 850, GY - 290, .6, {"at": .1}), ("jump", "star", {"at": .1}), ("hide", "star", {"at": .5}), ("word", "2", "orange", {"at": .65})]),
+            ("sunny", "The block goes in the box. Three!", [("move", "blk", 850, GY - 290, .6, {"at": .1}), ("jump", "blk", {"at": .1}), ("hide", "blk", {"at": .5}), ("word", "3", "green", {"at": .65})]),
+            ("juju", "All clean! That was fast!", [("jump", "juju"), ("sparkle", "box"), ("word", "ALL CLEAN!", "rainbow")]),
+            ("sunny", "When we finish playing, we clean up. Great job, Juju! Bye bye!", [("confetti",), ("wave", "juju", {"at": .5})]),
+        ]),
+
+    "full": dict(
+        titel="EMPTY AND FULL", lernziel="Gegensatz leer und voll; zaehlen bis 4",
+        yt_titel="Momo Fills the Basket! 🧺 Empty and Full #shorts",
+        yt_text="Momo the bear has a basket, but it is empty. He picks apples from the tree: one, two, three, four. Now the basket is full!",
+        ziele="empty and full, counting to 4.", hashtags="#emptyandfull #oppositesforkids",
+        tags=["empty and full", "opposites for kids", "counting to 4", "apple picking"],
+        buehne=[("tree", "tree", dict(x=790, y=GY, z=0, s=1)),
+                ("a1", "apple", dict(x=670, y=850, z=5, s=1, size=110)), ("a2", "apple", dict(x=790, y=780, z=5, s=1, size=110)),
+                ("a3", "apple", dict(x=900, y=860, z=5, s=1, size=110)), ("a4", "apple", dict(x=760, y=990, z=5, s=1, size=110)),
+                ("basket", "basket", dict(x=390, y=GY - 78, z=4, s=0, size=105)), ("momo", "actor", dict(x=140, z=3, size=105))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo has a basket. Look inside. It is empty!", [("show", "momo"), ("show", "basket", {"at": .3}), ("word", "EMPTY", "blue", {"at": .75})]),
+            ("momo", "My basket is empty. I need apples!", [("wiggle", "basket", {"at": .2})]),
+            ("sunny", "One apple. Two apples.", [("word", None), ("drop", "a1", 335, GY - 165), ("drop", "a2", 445, GY - 165, {"at": .5})]),
+            ("sunny", "Three apples. Four apples!", [("drop", "a3", 390, GY - 180), ("drop", "a4", 390, GY - 255, {"at": .5})]),
+            ("sunny", "Now the basket is full!", [("word", "FULL", "red", {"at": .5}), ("sparkle", "basket", {"at": .5})]),
+            ("momo", "Full! Now I can share with my friends!", [("jump", "momo")]),
+            ("sunny", "Empty and full. Great job! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow"), ("wave", "momo", {"at": .4})]),
+        ]),
+
+    "race": dict(
+        titel="THE BIG RACE", lernziel="Reihenfolge: Erster, Zweiter, Dritter; nicht aufgeben",
+        yt_titel="The Big Race! 🏁 First, Second, Third #shorts",
+        yt_text="It is race day! Juju the bunny, Dodo the dog and little Pip run to the star. Who is first? Who is second? And who never gives up?",
+        ziele="first, second and third, and never giving up.", hashtags="#firstsecondthird #mathforkids",
+        tags=["first second third", "ordinal numbers for kids", "race for kids", "never give up"],
+        buehne=[("road", "road", dict(x=0, y=GY, z=0, s=1)), ("star", "star", dict(x=985, y=GY - 360, z=1, s=0, size=70)),
+                ("pip", "actor", dict(x=75, z=3, size=58)), ("dodo", "actor", dict(x=180, z=4, size=85)), ("juju", "actor", dict(x=300, z=5, size=85))],
+        zeilen=[
+            ("sunny", "Hi friends! It is race day! Juju, Dodo and Pip are ready.", [("show", "pip"), ("show", "dodo", {"at": .2}), ("show", "juju", {"at": .4}), ("show", "star", {"at": .7})]),
+            ("sunny", "Ready, set, go!", [("word", "GO!", "green", {"at": .65}), ("move", "juju", 900, None, 1.3, {"at": .7}), ("move", "dodo", 720, None, 2.3, {"at": .7}), ("move", "pip", 560, None, 3.4, {"at": .7}),
+                                        ("jump", "juju", {"at": .7}), ("jump", "dodo", {"at": .75}), ("jump", "pip", {"at": .8})], .6),
+            ("sunny", "Juju is first!", [("word", "FIRST", "yellow"), ("sparkle", "juju")]),
+            ("sunny", "Dodo is second!", [("word", "SECOND", "blue"), ("sparkle", "dodo")]),
+            ("sunny", "And Pip is third!", [("word", "THIRD", "pink"), ("sparkle", "pip")]),
+            ("pip", "I am small, but I did not give up!", [("jump", "pip"), ("jump", "pip", {"at": .5})]),
+            ("juju", "Well done, Pip!", [("jump", "juju"), ("jump", "dodo", {"at": .3})]),
+            ("sunny", "First, second, third. Everyone did great! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow")]),
+        ]),
 }
 
 
@@ -718,7 +1104,63 @@ def welt_winter(ctx, t, offen):
     kw.sonne(ctx, 170, 215, 100, t, offen)
 
 
-PROPS = dict(snowball=p_snowball, snowface=p_snowface, carrot=p_carrot, scarf=p_scarf, xtree=p_xtree, star=p_star, gift=p_gift,
+def p_egg(ctx, x, y, r, o, v, t):
+    if r < 3:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.rotate(math.sin(t * 3) * .06)
+    ellipse(ctx, 0, 0, r * .78, r); fuell(ctx, rgb("fff3d6"), max(5, r * .08), rgb("b8a27a"))
+    for dx, dy, q in [(-.3, -.35, .12), (.25, .1, .15), (-.15, .45, .1), (.3, -.5, .08)]:
+        ellipse(ctx, dx * r, dy * r, q * r, q * r); fuell(ctx, rgb("ffd08a"))
+    ctx.restore()
+
+
+def p_rocket(ctx, x, y, g, o, v, t):
+    if g < 4:
+        return
+    lw = max(5, g * .08)
+    if v > .5:
+        for k, f in enumerate(["ff7a1a", "ffd633"]):
+            fl = g * (1.3 - k * .45) * (1 + .15 * math.sin(t * 40 + k))
+            ctx.move_to(x - g * (.42 - k * .15), y + g * 1.5); ctx.line_to(x, y + g * 1.5 + fl); ctx.line_to(x + g * (.42 - k * .15), y + g * 1.5); ctx.close_path(); fuell(ctx, rgb(f))
+    for sx in (-1, 1):
+        ctx.move_to(x + sx * g * .5, y + g * .6); ctx.line_to(x + sx * g * 1.1, y + g * 1.75); ctx.line_to(x + sx * g * .4, y + g * 1.5); ctx.close_path(); fuell(ctx, COLORS["red"], lw)
+    ctx.move_to(x, y - g * 2.0); ctx.curve_to(x + g * .95, y - g * 1.0, x + g * .7, y + g * 1.0, x + g * .5, y + g * 1.6)
+    ctx.line_to(x - g * .5, y + g * 1.6); ctx.curve_to(x - g * .7, y + g * 1.0, x - g * .95, y - g * 1.0, x, y - g * 2.0); ctx.close_path(); fuell(ctx, rgb("ffffff"), lw, rgb("7f8fb0"))
+    ctx.save(); ctx.move_to(x, y - g * 2.0); ctx.curve_to(x + g * .95, y - g * 1.0, x + g * .7, y + g * 1.0, x + g * .5, y + g * 1.6)
+    ctx.line_to(x - g * .5, y + g * 1.6); ctx.curve_to(x - g * .7, y + g * 1.0, x - g * .95, y - g * 1.0, x, y - g * 2.0); ctx.clip()
+    ctx.rectangle(x - g, y - g * 2.1, 2 * g, g * .95); fuell(ctx, COLORS["red"]); ctx.restore()
+    ellipse(ctx, x, y - g * .35, g * .33, g * .33); fuell(ctx, rgb("7fd4ff"), lw, rgb("3d6fb0"))
+    ellipse(ctx, x - g * .1, y - g * .45, g * .1, g * .1); fuell(ctx, kw.WEISS)
+
+
+def p_seesaw(ctx, x, y, g, o, v, t):
+    ctx.move_to(x - 62, GY + 4); ctx.line_to(x + 62, GY + 4); ctx.line_to(x, y - 6); ctx.close_path(); fuell(ctx, COLORS["blue"], 9)
+    ctx.save(); ctx.translate(x, y); ctx.rotate(v)
+    kw_rund(ctx, -370, -16, 740, 32, 14); fuell(ctx, rgb("ffb347"), 9)
+    for sx in (-1, 1):
+        kw_rund(ctx, sx * 345 - 9, -62, 18, 50, 8); fuell(ctx, COLORS["red"], 6)
+    ctx.restore()
+
+
+def p_nest(ctx, x, y, g, o, v, t):
+    g = g / 100
+    if g < .05:
+        return
+    ctx.save(); ctx.translate(x, y); ctx.scale(g, g)
+    ctx.move_to(-120, -20); ctx.curve_to(-110, 85, 110, 85, 120, -20); ctx.curve_to(60, 5, -60, 5, -120, -20); ctx.close_path(); fuell(ctx, rgb("b0733c"), 9)
+    ctx.set_source_rgb(*rgb("7a4a21")); ctx.set_line_width(6); ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    for a, b_, c_, d in [(-90, 10, -30, 40), (-40, 15, 30, 45), (20, 12, 85, 30), (-70, 40, 0, 55), (10, 50, 70, 42)]:
+        ctx.move_to(a, b_); ctx.line_to(c_, d)
+    ctx.stroke(); ctx.restore()
+
+
+def p_text(ctx, x, y, g, o, v, t):
+    f = REGENBOGEN if o["farbe"] == "rainbow" else COLORS[o["farbe"]]
+    kw.titel(ctx, o["text"], x, y, g, f, t, welle=.6)
+
+
+SKAL = ("tree", "bush", "pond", "lily", "xtree", "light", "road", "seesaw")
+PROPS = dict(egg=p_egg, rocket=p_rocket, seesaw=p_seesaw, nest=p_nest, text=p_text, snowball=p_snowball, snowface=p_snowface, carrot=p_carrot, scarf=p_scarf, xtree=p_xtree, star=p_star, gift=p_gift,
              fish=p_fish, bone=p_bone, shape=p_shape, pond=p_pond, lily=p_lily, box=p_box, ball=p_ball, basket=p_basket, banana=p_banana,
              orange=p_orange, letter=p_letter, light=p_light, road=p_road)
 
@@ -746,7 +1188,7 @@ class Folge:
     def __init__(self, key):
         self.key, self.ep = key, EPISODEN[key]
         self.obj, self.tw, self.cur = {}, {}, {}
-        self.emotes, self.words, self.sparkles, self.pops = [], [], [], []
+        self.emotes, self.words, self.sparkles, self.pops, self.funken = [], [], [], [], []
         self.konfetti = None
         for oid, kind, p in self.ep["buehne"]:
             p = dict(p)
@@ -785,6 +1227,10 @@ class Folge:
             self._tween(a[1], "s", t, .25, 0)
         elif art == "scale":
             self._tween(a[1], "s", t, .45, a[2])
+        elif art == "tilt":
+            self._tween(a[1], "v", t, .6, a[2])
+        elif art == "spark":
+            self.funken.append((a[1], a[2], t)); self.pops.append(t)
         elif art == "set":
             self._tween(a[1], "v", t, .001, a[2]); self.pops.append(t)
         elif art == "place":
@@ -861,6 +1307,11 @@ class Folge:
             j = self.emote(oid, "jump", t)
             if j is not None:
                 y -= math.sin(j * math.pi) * 90
+            skal = o["kind"] in SKAL
+            if skal:
+                if s < .02:
+                    continue
+                ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.translate(-x, -y)
             wig = self.emote(oid, "wiggle", t)
             wk = math.sin(wig * math.pi * 6) * (1 - wig) if wig is not None else 0
             if o["kind"] == "tree":
@@ -877,6 +1328,10 @@ class Folge:
                 lt = self.laut(oid, i)
                 kw.tier(ctx, FIGUREN[oid][0], x + wk * 14, y - lt * 7, o["size"] * s, t, o["seed"],
                         wink=self.emote(oid, "wave", t) is not None, sprech=lt)
+            if skal:
+                ctx.restore()
+        for fx, fy, t0 in self.funken:
+            kw.funkeln(ctx, fx, fy, t, t0, int(t0 * 10), R=230, n=10)
         wort = None
         for t0, text, farbe in self.words:
             if t0 <= t:

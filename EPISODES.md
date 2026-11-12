@@ -15,6 +15,26 @@
 | snowman | Momo's Snowman (Winter) | Gross, mittel, klein; fuer andere sorgen | 2026-12-05 |
 | xtree | The Star on Top (Winter) | Unten, Mitte, oben; zusammen helfen | 2026-12-12 |
 | gifts | A Gift for You (Winter) | Schenken macht Freude; wer mag was | 2026-12-19 |
+| rainbow | Rainbow Colors | Sechs Regenbogenfarben | 2026-11-22 |
+| inout | Kiki and the Box | Drin und draussen | 2026-11-23 |
+| onemore | One More Balloon | Eins mehr, eins weniger | 2026-11-24 |
+| def | Pip's D E F | Buchstaben D, E, F | 2026-11-25 |
+| sorry | Oops! Sorry! | Sich entschuldigen | 2026-11-26 |
+| body | Momo's Body | Augen, Ohren, Nase, Bauch | 2026-11-27 |
+| rocket | Blast Off! | Rueckwaerts zaehlen 5-1 | 2026-11-28 |
+| sort | Sort the Colors | Nach Farbe sortieren | 2026-11-29 |
+| leftright | Left and Right | Links und rechts | 2026-11-30 |
+| seesaw | Heavy and Light | Schwer und leicht | 2026-12-01 |
+| quiet | Shh! Pip Is Sleeping | Laut und leise | 2026-12-02 |
+| pattern | What Comes Next? | Muster fortsetzen | 2026-12-03 |
+| homes | Who Lives Here? | Tiere und ihr Zuhause | 2026-12-04 |
+| more | Who Has More? | Mehr, weniger, gleich | 2026-12-06 |
+| turns | Taking Turns | Sich abwechseln | 2026-12-07 |
+| missing | The Missing Number | Zahlenreihe 1-4 | 2026-12-08 |
+| mix | Mixing Colors | Farben mischen | 2026-12-09 |
+| tidy | Clean Up Time | Aufraeumen | 2026-12-10 |
+| full | Empty and Full | Leer und voll | 2026-12-11 |
+| race | The Big Race | Erster, Zweiter, Dritter | 2026-12-13 |
 
-Ideen fuer spaeter: Buchstaben D-F, Zahlen 6-10, Wetter, Tag und Nacht, Koerperteile, Gefuehle, Fahrzeuge,
-Aufraeumen, Haende waschen, Bauernhof-Tiere, Gegensaetze (schnell/langsam, laut/leise), Wochentage.
+Ideen fuer spaeter: Buchstaben G-I, Zahlen 6-10, Wetter, Tag und Nacht, Gefuehle, Fahrzeuge, Haende waschen,
+Bauernhof-Tiere, schnell/langsam, Wochentage, Formen Herz/Stern/Rechteck, Bitte sagen.
