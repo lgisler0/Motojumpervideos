@@ -34,10 +34,15 @@ Englisch) fuer Kleinkinder und Vorschulkinder. Ziel: Kanal aufbauen und spaeter 
 - Zuerst `getScheduledPosts` aufrufen: Tage, an denen schon ein Post geplant ist, auslassen. Neue Folgen fruehestens
   **2 Tage im Voraus** einplanen, damit Loris sie vorher ansehen und stoppen kann.
 - Video-Link: `https://raw.githubusercontent.com/lgisler0/Motojumpervideos/main/videos/motojumper_<key>.mp4`
-- `createScheduledPost` mit: `providers: [{"network":"youtube"}]`, `text` = `yt_text` + Leerzeile +
-  `#shorts #kidslearning #storyforkids #preschool`, und
-  `youtubeData: {title: yt_titel, type: "short", privacy: "public", tags, category: "EDUCATION", madeForKids: true, isAiGeneratedContent: false}`.
+- `createScheduledPost` mit: `providers: [{"network":"youtube"}]` und
+  `youtubeData: {title, type: "short", privacy: "public", tags, category: "EDUCATION", madeForKids: true, isAiGeneratedContent: false}`.
   `madeForKids` muss immer `true` sein.
+- **Titel:** kurz und natuerlich, hoechstens 60 Zeichen, Aufbau `<Was passiert>! <1 Emoji> <Lernthema> #shorts`,
+  z. B. `Kiki Builds a House! 🏠 Learn Shapes #shorts`. Keine Stichwort-Ketten, kein "| Story for Kids".
+- **Beschreibung (`text`):** 2-3 Saetze, die die Geschichte anreissen und das Kind ansprechen; Leerzeile;
+  `Learning goals: ...`; Leerzeile; `🌈 A new learning story every day on Motojumper, with Momo, Juju and friends!`;
+  Leerzeile; genau 4 Hashtags: `#shorts`, zwei zum Thema der Folge (z. B. `#learnshapes #shapesforkids`), `#kidslearning`.
+- **Tags:** 6-8 Suchbegriffe zum Thema, dazu immer `preschool learning`, `toddler learning`, `Momo and Juju`, `Motojumper`.
 - Kostenloser Metricool-Plan: 20 Posts pro Monat. Meldet Metricool ein Limit oder einen Fehler: nicht umgehen,
   sondern aufhoeren und Loris berichten.
 
