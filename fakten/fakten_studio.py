@@ -526,7 +526,7 @@ def lade_daten():
         VIDEOS[key] = dict(
             zeichne=mache_vorlage(art, thema, frage, einheit, items, schluss, opt),
             titel=f"{titelform(frage)} {emoji} {titelform(schluss)} #shorts",
-            text=f"{emoji} {fr} {satz} {TEASER[nr % len(TEASER)]}",
+            text=f"{emoji} {fr} {items[0][2]} {TEASER[nr % len(TEASER)]}",
             hashtags=th[4], tags=[fr.lower().rstrip("?"), *th[5], "science facts", "did you know", "facts in 30 seconds"],
             szenen=[(fr, .3)] + [(it[2], .4) for it in items] + [(satz + " Follow for more.", .6)])
 
