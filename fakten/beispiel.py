@@ -79,7 +79,7 @@ def v_hole(ctx, i, tl, d, t, V):
         text(ctx, "FALLING FASTER" if i == 1 else ("THE CENTER OF THE EARTH" if i == 2 else "SLOWING DOWN"), W / 2, 365, 50, CYAN, .15)
     if i in (4, 5):
         minuten = 42.2 * phase / P
-        text(ctx, f"{int(minuten):02d}:{int(minuten % 1 * 60):02d}" if i == 5 else "42 MINUTES", W / 2, 250, 130, GELB, .12)
+        text(ctx, f"{int(minuten)} MINUTES" if i == 5 else "42 MINUTES", W / 2, 250, 130, GELB, .12)
         text(ctx, "THE OTHER SIDE OF THE PLANET" if i == 4 else "BACK AND FORTH, FOREVER", W / 2, 365, 50, CYAN, .15, maxw=980)
     if i == 6:
         text(ctx, "MAYBE DON'T TRY IT", W / 2, 270, 100, GELB, .12, maxw=980)
