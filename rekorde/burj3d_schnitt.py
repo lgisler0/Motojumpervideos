@@ -33,7 +33,8 @@ def main():
             f.write(f"file 'b3frames/burj_{i:04d}.png'\nduration {1 / RFPS}\n")
         f.write(f"file 'b3frames/burj_{n - 1:04d}.png'\n")
     basis = os.path.join(HIER, "_b3basis.mp4")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", liste,
+    if not os.path.exists(basis):
+      subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", liste,
                     "-vf", f"fps={RFPS},minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,scale=1080:1920:flags=lanczos,unsharp=5:5:0.5,noise=alls=5:allf=t",
                     "-c:v", "libx264", "-preset", "medium", "-crf", "14", "-pix_fmt", "yuv420p", basis], check=True, cwd=HIER)
     wav = os.path.join(HIER, "_b3.wav"); out = os.path.join(HIER, "videos", "rekord_burj_3d.mp4")
