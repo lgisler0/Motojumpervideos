@@ -1,6 +1,6 @@
 # STAND – Basis für neue Chats (18.11.2026, 23:00)
 
-Diese Datei ist der aktuelle Stand. Ein neuer Chat liest zuerst diese Datei und arbeitet danach weiter.
+Diese Datei ist der aktuelle Stand. Ein neuer Chat liest zuerst diese Datei (und CLAUDE.md, rekorde/WEITERMACHEN.md ist veraltet) und arbeitet danach weiter.
 Sprache mit Loris: **Deutsch (Schweiz, «ss» statt «ß»), einfach und kurz**. Er schreibt oft per Sprache mit Tippfehlern.
 
 ## 1. Kanäle und Ziel
