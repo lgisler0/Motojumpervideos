@@ -20,10 +20,12 @@ Zeitzone `Europe/Zurich`. Name, Beschreibung und Banner vom Wissenskanal hat Lor
 
 ## 3. Weltrekorde ab 1.12. (2 pro Tag: 12:00 und 19:00)
 Eingeplant (Metricool 8066320):
-- 1.12. 12:00 ThrustSSC (`rekorde/3d/rekord_thrust_3d.mp4`)
-- 1.12. 19:00 Airbus A380 (`rekorde/3d/rekord_a380_3d.mp4`)
-- 2.12. 12:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
-Ab **2.12. 19:00 ist alles frei** → neue 3D-Rekord-Videos machen (ca. 2–3 h pro Video), Loris vorher zeigen.
+Auf Wunsch von Loris (19.11.) vorgezogen, jeweils 19:00 zusätzlich zum bisherigen Plan:
+- 19.11. 19:00 ThrustSSC (`rekorde/3d/rekord_thrust_3d.mp4`)
+- 20.11. 19:00 Airbus A380 (`rekorde/3d/rekord_a380_3d.mp4`)
+- 21.11. 19:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
+- in Arbeit: BelAZ 75710 (grösster Muldenkipper, GWR largest two-axle dump truck) – `fakten/rekorde/belaz3d.py`, `belaz_schnitt.py`; Loris zuerst zeigen.
+Neue 3D-Rekord-Videos (ca. 2–3 h pro Video) immer zuerst Loris zeigen.
 Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D).
 
 ## 4. Feste Wünsche von Loris (immer einhalten)
