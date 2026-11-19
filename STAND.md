@@ -18,19 +18,20 @@ Zeitzone `Europe/Zurich`. Name, Beschreibung und Banner vom Wissenskanal hat Lor
 - Zusätzlich am 18.11. um 19:00 das 3D-Tiefsee-Video (`fakten/3d/fakten_tiefsee3d.mp4`).
 - **Ab 1.12.: nur noch Weltrekorde.** Erinnerung am 27.11. 10:00 (geplante Aufgabe), den Plan Loris vorzulegen – vorher nichts posten und keine Credits ausgeben.
 
-## 3. Fertig, aber NOCH NICHT eingeplant
-| Video | Datei | Stimme | Status |
-|---|---|---|---|
-| Burj Khalifa 3D | `rekorde/3d/rekord_burj_3d.mp4` | Hope (Frau) | Loris fand es gut, wartet auf OK + Datum |
-| Airbus A380 3D | `rekorde/3d/rekord_a380_3d.mp4` | Hope (Frau) | gerade fertig, wartet auf Feedback + Datum |
-| 10 Weltrekorde 2D (wadlow, amge, eustace, bolt, burj, bridge, roc, zeus, limo, seawise) | mit `rekorde/rk_szenen.py <key>` neu rendern | Ethan (Mann) | **vor dem Posten mit Hope neu vertonen** |
-
-Vorbereiteter Text Burj: Titel `The Tallest Building on Earth 🏙️ Burj Khalifa in 3D`, Beschreibung:
-`828 meters tall 🏙️ The Burj Khalifa has been the tallest building on Earth since 2010, more than twice as tall as the Eiffel Tower. But in Saudi Arabia, something bigger is rising… 👀` + Leerzeile + `Which world record should we show next? Tell us in the comments 👇` + Leerzeile + `#burjkhalifa #worldrecord #shorts`. Erster Kommentar: `Would you ride all the way to the top? 🛗`
+## 3. Weltrekorde ab 1.12. (2 pro Tag: 12:00 und 19:00)
+Eingeplant (Metricool 8066320):
+- 1.12. 12:00 ThrustSSC (`rekorde/3d/rekord_thrust_3d.mp4`)
+- 1.12. 19:00 Airbus A380 (`rekorde/3d/rekord_a380_3d.mp4`)
+- 2.12. 12:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
+Ab **2.12. 19:00 ist alles frei** → neue 3D-Rekord-Videos machen (ca. 2–3 h pro Video), Loris vorher zeigen.
+Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D).
 
 ## 4. Feste Wünsche von Loris (immer einhalten)
 - **Stimme: ab jetzt immer Frauenstimme «Hope – upbeat and clear»** (ElevenLabs voice_id `tnSpp4vdxKPjI9w0GnoV`, Modell `eleven_v4`). Alte Männerstimme «Ethan» (`uB5dGadiIOtRLnqbQl9M`) nicht mehr verwenden.
-- **Format Weltrekorde: 3D (Blender) wie Burj/A380**, mit Zahlenkarte oben, Untertiteln (aktives Wort gelb), Musik leise.
+- **Format Weltrekorde: nur noch 3D (Blender) wie ThrustSSC/A380/Burj**, Zahlenkarte oben, Untertitel (aktives Wort gelb).
+- **Daten aus Guinness World Records** (guinnessworldrecords.com) nehmen.
+- **Musik: spannend aber leise** (`ton_spannung` in `rk_basis.py`: Bass-Puls, Ticken, Spannungsbogen vor Schnitten, Ducking unter der Stimme).
+- Logos/Markennamen nicht nachbauen (Markenrecht), sonst Form/Farben/Bemalung 1:1.
 - **Loop:** letzter Satz führt in den ersten (z. B. «…still measures» → «Almost eighty meters.»), letztes Bild = erstes Bild.
 - **Objekte 1:1 erkennbar:** Was im Text vorkommt (Eiffelturm, G-Klasse, Dinosaurier …), muss im Bild sofort erkennbar und massstabsgetreu sein – auch wenn es länger dauert. Vor dem Rendern Standbilder prüfen.
 - Nichts darf nach KI-Massenware aussehen. Spannend: immer Bewegung, Kamerafahrten.
