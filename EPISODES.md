@@ -35,6 +35,19 @@
 | tidy | Clean Up Time | Aufraeumen | 2026-11-26 21:00 |
 | full | Empty and Full | Leer und voll | 2026-11-13 21:00 |
 | race | The Big Race | Erster, Zweiter, Dritter | 2026-11-12 21:00 |
+| weather | Juju's Weather Day | Wetter: sonnig, regnerisch, windig | 2026-11-27 17:00 |
+| night | Good Night, Momo | Tag und Nacht | 2026-11-27 21:00 |
+| bones | Dodo's Ten Bones | Weiterzaehlen 6-10 | 2026-11-28 17:00 |
+| please | The Magic Word | Bitte sagen | 2026-11-28 21:00 |
+| trip | Dodo's Big Trip | Auto, Boot, Flugzeug | 2026-11-29 17:00 |
+| feelings | How Does Juju Feel? | Gefuehle: froh, traurig, ueberrascht | 2026-11-29 21:00 |
+| autumn | Autumn Leaves | Herbstblaetter-Farben | 2026-11-30 17:00 |
+| wash | Clean Hands, Momo! | Haende waschen | 2026-11-30 21:00 |
+| ispy | I Spy G H I | Buchstaben G, H, I | 2026-12-01 17:00 |
+| drum | Fast And Slow | Schnell und langsam | 2026-12-01 21:00 |
+| cookies | Momo's Cookies | Herz, Stern, Rechteck | 2026-12-02 17:00 |
+| float | Sink Or Float? | Schwimmen oder sinken | 2026-12-02 21:00 |
+| week | Pip's Party Week | Wochentage | 2026-12-03 17:00 |
+| cocoa | Hot Cocoa | Heiss, kalt, warm | 2026-12-03 21:00 |
 
-Ideen fuer spaeter: Buchstaben G-I, Zahlen 6-10, Wetter, Tag und Nacht, Gefuehle, Fahrzeuge, Haende waschen,
-Bauernhof-Tiere, schnell/langsam, Wochentage, Formen Herz/Stern/Rechteck, Bitte sagen.
+Ideen fuer spaeter: Buchstaben J-L, Bauernhof-Tiere, oben/unten, offen/zu, Jahreszeiten-Reihe, mitspielen lassen, Zaehlen in Zweierschritten.

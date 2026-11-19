@@ -800,6 +800,379 @@ EPISODEN = {
             ("juju", "Well done, Pip!", [("jump", "juju"), ("jump", "dodo", {"at": .3})]),
             ("sunny", "First, second, third. Everyone did great! Bye bye!", [("confetti",), ("word", "GREAT JOB!", "rainbow")]),
         ]),
+
+    # ======== Folgen fuer 27.11. - 03.12.2026 ========
+    "ispy": dict(
+        titel="I SPY G H I", lernziel="Buchstaben G, H, I und ihre Woerter (grapes, hat, ice cream) mit dem Spiel 'I spy'",
+        yt_titel="Kiki and Momo Play I Spy! 👀 Letters G H I #shorts",
+        yt_text="👀 Kiki the cat and Momo the bear play I spy! Something starts with G, something sits on Momo's head 🎩 and something is cold and sweet. Can you guess before they do?",
+        ziele="the letters G, H and I, with grapes, hat and ice cream.", hashtags="#learnletters #alphabetforkids #ispy",
+        tags=["letters G H I", "I spy game for kids", "learn letters", "alphabet for kids", "phonics for kids", "letter G"],
+        buehne=[("grapes", "grapes", dict(x=420, y=1290, z=4, s=0, size=82)), ("ice", "icecream", dict(x=655, y=1280, z=4, s=0, size=80)),
+                ("kiki", "actor", dict(x=165, z=3, size=92)), ("momo", "actor", dict(x=900, z=3, size=100)),
+                ("hat", "hat", dict(x=900, y=1262, z=5, s=0, size=72)),
+                ("G", "letter", dict(x=540, y=830, z=6, s=0, size=110, text="G", farbe="purple")),
+                ("Hl", "letter", dict(x=540, y=830, z=6, s=0, size=110, text="H", farbe="red")),
+                ("I", "letter", dict(x=540, y=830, z=6, s=0, size=110, text="I", farbe="pink"))],
+        zeilen=[
+            ("sunny", "Hi friends! Kiki and Momo play I spy.", [("show", "kiki"), ("show", "momo", {"at": .2}), ("show", "hat", {"at": .3}),
+                                                              ("show", "grapes", {"at": .55}), ("show", "ice", {"at": .7}), ("word", "I SPY", "blue", {"at": .75})]),
+            ("kiki", "I spy something that starts with G!", [("word", None), ("show", "G", {"at": .7}), ("jump", "kiki")]),
+            ("momo", "G? Hmm...", [("wiggle", "momo")], .5),
+            ("kiki", "It is purple, and you can eat it!", [("wiggle", "grapes", {"at": .3})], .6),
+            ("momo", "Grapes! G is for grapes!", [("move", "G", 420, 1050, .6), ("scale", "G", .55), ("sparkle", "grapes"), ("word", "GRAPES", "purple"), ("jump", "momo", {"at": .3})]),
+            ("kiki", "Yes! Your turn, Momo.", [("word", None), ("wave", "kiki")]),
+            ("momo", "I spy something that starts with H. It is on my head!", [("show", "Hl", {"at": .45}), ("wiggle", "hat", {"at": .75})], .5),
+            ("kiki", "A hat! H is for hat!", [("move", "Hl", 900, 1015, .6), ("scale", "Hl", .55), ("word", "HAT", "red"), ("jump", "momo", {"at": .3}), ("jump", "hat", {"at": .3})]),
+            ("sunny", "One more! I spy something that starts with I. It is cold, and sweet.", [("word", None), ("show", "I", {"at": .3}), ("wiggle", "ice", {"at": .75})], .7),
+            ("kiki", "Ice cream! I is for ice cream!", [("move", "I", 650, 1035, .6), ("scale", "I", .55), ("sparkle", "ice"), ("word", "ICE CREAM", "pink"), ("jump", "kiki", {"at": .3})]),
+            ("sunny", "G, H, I. Now you can play I spy too! Bye bye!", [("jump", "G"), ("jump", "Hl", {"at": .1}), ("jump", "I", {"at": .2}), ("confetti", {"at": .3}),
+                                                                   ("word", "G H I", "rainbow"), ("wave", "kiki", {"at": .5}), ("wave", "momo", {"at": .55})]),
+        ]),
+
+    "bones": dict(
+        titel="DODO'S TEN BONES", lernziel="Weiterzaehlen von 5 bis 10",
+        yt_titel="Dodo Digs for Bones! 🦴 Count 6 to 10 #shorts",
+        yt_text="🐶 Dodo the dog has five bones, but he wants ten! Dig, dig, dig... six, seven, eight, nine. 🦴 Oh no, no more bones! Who brings number ten?",
+        ziele="counting on from 5 to 10.", hashtags="#countto10 #countingforkids #numbers",
+        tags=["count to 10", "counting 6 to 10", "counting for kids", "numbers 1 to 10", "learn numbers", "counting on"],
+        buehne=[("mound", "mound", dict(x=830, y=GY, z=1, s=0))]
+               + [("b%d" % (i + 1), "bone", dict(x=150 + 195 * i, y=860, z=4, s=0, size=72)) for i in range(5)]
+               + [("b%d" % (i + 6), "bone", dict(x=830, y=GY - 60, z=4, s=0, size=72)) for i in range(4)]
+               + [("b10", "bone", dict(x=1250, y=GY - 60, z=6, s=1, size=72)),
+                  ("dodo", "actor", dict(x=270, z=3, size=100)), ("kiki", "actor", dict(x=1300, z=5, size=92, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Dodo the dog has five bones.", [("show", "dodo")] + [("show", "b%d" % (i + 1), {"at": .35 + i * .1}) for i in range(5)] + [("word", "5", "orange", {"at": .85})]),
+            ("dodo", "One, two, three, four, five. But I want ten bones!", [("jump", "b%d" % (i + 1), {"at": .02 + i * .1}) for i in range(5)] + [("word", "10?", "purple", {"at": .7}), ("jump", "dodo", {"at": .7})]),
+            ("sunny", "So Dodo digs in the garden. Dig, dig, dig!", [("word", None), ("show", "mound", {"at": .2}), ("move", "dodo", 600, None, .9, {"at": .2}), ("wiggle", "mound", {"at": .6}), ("jump", "dodo", {"at": .7})]),
+            ("sunny", "Six!", [("show", "b6"), ("move", "b6", 150, 1010, .6), ("word", "6", "red")]),
+            ("sunny", "Seven!", [("show", "b7"), ("move", "b7", 345, 1010, .6), ("word", "7", "orange"), ("wiggle", "mound")]),
+            ("sunny", "Eight!", [("show", "b8"), ("move", "b8", 540, 1010, .6), ("word", "8", "green"), ("wiggle", "mound")]),
+            ("sunny", "Nine!", [("show", "b9"), ("move", "b9", 735, 1010, .6), ("word", "9", "blue"), ("wiggle", "mound")]),
+            ("dodo", "Dig, dig... Oh no! No more bones!", [("wiggle", "mound"), ("wiggle", "dodo", {"at": .5}), ("word", None)], .4),
+            ("sunny", "Look! Here comes Kiki.", [("move", "kiki", 900, None, 1.0), ("move", "b10", 830, GY - 60, 1.0)]),
+            ("kiki", "I found a bone for you, Dodo!", [("move", "b10", 930, 1010, .7, {"at": .4}), ("jump", "kiki")]),
+            ("sunny", "Ten!", [("word", "10", "purple"), ("sparkle", "b10")]),
+            ("dodo", "Ten bones! Thank you, Kiki!", [("jump", "dodo"), ("wave", "dodo", {"at": .5})]),
+            ("sunny", "Six, seven, eight, nine, ten! Great counting! Bye bye!",
+             [("jump", "b%d" % (i + 6), {"at": .02 + i * .1}) for i in range(5)] + [("confetti", {"at": .55}), ("word", "GREAT JOB!", "rainbow", {"at": .55}), ("jump", "kiki", {"at": .6})]),
+        ]),
+
+    "weather": dict(
+        titel="JUJU'S WEATHER DAY", lernziel="Wetter: sonnig, regnerisch, windig; was man dann macht",
+        yt_titel="Sun, Rain and Wind! ☔ Weather Words with Juju #shorts",
+        yt_text="☀️ It is a sunny day, so Juju the bunny plays outside. But then a big gray cloud comes, drip, drop! ☔ And then, whoosh, the wind blows! What will Juju do?",
+        ziele="the weather words sunny, rainy and windy.", hashtags="#weatherforkids #weather #rainyday",
+        tags=["weather for kids", "sunny rainy windy", "weather words", "rainy day story", "umbrella", "learn weather"],
+        buehne=[("cloud", "raincloud", dict(x=1350, y=720, z=1, s=1, size=150)),
+                ("juju", "actor", dict(x=380, z=3, size=100)),
+                ("umb", "umbrella", dict(x=430, y=1095, z=5, s=0, size=165)),
+                ("wind", "wind", dict(x=0, y=0, z=6, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Look, it is sunny today!", [("show", "juju"), ("word", "SUNNY", "yellow", {"at": .6})]),
+            ("juju", "Yay! The sun is warm. I can play outside!", [("jump", "juju"), ("jump", "juju", {"at": .5})]),
+            ("sunny", "Oh! Here comes a big gray cloud.", [("word", None), ("move", "cloud", 600, 720, 1.4, {"at": .2})]),
+            ("sunny", "Drip, drop! Now it is rainy!", [("fade", "cloud", 1, .5), ("word", "RAINY", "blue", {"at": .5})]),
+            ("juju", "I am getting wet! I need my umbrella.", [("wiggle", "juju")]),
+            ("sunny", "Up goes the umbrella!", [("show", "umb", {"at": .3})]),
+            ("juju", "Now I am nice and dry!", [("jump", "juju"), ("jump", "umb"), ("sparkle", "juju", {"at": .4})]),
+            ("sunny", "Whoosh! Now it is windy!", [("fade", "wind", 1, .6), ("word", "WINDY", "green", {"at": .4}), ("tilt", "umb", .35, {"at": .4}), ("wiggle", "juju", {"at": .4})]),
+            ("juju", "Hold on, umbrella! The wind blows the cloud away!",
+             [("tilt", "umb", -.25), ("tilt", "umb", .3, {"at": .35}), ("fade", "cloud", 0, .4, {"at": .3}), ("move", "cloud", -450, 650, 1.8, {"at": .3}), ("tilt", "umb", 0, {"at": .75})]),
+            ("sunny", "The wind stops, and the sun is back!", [("fade", "wind", 0, .6), ("hide", "umb", {"at": .5}), ("word", "SUNNY", "yellow", {"at": .5}), ("jump", "juju", {"at": .6})]),
+            ("sunny", "Sunny, rainy, windy. What is the weather where you are? Bye bye!", [("confetti", {"at": .3}), ("word", "GREAT JOB!", "rainbow", {"at": .3}), ("wave", "juju", {"at": .5})]),
+        ]),
+
+    "night": dict(
+        titel="GOOD NIGHT, MOMO", lernziel="Tag und Nacht: was wir am Tag und in der Nacht machen",
+        yt_titel="Good Night, Momo! 🌙 Day and Night for Kids #shorts",
+        yt_text="☀️ In the day, Momo the bear runs and plays in the sun. But then the sun goes down, and the moon and the stars come out. 🌙 Time for bed! And what happens in the morning?",
+        ziele="day and night, and what we do at night.", hashtags="#dayandnight #bedtimestory #goodnight",
+        tags=["day and night for kids", "bedtime story for kids", "good night", "moon and stars", "sleep routine", "morning and night"],
+        buehne=[("nacht", "night", dict(x=0, y=0, z=-1, s=1, v=0)),
+                ("bed", "bed", dict(x=760, y=GY, z=1, s=1)),
+                ("momo", "actor", dict(x=240, z=3, size=100)),
+                ("blank", "blanket", dict(x=760, y=GY - 95, z=4, s=0, size=100)),
+                ("zzz", "text", dict(x=930, y=1080, z=5, s=0, size=80, text="Zzz", farbe="purple"))],
+        zeilen=[
+            ("sunny", "Hi friends! It is day. Momo plays in the sun.", [("show", "momo"), ("word", "DAY", "yellow", {"at": .3}), ("jump", "momo", {"at": .6})]),
+            ("momo", "I love the day! I can run and play!", [("move", "momo", 420, None, .6), ("jump", "momo", {"at": .2}), ("move", "momo", 240, None, .6, {"at": .55}), ("jump", "momo", {"at": .6})]),
+            ("sunny", "Now the sun goes down. It is getting dark.", [("word", None), ("fade", "nacht", .5, 2.0)]),
+            ("momo", "Yawn! I am sleepy.", [("wiggle", "momo")], .5),
+            ("sunny", "Look up! The moon and the stars. Now it is night.", [("fade", "nacht", 1, 1.2), ("word", "NIGHT", "purple", {"at": .7})]),
+            ("sunny", "At night, we go to bed.", [("word", None), ("move", "momo", 700, GY - 200, 1.0), ("show", "blank", {"at": .7})]),
+            ("momo", "Good night, moon! Good night, stars!", [("wave", "momo")]),
+            ("sunny", "Shh. Momo is sleeping.", [("show", "zzz", {"at": .3}), ("word", "SHH...", "purple", {"at": .3})], .8),
+            ("sunny", "Good morning! The sun comes up. It is day again!", [("fade", "nacht", 0, 1.6), ("hide", "zzz", {"at": .2}), ("word", "DAY", "yellow", {"at": .6}), ("jump", "momo", {"at": .7})]),
+            ("momo", "Good morning, Sunny!", [("hide", "blank"), ("move", "momo", 420, GY - 150, .7), ("wave", "momo", {"at": .4})]),
+            ("sunny", "Day and night. What do you do at night? Bye bye!", [("confetti", {"at": .3}), ("word", "GREAT JOB!", "rainbow", {"at": .3}), ("jump", "momo", {"at": .5})]),
+        ]),
+
+    "feelings": dict(
+        titel="HOW DOES JUJU FEEL?", lernziel="Gefuehle benennen: froh, traurig, ueberrascht; Freunde helfen",
+        yt_titel="Juju's Tower Falls Down! 😢 Happy, Sad, Surprised #shorts",
+        yt_text="😊 Juju the bunny builds a tall tower and she is happy. But then the tower falls down, and Juju is sad. 😢 Can Dodo the dog help? And what surprise is waiting at the end?",
+        ziele="the feelings happy, sad and surprised, and how friends help.", hashtags="#feelingsforkids #emotions #happyandsad",
+        tags=["feelings for kids", "emotions for kids", "happy sad surprised", "social emotional learning", "friendship story", "how do you feel"],
+        buehne=[("b1", "shape", dict(x=580, y=GY - 72, z=2, s=0, size=70, art="square", farbe="red")),
+                ("b2", "shape", dict(x=580, y=GY - 214, z=2, s=0, size=70, art="square", farbe="yellow")),
+                ("b3", "shape", dict(x=580, y=GY - 356, z=2, s=0, size=70, art="square", farbe="blue")),
+                ("b4", "shape", dict(x=580, y=GY - 498, z=2, s=0, size=70, art="square", farbe="green")),
+                ("star", "star", dict(x=580, y=GY - 640, z=2, s=0, size=62)),
+                ("juju", "actor", dict(x=210, z=3, size=95)), ("dodo", "actor", dict(x=1300, z=3, size=92, s=1)),
+                ("happy", "face", dict(x=215, y=820, z=5, s=0, size=95, art="happy")),
+                ("sad", "face", dict(x=215, y=820, z=5, s=0, size=95, art="sad")),
+                ("surp", "face", dict(x=215, y=820, z=5, s=0, size=95, art="surprised"))],
+        zeilen=[
+            ("sunny", "Hi friends! Juju builds a tall tower.", [("show", "juju"), ("show", "b1", {"at": .35}), ("show", "b2", {"at": .5}), ("show", "b3", {"at": .65})]),
+            ("juju", "Look at my tower! I am happy!", [("show", "happy", {"at": .5}), ("word", "HAPPY", "yellow", {"at": .5}), ("jump", "juju", {"at": .5})]),
+            ("sunny", "Oh no! The tower falls down!", [("word", None), ("wiggle", "b3"), ("move", "b3", 420, GY - 72, .5, {"at": .4}), ("move", "b2", 760, GY - 72, .5, {"at": .45})]),
+            ("juju", "My tower! I am sad.", [("hide", "happy"), ("show", "sad", {"at": .1}), ("word", "SAD", "blue", {"at": .5}), ("wiggle", "juju", {"at": .3})], .5),
+            ("sunny", "Here comes Dodo.", [("word", None), ("move", "dodo", 920, None, 1.0)]),
+            ("dodo", "Don't be sad, Juju. Let's build it again, together!", [("wave", "dodo")]),
+            ("sunny", "One, two, three, four. Up it goes!", [("move", "b2", 580, GY - 214, .5, {"at": .2}), ("move", "b3", 580, GY - 356, .5, {"at": .45}), ("show", "b4", {"at": .7}),
+                                                         ("jump", "dodo", {"at": .2}), ("jump", "juju", {"at": .45})]),
+            ("juju", "Our tower is even taller! I am happy again!", [("hide", "sad"), ("show", "happy", {"at": .1}), ("word", "HAPPY", "yellow", {"at": .4}), ("jump", "juju", {"at": .4})]),
+            ("sunny", "And look! Dodo has a surprise.", [("word", None), ("show", "star", {"at": .5}), ("sparkle", "star", {"at": .55})]),
+            ("juju", "Wow! A star! I am surprised!", [("hide", "happy"), ("show", "surp", {"at": .1}), ("word", "SURPRISED", "orange", {"at": .45}), ("jump", "juju", {"at": .2})]),
+            ("sunny", "Happy, sad, surprised. How do you feel today? Bye bye!", [("hide", "surp", {"at": .5}), ("show", "happy", {"at": .55}), ("confetti", {"at": .55}),
+                                                                                ("word", "GREAT JOB!", "rainbow", {"at": .55}), ("wave", "juju", {"at": .6}), ("wave", "dodo", {"at": .65})]),
+        ]),
+
+    "trip": dict(
+        titel="DODO'S BIG TRIP", lernziel="Fahrzeuge und wo sie fahren: Auto (Strasse), Boot (Wasser), Flugzeug (Luft)",
+        yt_titel="Dodo's Big Trip! 🚗 Car, Boat and Plane #shorts",
+        yt_text="🐶 Dodo the dog goes on a big trip! First he drives a car. 🚗 Then he comes to the water, and a car cannot swim! What does Dodo take next? And how does he get up into the sky? ✈️",
+        ziele="car, boat and plane, and where they go: road, water and sky.", hashtags="#vehiclesforkids #transportation #carsforkids",
+        tags=["vehicles for kids", "car boat plane", "transportation for kids", "learn vehicles", "where do vehicles go", "toddler vehicles"],
+        buehne=[("road", "road", dict(x=0, y=GY, z=0, s=1)), ("pond", "pond", dict(x=540, y=GY + 15, z=0, s=0)),
+                ("dodo", "actor", dict(x=-300, y=GY - 170, z=3, size=62, s=1)),
+                ("car", "car", dict(x=-300, y=GY + 40, z=4, s=1, size=115, farbe="red")),
+                ("boat", "boat", dict(x=-400, y=GY, z=4, s=1, size=100, farbe="blue")),
+                ("plane", "plane", dict(x=-400, y=880, z=4, s=1, size=110))],
+        zeilen=[
+            ("sunny", "Hi friends! Dodo goes on a big trip. First, he drives a car!", [("move", "car", 540, None, 1.6), ("move", "dodo", 510, None, 1.6), ("word", "CAR", "red", {"at": .7})]),
+            ("dodo", "Vroom, vroom! A car drives on the road.", [("wiggle", "car"), ("wave", "dodo")]),
+            ("sunny", "Now Dodo comes to the water. A car cannot swim!", [("word", None), ("move", "car", 1450, None, 1.2), ("move", "dodo", 1420, None, 1.2), ("hide", "road", {"at": .45}), ("show", "pond", {"at": .55})]),
+            ("sunny", "So Dodo takes a boat.", [("place", "dodo", -430, GY - 120), ("move", "boat", 560, None, 1.4), ("move", "dodo", 530, None, 1.4), ("word", "BOAT", "blue", {"at": .6})]),
+            ("dodo", "Toot, toot! A boat floats on the water.", [("wiggle", "boat"), ("wave", "dodo")]),
+            ("sunny", "Now Dodo wants to go up, up, high in the sky!", [("word", None), ("move", "boat", 1500, None, 1.3), ("move", "dodo", 1470, None, 1.3), ("hide", "pond", {"at": .6})]),
+            ("sunny", "So Dodo takes a plane!", [("place", "dodo", -360, 805), ("move", "plane", 540, 900, 1.5), ("move", "dodo", 580, 825, 1.5), ("word", "PLANE", "green", {"at": .6})]),
+            ("dodo", "Zoom! A plane flies in the sky. Wheee!", [("move", "plane", 540, 760, .8, {"at": .3}), ("move", "dodo", 580, 685, .8, {"at": .3}), ("wave", "dodo")]),
+            ("sunny", "A car on the road, a boat on the water, and a plane in the sky. Great trip, Dodo! Bye bye!",
+             [("word", "GREAT TRIP!", "rainbow", {"at": .6}), ("confetti", {"at": .6}), ("move", "plane", 1500, 560, 1.6, {"at": .72}), ("move", "dodo", 1540, 485, 1.6, {"at": .72})]),
+        ]),
+
+    "wash": dict(
+        titel="CLEAN HANDS, MOMO!", lernziel="Haende waschen in 5 Schritten: nass, Seife, schrubben, abspuelen, abtrocknen",
+        yt_titel="Momo Washes His Hands! 🧼 Handwashing Steps #shorts",
+        yt_text="🐻 Momo the bear played in the mud, and now he wants to eat an apple! 🍎 But wait, his hands are dirty. Juju shows him how to wash his hands, step by step. 🧼",
+        ziele="washing hands: water, soap, scrub, rinse and dry.", hashtags="#washyourhands #goodhabits #healthyhabits",
+        tags=["wash your hands", "handwashing for kids", "good habits for kids", "healthy habits", "hygiene for kids", "soap and water"],
+        buehne=[("sink", "sink", dict(x=650, y=GY, z=1, s=0)),
+                ("momo", "actor", dict(x=250, z=3, size=100)),
+                ("mud", "mud", dict(x=250, y=GY - 150, z=4, s=0, size=100)),
+                ("bub", "bubbles", dict(x=420, y=1330, z=5, s=0, size=100)),
+                ("juju", "actor", dict(x=920, z=3, size=90)),
+                ("towel", "towel", dict(x=830, y=1320, z=5, s=0, size=90)),
+                ("ap", "apple", dict(x=290, y=1420, z=5, s=0, size=95))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo played in the mud. Look at him!", [("show", "momo"), ("show", "mud", {"at": .55}), ("word", "MUDDY", "brown", {"at": .6})]),
+            ("momo", "I am hungry! Can I eat an apple now?", [("jump", "momo")]),
+            ("juju", "Wait, Momo! First, we wash our hands!", [("show", "juju"), ("wave", "juju"), ("show", "sink", {"at": .5}), ("word", None)]),
+            ("sunny", "Turn on the water. Make your hands wet.", [("move", "momo", 400, None, .7), ("move", "mud", 400, None, .7), ("set", "sink", 1, {"at": .4}), ("word", "WET", "blue", {"at": .4})]),
+            ("sunny", "Now the soap. Scrub, scrub, scrub!", [("show", "bub", {"at": .3}), ("word", "SOAP", "pink", {"at": .3}), ("wiggle", "momo", {"at": .5})]),
+            ("sunny", "Scrub the front, the back, and between your fingers.", [("wiggle", "momo"), ("wiggle", "bub", {"at": .4}), ("word", "SCRUB", "purple")]),
+            ("sunny", "Rinse the soap away.", [("hide", "bub", {"at": .3}), ("hide", "mud", {"at": .5}), ("word", "RINSE", "blue", {"at": .3})]),
+            ("sunny", "Turn off the water, and dry your hands.", [("set", "sink", 0, {"at": .2}), ("show", "towel", {"at": .55}), ("word", "DRY", "green", {"at": .55})]),
+            ("momo", "Clean hands! Now I can eat my apple!", [("hide", "towel"), ("show", "ap", {"at": .5}), ("sparkle", "momo"), ("jump", "momo", {"at": .2}), ("word", "CLEAN!", "rainbow")]),
+            ("sunny", "Wet, soap, scrub, rinse, dry. Great job! Bye bye!", [("confetti", {"at": .5}), ("word", "GREAT JOB!", "rainbow", {"at": .5}), ("wave", "juju", {"at": .6}), ("jump", "momo", {"at": .6})]),
+        ]),
+
+    "drum": dict(
+        titel="FAST AND SLOW", lernziel="Gegensatz schnell und langsam (Musik und Bewegung)",
+        yt_titel="Kiki's Drum Dance! 🥁 Fast and Slow #shorts",
+        yt_text="🥁 Kiki the cat plays the drum and her friends dance! Boom, boom, boom, fast! Pip and Freddy hop and hop... until little Pip is tired. 🐥 Can Kiki play slow? Dance along!",
+        ziele="fast and slow, with music and moving.", hashtags="#fastandslow #oppositesforkids #movementforkids",
+        tags=["fast and slow", "opposites for kids", "movement song for kids", "dance for kids", "drum for kids", "music and movement"],
+        buehne=[("kiki", "actor", dict(x=180, z=3, size=92)), ("drum", "drum", dict(x=210, y=GY - 30, z=4, s=0, size=85)),
+                ("pip", "actor", dict(x=560, z=3, size=62)), ("freddy", "actor", dict(x=830, z=3, size=82))],
+        zeilen=[
+            ("sunny", "Hi friends! Kiki has a drum. Let's dance!", [("show", "kiki"), ("show", "drum", {"at": .3}), ("show", "pip", {"at": .55}), ("show", "freddy", {"at": .7})]),
+            ("kiki", "When I play fast, you hop fast!", [("wiggle", "drum")]),
+            ("kiki", "Boom, boom, boom, boom, boom!", [("word", "FAST", "red")] + [x for k in range(5) for x in
+                                                                              (("wiggle", "drum", {"at": k * .19}), ("jump", "pip", {"at": k * .19, "d": .3}), ("jump", "freddy", {"at": k * .19, "d": .3}))]),
+            ("pip", "Fast, fast, fast! Phew, I am tired!", [("jump", "pip", {"d": .3}), ("jump", "pip", {"at": .2, "d": .3}), ("wiggle", "pip", {"at": .55})], .5),
+            ("kiki", "Then I play slow. Hop slow!", [("word", None)]),
+            ("kiki", "Boom... boom... boom...", [("word", "SLOW", "blue")] + [x for k in range(3) for x in
+                                                                       (("wiggle", "drum", {"at": k * .33}), ("jump", "pip", {"at": k * .33, "d": 1.0}), ("jump", "freddy", {"at": k * .33, "d": 1.0}))]),
+            ("freddy", "Slow is nice too!", [("jump", "freddy", {"d": 1.0})]),
+            ("sunny", "Now you! Fast!", [("word", "FAST", "red"), ("wiggle", "drum", {"at": .3}), ("jump", "pip", {"at": .3, "d": .3}), ("jump", "freddy", {"at": .5, "d": .3}),
+                                     ("jump", "pip", {"at": .7, "d": .3}), ("jump", "freddy", {"at": .9, "d": .3})]),
+            ("sunny", "And slow...", [("word", "SLOW", "blue"), ("wiggle", "drum"), ("jump", "pip", {"d": 1.1}), ("jump", "freddy", {"at": .1, "d": 1.1})], .5),
+            ("sunny", "Fast and slow. You are great dancers! Bye bye!", [("confetti", {"at": .3}), ("word", "GREAT JOB!", "rainbow", {"at": .3}), ("jump", "kiki", {"at": .4}),
+                                                                       ("jump", "pip", {"at": .5}), ("jump", "freddy", {"at": .6})]),
+        ]),
+
+    "week": dict(
+        titel="PIP'S PARTY WEEK", lernziel="Die sieben Wochentage in der richtigen Reihenfolge",
+        yt_titel="When Is Pip's Party? 🎉 Days of the Week #shorts",
+        yt_text="🐥 Pip the chick has a party on Sunday, and he can't wait! Is it Sunday today? Not yet! 📅 Count the days of the week with Pip, from Monday all the way to party day. 🎉",
+        ziele="the seven days of the week, in order.", hashtags="#daysoftheweek #learnenglish #calendarforkids",
+        tags=["days of the week", "days of the week for kids", "Monday to Sunday", "calendar for kids", "learn days", "week for kids"],
+        buehne=[(k, "card", dict(x=x, y=y, z=2, s=0, size=74, text=k, farbe=f)) for k, x, y, f in
+                [("MON", 155, 760, "red"), ("TUE", 385, 760, "orange"), ("WED", 615, 760, "yellow"), ("THU", 845, 760, "green"),
+                 ("FRI", 270, 950, "blue"), ("SAT", 500, 950, "purple"), ("SUN", 730, 950, "pink")]]
+               + [("bl1", "balloon", dict(x=330, y=1180, z=2, size=95, farbe="red")), ("bl2", "balloon", dict(x=780, y=1150, z=2, size=95, farbe="blue")),
+                  ("gift", "gift", dict(x=800, y=GY - 80, z=3, s=0, size=80, farbe="green")),
+                  ("pip", "actor", dict(x=540, z=4, size=78))],
+        zeilen=[
+            ("sunny", "Hi friends! Pip has a party on Sunday!", [("show", "pip"), ("jump", "pip", {"at": .6}), ("word", "SUNDAY", "pink", {"at": .65})]),
+            ("pip", "Is it Sunday today?", [("wiggle", "pip")], .5),
+            ("sunny", "Not yet! Today is Monday.", [("word", None), ("show", "MON", {"at": .6})]),
+            ("sunny", "Tuesday.", [("show", "TUE"), ("jump", "pip")]),
+            ("sunny", "Wednesday.", [("show", "WED"), ("jump", "pip")]),
+            ("sunny", "Thursday.", [("show", "THU"), ("jump", "pip")]),
+            ("pip", "Is it Sunday now?", [("wiggle", "pip")], .3),
+            ("sunny", "Not yet! Friday.", [("show", "FRI", {"at": .5}), ("jump", "pip", {"at": .5})]),
+            ("sunny", "Saturday.", [("show", "SAT"), ("jump", "pip")]),
+            ("sunny", "And now, Sunday! Party day!", [("show", "SUN", {"at": .3}), ("sparkle", "SUN", {"at": .3}), ("show", "bl1", {"at": .6}), ("show", "bl2", {"at": .65}),
+                                                     ("show", "gift", {"at": .7}), ("confetti", {"at": .6}), ("word", "PARTY DAY!", "rainbow", {"at": .6})]),
+            ("pip", "Hooray! A week has seven days!", [("jump", "pip"), ("jump", "pip", {"at": .5}), ("word", "7 DAYS", "green", {"at": .6})]),
+            ("sunny", "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday! Bye bye!",
+             [("jump", k, {"at": .02 + i * .11}) for i, k in enumerate(["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"])] + [("wave", "pip", {"at": .8})]),
+        ]),
+
+    "cookies": dict(
+        titel="MOMO'S COOKIES", lernziel="Formen: Herz, Stern, Rechteck",
+        yt_titel="Momo Bakes Shape Cookies! 🍪 Heart, Star, Rectangle #shorts",
+        yt_text="🍪 Momo the bear bakes cookies for his friends, and every cookie has a different shape! ❤️ A heart, a star and a rectangle. Which one is for Juju, Pip and Dodo?",
+        ziele="the shapes heart, star and rectangle.", hashtags="#learnshapes #shapesforkids #baking",
+        tags=["shapes for kids", "heart star rectangle", "learn shapes", "shape cookies", "baking story for kids", "preschool shapes"],
+        buehne=[("tray", "tray", dict(x=540, y=1035, z=1, s=0)),
+                ("heart", "cookie", dict(x=270, y=935, z=4, s=0, size=92, art="heart", farbe="red")),
+                ("star", "cookie", dict(x=540, y=925, z=4, s=0, size=88, art="star", farbe="yellow")),
+                ("rect", "cookie", dict(x=815, y=950, z=4, s=0, size=76, art="rect", farbe="orange")),
+                ("momo", "actor", dict(x=170, z=3, size=100)),
+                ("juju", "actor", dict(x=500, z=3, size=80, s=0)), ("pip", "actor", dict(x=720, z=3, size=56, s=0)), ("dodo", "actor", dict(x=925, z=3, size=80, s=0))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo bakes cookies today.", [("show", "momo"), ("show", "tray", {"at": .6})]),
+            ("momo", "I make cookies in different shapes!", [("jump", "momo")]),
+            ("sunny", "The first cookie is a heart.", [("show", "heart", {"at": .6}), ("word", "HEART", "red", {"at": .6})]),
+            ("momo", "A heart, for my friend Juju!", [("wiggle", "heart")]),
+            ("sunny", "Next, a star. A star has five points.", [("show", "star", {"at": .2}), ("word", "STAR", "yellow", {"at": .2}), ("wiggle", "star", {"at": .6})]),
+            ("sunny", "And a rectangle. It has two long sides, and two short sides.", [("show", "rect", {"at": .2}), ("word", "RECTANGLE", "orange", {"at": .2}), ("wiggle", "rect", {"at": .55})]),
+            ("momo", "The cookies are ready! Come, friends!", [("word", None), ("wave", "momo"), ("show", "juju", {"at": .5}), ("show", "pip", {"at": .65}), ("show", "dodo", {"at": .8})]),
+            ("sunny", "A heart for Juju, a star for Pip, and a rectangle for Dodo.",
+             [("move", "heart", 500, 1455, .7, {"at": .05}), ("scale", "heart", .5, {"at": .05}), ("move", "star", 720, 1460, .7, {"at": .35}), ("scale", "star", .42, {"at": .35}),
+              ("move", "rect", 925, 1460, .7, {"at": .65}), ("scale", "rect", .5, {"at": .65}), ("hide", "tray", {"at": .8})]),
+            ("juju", "Yummy! Thank you, Momo!", [("jump", "juju"), ("jump", "pip", {"at": .15}), ("jump", "dodo", {"at": .3})]),
+            ("sunny", "Heart, star, rectangle. Which cookie do you like? Bye bye!", [("confetti", {"at": .3}), ("word", "GREAT JOB!", "rainbow", {"at": .3}), ("wave", "momo", {"at": .5})]),
+        ]),
+
+    "please": dict(
+        titel="THE MAGIC WORD", lernziel="Hoeflich fragen: bitte (please) sagen",
+        yt_titel="What Is the Magic Word? 🍌 Say Please with Pip #shorts",
+        yt_text="🐥 Pip the chick sees a yummy banana and shouts: give me the banana! 🍌 Hmm, Momo the bear waits. What is the magic word? A little story about saying please. ✨",
+        ziele="asking nicely and saying please.", hashtags="#sayplease #mannersforkids #kindness",
+        tags=["say please", "manners for kids", "magic words", "please and thank you", "polite kids", "kindness story"],
+        buehne=[("basket", "basket", dict(x=700, y=GY - 78, z=4, s=0, size=105)),
+                ("ban", "banana", dict(x=650, y=GY - 190, z=3, s=0, size=95)), ("ora", "orange", dict(x=760, y=GY - 185, z=3, s=0, size=105)),
+                ("momo", "actor", dict(x=950, z=2, size=95)),
+                ("pip", "actor", dict(x=-200, z=3, size=62, s=1)), ("kiki", "actor", dict(x=-250, z=3, size=82, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Momo has a basket of fruit.", [("show", "momo"), ("show", "basket", {"at": .5}), ("show", "ban", {"at": .65}), ("show", "ora", {"at": .75})]),
+            ("pip", "Banana! Give me the banana!", [("move", "pip", 170, None, .8), ("jump", "pip", {"at": .5})]),
+            ("momo", "Hmm...", [("wiggle", "momo")], .7),
+            ("sunny", "Pip, what is the magic word?", [("word", "?", "yellow", {"at": .4})], .6),
+            ("pip", "Oh! May I have the banana, please?", [("word", "PLEASE", "green", {"at": .7}), ("jump", "pip", {"at": .7})]),
+            ("momo", "Of course! Here you go, Pip.", [("word", None), ("move", "ban", 290, GY - 70, .8, {"at": .4}), ("wave", "momo")]),
+            ("pip", "Thank you, Momo!", [("jump", "pip"), ("word", "THANK YOU", "pink")]),
+            ("sunny", "Here comes Kiki.", [("word", None), ("move", "kiki", 430, None, 1.0)]),
+            ("kiki", "Momo, may I have an orange, please?", [("word", "PLEASE", "green", {"at": .75})]),
+            ("momo", "Yes! You asked so nicely.", [("move", "ora", 530, GY - 60, .8, {"at": .3}), ("jump", "momo")]),
+            ("kiki", "Thank you!", [("jump", "kiki"), ("word", "THANK YOU", "pink")]),
+            ("sunny", "Please and thank you are magic words. Great job! Bye bye!", [("confetti", {"at": .4}), ("word", "MAGIC WORDS!", "rainbow", {"at": .4}),
+                                                                                  ("jump", "pip", {"at": .5}), ("jump", "kiki", {"at": .6})]),
+        ]),
+
+    "cocoa": dict(
+        titel="HOT COCOA", welt="winter", lernziel="Heiss, kalt und warm; vorsichtig sein mit heissen Getraenken",
+        yt_titel="Too Hot for Momo! ☕ Hot, Cold and Warm #shorts",
+        yt_text="❄️ It is a snowy day and Momo the bear is so cold! Juju the bunny brings him a cup of hot cocoa. ☕ But careful, it is hot! What can Momo do?",
+        ziele="hot, cold and warm, and being careful with hot drinks.", hashtags="#hotandcold #oppositesforkids #winterforkids",
+        tags=["hot and cold", "opposites for kids", "hot cold warm", "winter story for kids", "hot cocoa", "safety for kids"],
+        buehne=[("momo", "actor", dict(x=280, z=3, size=105)), ("juju", "actor", dict(x=1300, z=3, size=90, s=1)),
+                ("mug", "mug", dict(x=1220, y=GY - 60, z=5, s=1, size=95, v=1))],
+        zeilen=[
+            ("sunny", "Hi friends! Look, snow! It is cold today.", [("show", "momo"), ("word", "COLD", "blue", {"at": .6}), ("wiggle", "momo", {"at": .6})]),
+            ("momo", "So cold! My paws are cold!", [("wiggle", "momo"), ("wiggle", "momo", {"at": .5})]),
+            ("juju", "Here, Momo! I made hot cocoa.", [("move", "juju", 820, None, 1.0), ("move", "mug", 720, None, 1.0), ("word", None)]),
+            ("sunny", "Careful! The cocoa is hot!", [("move", "mug", 470, GY - 60, .7), ("word", "HOT", "red", {"at": .5}), ("wiggle", "mug", {"at": .5})]),
+            ("momo", "Ouch! Too hot! What can I do?", [("jump", "momo"), ("wiggle", "momo", {"at": .5})]),
+            ("juju", "Blow on it, and wait a little.", [("wave", "juju")]),
+            ("momo", "Whoo, whoo.", [("fade", "mug", .35, 1.5), ("wiggle", "mug")], .6),
+            ("sunny", "Now the cocoa is warm. Not too hot, and not too cold.", [("word", "WARM", "orange", {"at": .2}), ("sparkle", "mug", {"at": .2})]),
+            ("momo", "Mmm! Warm cocoa! Thank you, Juju!", [("jump", "momo"), ("jump", "juju", {"at": .5})]),
+            ("sunny", "Cold snow, hot cocoa, and warm Momo. Great job! Bye bye!", [("confetti", {"at": .5}), ("word", "GREAT JOB!", "rainbow", {"at": .5}), ("wave", "momo", {"at": .6})]),
+        ]),
+
+    "float": dict(
+        titel="SINK OR FLOAT?", lernziel="Schwimmt es oder sinkt es? Vermuten und ausprobieren",
+        yt_titel="Will It Float? 🐸 Sink or Float with Freddy #shorts",
+        yt_text="🐸 Freddy the frog plays a game at the pond: sink or float? A leaf, a stone and a ball. 🍃 Which one goes down, down, down? Make your guess before the splash! 💦",
+        ziele="sink and float, and guessing before you try.", hashtags="#sinkorfloat #scienceforkids #experiment",
+        tags=["sink or float", "science for kids", "preschool science", "float and sink experiment", "water play", "guessing game for kids"],
+        buehne=[("pond", "pond", dict(x=560, y=GY + 15, z=0, s=1)),
+                ("leaf", "leaf", dict(x=330, y=1080, z=4, s=0, size=78, farbe="green")),
+                ("stone", "stone", dict(x=330, y=1080, z=4, s=0, size=75)),
+                ("ball", "ball", dict(x=330, y=1080, z=4, s=0, size=125, farbe="red")),
+                ("freddy", "actor", dict(x=110, z=3, size=80))],
+        zeilen=[
+            ("sunny", "Hi friends! Freddy plays a game at the pond. Sink, or float?", [("show", "freddy"), ("word", "SINK OR FLOAT?", "blue", {"at": .6})]),
+            ("freddy", "First, a leaf. Will it sink, or float?", [("show", "leaf", {"at": .2}), ("wiggle", "leaf", {"at": .7})], .9),
+            ("sunny", "Splash!", [("word", None), ("drop", "leaf", 400, GY - 5)]),
+            ("freddy", "It floats! The leaf floats on the water.", [("word", "FLOAT", "green", {"at": .2}), ("jump", "freddy")]),
+            ("freddy", "Now, a stone. Sink, or float?", [("word", None), ("show", "stone", {"at": .2}), ("wiggle", "stone", {"at": .6})], .9),
+            ("sunny", "Splash!", [("drop", "stone", 570, GY), ("move", "stone", 570, GY + 45, .8, {"at": .6}), ("hide", "stone", {"at": .9})]),
+            ("freddy", "It sinks! The stone goes down, down, down.", [("word", "SINK", "blue", {"at": .2}), ("wiggle", "freddy")]),
+            ("freddy", "And my ball. Sink, or float?", [("word", None), ("show", "ball", {"at": .2}), ("wiggle", "ball", {"at": .6})], .9),
+            ("sunny", "Splash!", [("drop", "ball", 740, GY - 22)]),
+            ("freddy", "It floats! Yay!", [("word", "FLOAT", "green"), ("jump", "freddy"), ("sparkle", "ball")]),
+            ("sunny", "Float, sink, float! Try it in the bath, with a grown-up. Bye bye!", [("jump", "leaf"), ("jump", "ball", {"at": .1}), ("confetti", {"at": .3}),
+                                                                                           ("word", "GREAT JOB!", "rainbow", {"at": .3}), ("wave", "freddy", {"at": .5})]),
+        ]),
+
+    "autumn": dict(
+        titel="AUTUMN LEAVES", lernziel="Herbst: Blaetter in Rot, Gelb, Orange und Braun",
+        yt_titel="Juju's Leaf Pile! 🍂 Autumn Colors #shorts",
+        yt_text="🍂 It is autumn, and the leaves fall from the tree: red, yellow, orange and brown! Juju the bunny makes a big leaf pile. But then Dodo the dog comes running... 🐶 Jump!",
+        ziele="autumn and the leaf colors red, yellow, orange and brown.", hashtags="#autumnforkids #autumnleaves #learncolors",
+        tags=["autumn for kids", "fall leaves", "autumn colors", "seasons for kids", "leaf pile", "learn colors"],
+        buehne=[("tree", "atree", dict(x=760, y=GY, z=0, s=1)),
+                ("pile", "pile", dict(x=520, y=GY - 5, z=4, s=0, size=100))]
+               + [("l%d" % i, "leaf", dict(x=x, y=y, z=5, s=0, size=54, farbe=f)) for i, (x, y, f) in
+                  enumerate([(620, 820, "red"), (880, 900, "red"), (700, 700, "yellow"), (940, 760, "yellow"), (590, 960, "orange"), (830, 1020, "brown")])]
+               + [("juju", "actor", dict(x=200, z=3, size=95)), ("dodo", "actor", dict(x=1300, z=3, size=90, s=1))],
+        zeilen=[
+            ("sunny", "Hi friends! It is autumn. The leaves change color.", [("show", "juju"), ("wiggle", "tree", {"at": .3}), ("word", "AUTUMN", "orange", {"at": .3})]
+             + [("show", "l%d" % i, {"at": .45 + i * .08}) for i in range(6)]),
+            ("sunny", "Red leaves.", [("drop", "l0", 380, GY - 20), ("drop", "l1", 960, GY - 15, {"at": .2}), ("word", "RED", "red")]),
+            ("sunny", "Yellow leaves.", [("drop", "l2", 470, GY - 10), ("drop", "l3", 650, GY - 25, {"at": .2}), ("word", "YELLOW", "yellow")]),
+            ("sunny", "Orange leaves, and brown leaves!", [("drop", "l4", 560, GY - 15), ("word", "ORANGE", "orange"), ("drop", "l5", 850, GY - 20, {"at": .5}), ("word", "BROWN", "brown", {"at": .5})]),
+            ("juju", "So many leaves! I make a big pile.", [("word", None)] + [("move", "l%d" % i, 520, GY - 60, .5, {"at": .3 + i * .1}) for i in range(6)]
+             + [("show", "pile", {"at": .85}), ("jump", "juju", {"at": .3})]),
+            ("sunny", "Here comes Dodo!", [("move", "dodo", 900, None, 1.0)]),
+            ("dodo", "A leaf pile! Jump!", [("move", "dodo", 560, None, .5, {"at": .4}), ("jump", "dodo", {"at": .4}), ("hide", "pile", {"at": .65})]
+             + [("move", "l%d" % i, x, y, .4, {"at": .65}) for i, (x, y) in enumerate([(300, 1050), (420, 950), (560, 900), (700, 960), (820, 1060), (220, 1150)])]),
+            ("juju", "Oh, Dodo! The leaves are everywhere!", [("wiggle", "juju")]
+             + [("drop", "l%d" % i, x, GY - 15, {"at": .05 + i * .04}) for i, x in enumerate([330, 430, 690, 780, 940, 470])]),
+            ("dodo", "Sorry, Juju. But jumping is so much fun!", [("jump", "dodo"), ("jump", "dodo", {"at": .5})]),
+            ("juju", "You are right! Let's jump together!", [("jump", "juju", {"at": .5}), ("jump", "dodo", {"at": .55})]
+             + [("move", "l%d" % i, x, y, .4, {"at": .6}) for i, (x, y) in enumerate([(300, 1100), (460, 980), (600, 930), (740, 1000), (880, 1080), (180, 1180)])]),
+            ("sunny", "Red, yellow, orange, brown. Autumn is fun! Bye bye!", [("drop", "l%d" % i, x, GY - 15, {"at": .02 + i * .04}) for i, x in enumerate([330, 430, 690, 780, 950, 480])]
+             + [("confetti", {"at": .55}), ("word", "AUTUMN!", "rainbow", {"at": .55}), ("wave", "juju", {"at": .6}), ("jump", "dodo", {"at": .65})]),
+        ]),
 }
 
 
@@ -1159,10 +1532,407 @@ def p_text(ctx, x, y, g, o, v, t):
     kw.titel(ctx, o["text"], x, y, g, f, t, welle=.6)
 
 
-SKAL = ("tree", "bush", "pond", "lily", "xtree", "light", "road", "seesaw")
+# ---- Requisiten fuer die Folgen ab 27.11.2026 ----
+COLORS.setdefault("brown", rgb("a0612b"))
+
+
+def _f(name):
+    return COLORS.get(name) or rgb(name)
+
+
+def p_grapes(ctx, x, y, r, o, v, t):
+    if r < 4:
+        return
+    ctx.move_to(x, y - r * 1.05); ctx.curve_to(x + r * .05, y - r * 1.3, x + r * .25, y - r * 1.4, x + r * .3, y - r * 1.5)
+    ctx.set_source_rgb(*rgb("7a4a21")); ctx.set_line_width(max(4, r * .1)); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    ellipse(ctx, x + r * .38, y - r * 1.1, r * .4, r * .2, -.4); fuell(ctx, rgb("4cd964"), max(3, r * .06))
+    for dx, dy in [(-.55, -.7), (0, -.75), (.55, -.7), (-.3, -.25), (.3, -.25), (-.6, .15), (0, .2), (.6, .15), (-.3, .6), (.3, .6), (0, 1.0)]:
+        ellipse(ctx, x + dx * r, y + dy * r, r * .32, r * .32); fuell(ctx, COLORS["purple"], max(4, r * .06))
+        ellipse(ctx, x + dx * r - r * .1, y + dy * r - r * .1, r * .07, r * .09, .5); fuell(ctx, kw.WEISS, alpha=.7)
+
+
+def p_hat(ctx, x, y, r, o, v, t):
+    if r < 4:
+        return
+    lw = max(5, r * .08)
+    ellipse(ctx, x, y, r * 1.35, r * .3); fuell(ctx, COLORS["red"], lw)
+    kw_rund(ctx, x - r * .75, y - r * 1.0, r * 1.5, r * 1.05, r * .3); fuell(ctx, COLORS["red"], lw)
+    ctx.rectangle(x - r * .75, y - r * .35, r * 1.5, r * .25); fuell(ctx, COLORS["yellow"])
+    ellipse(ctx, x - r * .4, y - r * .75, r * .1, r * .16, .4); fuell(ctx, kw.WEISS, alpha=.6)
+
+
+def p_icecream(ctx, x, y, r, o, v, t):
+    if r < 4:
+        return
+    lw = max(5, r * .08)
+    ctx.move_to(x - r * .62, y - r * .2); ctx.line_to(x + r * .62, y - r * .2); ctx.line_to(x, y + r * 1.25); ctx.close_path()
+    fuell(ctx, rgb("e8b56a"), lw, rgb("a8742f"))
+    ctx.save(); ctx.move_to(x - r * .62, y - r * .2); ctx.line_to(x + r * .62, y - r * .2); ctx.line_to(x, y + r * 1.25); ctx.close_path(); ctx.clip()
+    ctx.set_source_rgb(*rgb("c48d45")); ctx.set_line_width(max(3, r * .05))
+    for k in range(-3, 4):
+        ctx.move_to(x + k * r * .3 - r, y - r * .2); ctx.line_to(x + k * r * .3 + r, y + r * 1.3)
+        ctx.move_to(x + k * r * .3 + r, y - r * .2); ctx.line_to(x + k * r * .3 - r, y + r * 1.3)
+    ctx.stroke(); ctx.restore()
+    ellipse(ctx, x, y - r * .45, r * .62, r * .5); fuell(ctx, COLORS["pink"], lw)
+    ellipse(ctx, x, y - r * .95, r * .5, r * .42); fuell(ctx, rgb("fff3d6"), lw, rgb("b8a27a"))
+    ellipse(ctx, x + r * .05, y - r * 1.42, r * .14, r * .14); fuell(ctx, COLORS["red"], max(3, r * .05))
+    ellipse(ctx, x - r * .25, y - r * 1.05, r * .08, r * .12, .5); fuell(ctx, kw.WEISS, alpha=.8)
+
+
+def p_mound(ctx, x, y, g, o, v, t):
+    ctx.move_to(x - 170, y + 6); ctx.curve_to(x - 120, y - 120, x + 120, y - 120, x + 170, y + 6); ctx.close_path()
+    fuell(ctx, rgb("9a6232"), 9, rgb("5e3a1a"))
+    for dx, dy in [(-60, -40), (30, -60), (80, -25), (-10, -20)]:
+        ellipse(ctx, x + dx, y + dy, 13, 8); fuell(ctx, rgb("7a4a21"))
+
+
+def p_raincloud(ctx, x, y, g, o, v, t):
+    s = g / 100
+    if s < .05:
+        return
+    if v > .05:
+        ctx.save()
+        for i in range(24):
+            dx = (i * 53) % 320 - 160
+            dy = (t * 650 + i * 97) % 640
+            a = v * min(1, 1.25 - dy / 640)
+            px, py = x + dx * s, y + 40 * s + dy
+            ctx.move_to(px, py - 34); ctx.curve_to(px + 17, py - 3, px + 14, py + 12, px, py + 12); ctx.curve_to(px - 14, py + 12, px - 17, py - 3, px, py - 34)
+            ctx.set_source_rgba(*rgb("2f7de0"), a); ctx.fill()
+        ctx.restore()
+    teile = [(-1.0, .15, .55), (-.4, -.25, .75), (.45, -.15, .65), (1.0, .15, .5), (0, .2, .75)]
+    for dx, dy, r in teile:
+        ellipse(ctx, x + dx * 100 * s, y + dy * 100 * s, r * 100 * s, r * 80 * s); fuell(ctx, rgb("9aa7bd"), 10, rgb("5d6a80"))
+    for dx, dy, r in teile:
+        ellipse(ctx, x + dx * 100 * s, y + dy * 100 * s, r * 100 * s - 5, r * 80 * s - 5)
+    fuell(ctx, rgb("9aa7bd"))
+    ellipse(ctx, x - 50 * s, y - 40 * s, 40 * s, 18 * s, -.2); fuell(ctx, rgb("c3cddd"))
+
+
+def p_umbrella(ctx, x, y, r, o, v, t):
+    if r < 5:
+        return
+    lw = max(5, r * .07)
+    ctx.save(); ctx.translate(x, y); ctx.rotate(v)
+    ctx.move_to(0, -r * .1); ctx.line_to(0, r * 1.25); ctx.arc_negative(r * .17, r * 1.25, r * .17, math.pi, 0)
+    ctx.set_source_rgb(*kw.INK); ctx.set_line_width(lw * 1.9); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    ctx.move_to(0, -r * .1); ctx.line_to(0, r * 1.25); ctx.arc_negative(r * .17, r * 1.25, r * .17, math.pi, 0)
+    ctx.set_source_rgb(*rgb("8a94a6")); ctx.set_line_width(lw * .9); ctx.stroke()
+    farben = [COLORS["red"], COLORS["yellow"], COLORS["red"], COLORS["yellow"]]
+    for k in range(4):
+        a0, a1 = math.pi + k * math.pi / 4, math.pi + (k + 1) * math.pi / 4
+        ctx.move_to(0, 0); ctx.arc(0, 0, r, a0, a1)
+        ctx.close_path(); fuell(ctx, farben[k], lw)
+    ellipse(ctx, 0, -r, r * .07, r * .07); fuell(ctx, kw.INK)
+    ctx.restore()
+
+
+def p_wind(ctx, x, y, g, o, v, t):
+    if v < .02:
+        return
+    ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+    for i, yy in enumerate([650, 830, 1010, 1190, 1330]):
+        xx = (t * 950 + i * 377) % (B + 600) - 300
+        ctx.move_to(xx - 170, yy); ctx.curve_to(xx - 80, yy - 30, xx + 20, yy + 30, xx + 110, yy)
+        ctx.arc(xx + 110, yy - 30, 30, math.pi / 2, math.pi / 2 + 5)
+        ctx.set_source_rgba(1, 1, 1, .85 * v); ctx.set_line_width(12); ctx.stroke()
+
+
+def p_night(ctx, x, y, g, o, v, t):
+    if v < .01:
+        return
+    ctx.set_source_rgba(*rgb("1b1f4a"), .74 * v); ctx.paint()
+    rnd = random.Random(11)
+    for i in range(26):
+        sx, sy = rnd.uniform(40, B - 40), rnd.uniform(320, 1250)
+        if sy < 620 and 320 < sx < 760:
+            continue
+        r = rnd.uniform(12, 22) * (1 + .15 * math.sin(t * 3 + i))
+        kw.stern_pfad(ctx, sx, sy, r); fuell(ctx, COLORS["yellow"], alpha=min(1, v * 1.3))
+    ctx.save(); ctx.push_group()
+    ellipse(ctx, 870, 640, 95, 95); ctx.set_source_rgb(*rgb("fff3b0")); ctx.fill()
+    ctx.set_operator(cairo.OPERATOR_CLEAR); ellipse(ctx, 920, 600, 85, 85); ctx.fill()
+    ctx.pop_group_to_source(); ctx.paint_with_alpha(min(1, v * 1.3)); ctx.restore()
+
+
+def p_bed(ctx, x, y, g, o, v, t):
+    kw_rund(ctx, x + 175, y - 330, 50, 330, 20); fuell(ctx, rgb("b0733c"), 9)
+    kw_rund(ctx, x - 225, y - 230, 50, 230, 20); fuell(ctx, rgb("b0733c"), 9)
+    kw_rund(ctx, x - 200, y - 150, 400, 80, 20); fuell(ctx, rgb("ffffff"), 9, rgb("8a94a6"))
+    ctx.rectangle(x - 180, y - 70, 20, 70); ctx.rectangle(x + 160, y - 70, 20, 70); fuell(ctx, rgb("b0733c"), 8)
+
+
+def p_blanket(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    s = g / 100
+    kw_rund(ctx, x - 205 * s, y - 50 * s, 410 * s, 125 * s, 30 * s); fuell(ctx, COLORS["blue"], 9)
+    for k in range(4):
+        ellipse(ctx, x - 140 * s + k * 95 * s, y + 10 * s, 18 * s, 18 * s); fuell(ctx, COLORS["yellow"])
+
+
+def p_face(ctx, x, y, r, o, v, t):
+    if r < 5:
+        return
+    lw = max(5, r * .08)
+    ellipse(ctx, x, y, r, r); fuell(ctx, rgb("ffd93b"), lw, rgb("e07b00"))
+    art = o["art"]
+    for sx in (-1, 1):
+        if art == "surprised":
+            ellipse(ctx, x + sx * r * .35, y - r * .2, r * .13, r * .17); fuell(ctx, kw.INK)
+            ctx.move_to(x + sx * r * .5, y - r * .58); ctx.line_to(x + sx * r * .2, y - r * .65)
+        elif art == "sad":
+            ellipse(ctx, x + sx * r * .35, y - r * .15, r * .1, r * .12); fuell(ctx, kw.INK)
+            ctx.move_to(x + sx * r * .52, y - r * .42); ctx.line_to(x + sx * r * .2, y - r * .52)
+        else:
+            ctx.arc(x + sx * r * .35, y - r * .1, r * .13, math.pi * 1.1, math.pi * 1.9)
+        ctx.set_source_rgb(*kw.INK); ctx.set_line_width(lw); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    if art == "surprised":
+        ellipse(ctx, x, y + r * .4, r * .17, r * .23); fuell(ctx, kw.INK)
+    elif art == "sad":
+        ctx.arc(x, y + r * .62, r * .32, math.pi * 1.15, math.pi * 1.85)
+        ctx.set_source_rgb(*kw.INK); ctx.set_line_width(lw * 1.2); ctx.stroke()
+        tr = y + r * .05 + (t * 90) % (r * .45)
+        ctx.move_to(x + r * .5, tr - r * .15); ctx.curve_to(x + r * .6, tr, x + r * .58, tr + r * .08, x + r * .5, tr + r * .08)
+        ctx.curve_to(x + r * .42, tr + r * .08, x + r * .4, tr, x + r * .5, tr - r * .15); fuell(ctx, COLORS["blue"])
+    else:
+        ctx.arc(x, y + r * .12, r * .42, math.pi * .15, math.pi * .85); ctx.close_path(); fuell(ctx, kw.INK)
+        ellipse(ctx, x, y + r * .45, r * .17, r * .08); fuell(ctx, COLORS["red"])
+    for sx in (-1, 1):
+        ellipse(ctx, x + sx * r * .62, y + r * .2, r * .14, r * .09); fuell(ctx, COLORS["pink"], alpha=.6)
+
+
+def p_car(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    lw = max(6, g * .07)
+    ctx.move_to(x - g * 1.5, y - g * .35); ctx.line_to(x - g * 1.5, y - g * .8); ctx.curve_to(x - g * 1.45, y - g * 1.0, x - g * 1.1, y - g * 1.0, x - g * .9, y - g * 1.0)
+    ctx.line_to(x + g * .9, y - g * 1.0); ctx.curve_to(x + g * 1.3, y - g * .95, x + g * 1.55, y - g * .8, x + g * 1.55, y - g * .55)
+    ctx.line_to(x + g * 1.55, y - g * .35); ctx.close_path(); fuell(ctx, COLORS[o["farbe"] or "red"], lw)
+    ctx.move_to(x + g * .55, y - g * 1.0); ctx.line_to(x + g * .85, y - g * 1.55)
+    ctx.set_source_rgb(*kw.INK); ctx.set_line_width(lw * 1.6); ctx.stroke()
+    ctx.move_to(x + g * .55, y - g * 1.0); ctx.line_to(x + g * .85, y - g * 1.55)
+    ctx.set_source_rgba(*rgb("bfe9ff"), 1); ctx.set_line_width(lw * .6); ctx.stroke()
+    ellipse(ctx, x + g * 1.42, y - g * .72, g * .1, g * .08); fuell(ctx, COLORS["yellow"], max(3, lw * .6))
+    ctx.rectangle(x - g * 1.2, y - g * .78, g * 1.6, g * .08); fuell(ctx, kw.WEISS, alpha=.5)
+    for wx in (-.9, .95):
+        cx, cy, rr = x + wx * g, y - g * .3, g * .32
+        ellipse(ctx, cx, cy, rr, rr); fuell(ctx, rgb("3b3f55"), lw, kw.INK)
+        ellipse(ctx, cx, cy, rr * .45, rr * .45); fuell(ctx, rgb("c9cfdc"))
+        a = x / (rr + 1)
+        ctx.move_to(cx + math.cos(a) * rr * .45, cy + math.sin(a) * rr * .45); ctx.line_to(cx - math.cos(a) * rr * .45, cy - math.sin(a) * rr * .45)
+        ctx.set_source_rgb(*rgb("7d8597")); ctx.set_line_width(max(3, lw * .5)); ctx.stroke()
+
+
+def p_boat(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    lw = max(6, g * .07)
+    y = y + math.sin(t * 2.5) * 0
+    ctx.move_to(x - g * 1.15, y - g * 2.3); ctx.line_to(x - g * 1.15, y - g * .5)
+    ctx.set_source_rgb(*rgb("7a4a21")); ctx.set_line_width(lw * 1.3); ctx.stroke()
+    ctx.move_to(x - g * 1.05, y - g * 2.2); ctx.line_to(x - g * .25, y - g * .75); ctx.line_to(x - g * 1.05, y - g * .75); ctx.close_path()
+    fuell(ctx, rgb("ffffff"), lw, rgb("8a94a6"))
+    ctx.move_to(x - g * 1.15, y - g * 2.3); ctx.line_to(x - g * .75, y - g * 2.15); ctx.line_to(x - g * 1.15, y - g * 2.0); ctx.close_path(); fuell(ctx, COLORS["red"], max(3, lw * .5))
+    ctx.move_to(x - g * 1.6, y - g * .55); ctx.line_to(x + g * 1.6, y - g * .55); ctx.line_to(x + g * 1.15, y + g * .3); ctx.line_to(x - g * 1.15, y + g * .3); ctx.close_path()
+    fuell(ctx, COLORS[o["farbe"] or "blue"], lw)
+    ctx.rectangle(x - g * 1.45, y - g * .4, g * 2.9, g * .12); fuell(ctx, kw.WEISS)
+    for k in (-1, 0, 1):
+        ellipse(ctx, x + k * g * .7, y - g * .05, g * .1, g * .1); fuell(ctx, rgb("bfe9ff"), max(3, lw * .5))
+
+
+def p_plane(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    lw = max(6, g * .07)
+    ctx.move_to(x - g * 1.6, y - g * .1); ctx.line_to(x - g * 2.0, y - g * .9); ctx.line_to(x - g * 1.55, y - g * .9); ctx.line_to(x - g * 1.0, y - g * .2); ctx.close_path()
+    fuell(ctx, COLORS["red"], lw)
+    ellipse(ctx, x, y, g * 1.8, g * .45); fuell(ctx, rgb("ffffff"), lw, rgb("7f8fb0"))
+    ctx.move_to(x - g * .3, y + g * .05); ctx.line_to(x + g * .5, y + g * .05); ctx.line_to(x - g * .1, y + g * 1.0); ctx.line_to(x - g * .8, y + g * 1.0); ctx.close_path()
+    fuell(ctx, COLORS["blue"], lw)
+    for k in range(3):
+        ellipse(ctx, x - g * 1.0 + k * g * .38, y - g * .05, g * .1, g * .1); fuell(ctx, rgb("7fd4ff"), max(3, lw * .5))
+    ellipse(ctx, x + g * 1.82, y, g * .12, g * .4 * abs(math.sin(t * 30)) + 2); fuell(ctx, rgb("8a94a6"), max(3, lw * .5))
+
+
+def p_mud(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    s = g / 100
+    for dx, dy, r in [(-62, 88, 30), (-38, 118, 18), (66, 78, 26), (84, 108, 16), (-52, -38, 18), (12, 128, 22), (40, 40, 12)]:
+        ellipse(ctx, x + dx * s, y + dy * s, r * s, r * s * .8, dx * .01); fuell(ctx, rgb("7a4a21"), alpha=.95)
+
+
+def p_sink(ctx, x, y, g, o, v, t):
+    ctx.rectangle(x - 35, y - 170, 70, 170); fuell(ctx, rgb("ffffff"), 9, rgb("8a94a6"))
+    ctx.move_to(x - 170, y - 260); ctx.line_to(x + 170, y - 260); ctx.curve_to(x + 160, y - 150, x + 90, y - 140, x, y - 140)
+    ctx.curve_to(x - 90, y - 140, x - 160, y - 150, x - 170, y - 260); ctx.close_path(); fuell(ctx, rgb("ffffff"), 9, rgb("8a94a6"))
+    kw_rund(ctx, x - 22, y - 400, 44, 140, 12); fuell(ctx, rgb("c9cfdc"), 8, rgb("7d8597"))
+    kw_rund(ctx, x - 22, y - 400, 110, 40, 16); fuell(ctx, rgb("c9cfdc"), 8, rgb("7d8597"))
+    kw_rund(ctx, x - 50, y - 430, 100, 26, 12); fuell(ctx, COLORS["blue"], 6)
+    if v > .02:
+        ctx.rectangle(x + 64, y - 360, 24, 100); ctx.set_source_rgba(*rgb("7fd4ff"), .85 * v); ctx.fill()
+        for k in range(4):
+            yy = y - 360 + (t * 300 + k * 25) % 100
+            ellipse(ctx, x + 76, yy, 6, 9); fuell(ctx, kw.WEISS, alpha=.7 * v)
+
+
+def p_bubbles(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    s = g / 100
+    rnd = random.Random(5)
+    for i in range(14):
+        a = rnd.uniform(0, 2 * math.pi); d = rnd.uniform(40, 150) * s
+        bx = x + math.cos(a + t * .8) * d; by = y + math.sin(a + t * .8) * d * .7 - (t * 40 + i * 30) % 80
+        r = rnd.uniform(14, 34) * s
+        ellipse(ctx, bx, by, r, r); fuell(ctx, rgb("ffffff"), max(3, r * .15), rgb("8fd3ff"), alpha=.55)
+        ellipse(ctx, bx - r * .35, by - r * .35, r * .2, r * .2); fuell(ctx, kw.WEISS)
+
+
+def p_towel(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    s = g / 100
+    kw_rund(ctx, x - 70 * s, y - 100 * s, 140 * s, 200 * s, 18 * s); fuell(ctx, COLORS["green"], 8)
+    for k in (-1, 1):
+        ctx.rectangle(x - 70 * s, y + k * 60 * s - 8 * s, 140 * s, 16 * s)
+    fuell(ctx, kw.WEISS, alpha=.85)
+
+
+def p_drum(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    lw = max(6, g * .07)
+    ctx.move_to(x - g, y - g * .9); ctx.line_to(x - g, y); ctx.curve_to(x - g, y + g * .4, x + g, y + g * .4, x + g, y); ctx.line_to(x + g, y - g * .9); ctx.close_path()
+    fuell(ctx, COLORS["red"], lw)
+    ctx.set_source_rgb(*COLORS["yellow"]); ctx.set_line_width(lw)
+    for k in range(5):
+        xx = x - g + k * g * .5
+        ctx.move_to(xx, y - g * .75); ctx.line_to(xx + g * .25, y + g * .1)
+        if k < 4:
+            ctx.move_to(xx + g * .5, y - g * .75); ctx.line_to(xx + g * .25, y + g * .1)
+    ctx.stroke()
+    ellipse(ctx, x, y - g * .9, g, g * .3); fuell(ctx, rgb("fff6e0"), lw, rgb("b8a27a"))
+
+
+def p_card(ctx, x, y, h, o, v, t):
+    if h < 6:
+        return
+    w = h * 1.45
+    kw_rund(ctx, x - w, y - h, 2 * w, 2 * h, h * .25); fuell(ctx, COLORS[o["farbe"]], max(6, h * .08))
+    kw_rund(ctx, x - w * .86, y - h * .78, 1.72 * w, 1.56 * h, h * .18); fuell(ctx, kw.WEISS)
+    kw.schrift(ctx, h * .82)
+    e = ctx.text_extents(o["text"])
+    ctx.move_to(x - e.width / 2 - e.x_bearing, y - e.height / 2 - e.y_bearing); ctx.text_path(o["text"])
+    ctx.set_source_rgb(*kw.kontur(COLORS[o["farbe"]])); ctx.fill()
+
+
+def _herz(ctx, x, y, r):
+    ctx.move_to(x, y + r * .95)
+    ctx.curve_to(x - r * 1.4, y + r * .05, x - r * 1.05, y - r * 1.05, x, y - r * .45)
+    ctx.curve_to(x + r * 1.05, y - r * 1.05, x + r * 1.4, y + r * .05, x, y + r * .95); ctx.close_path()
+
+
+def p_cookie(ctx, x, y, r, o, v, t):
+    if r < 5:
+        return
+    lw = max(6, r * .08)
+    teig, rand = rgb("e0a868"), rgb("a8742f")
+    art = o["art"]
+    for k, (f, kante, s) in enumerate([(teig, rand, 1.0), (COLORS[o["farbe"]], None, .78)]):
+        if art == "heart":
+            _herz(ctx, x, y, r * s)
+        elif art == "star":
+            kw.stern_pfad(ctx, x, y, r * 1.15 * s)
+        else:
+            kw_rund(ctx, x - r * 1.35 * s, y - r * .8 * s, 2.7 * r * s, 1.6 * r * s, r * .2 * s)
+        fuell(ctx, f, lw if k == 0 else 0, kante)
+    for dx, dy in [(-.3, -.1), (.25, .15), (0, .35)]:
+        ellipse(ctx, x + dx * r, y + dy * r, r * .06, r * .06); fuell(ctx, kw.WEISS)
+
+
+def p_tray(ctx, x, y, g, o, v, t):
+    kw_rund(ctx, x - 420, y - 22, 840, 44, 18); fuell(ctx, rgb("c9cfdc"), 9, rgb("7d8597"))
+
+
+def p_mug(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    lw = max(6, g * .08)
+    if v > .02:
+        ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+        for k in (-1, 0, 1):
+            ph = t * 3 + k * 2
+            ctx.move_to(x + k * g * .35, y - g * 1.1)
+            for j in range(1, 7):
+                ctx.line_to(x + k * g * .35 + math.sin(ph + j * .9) * g * .12, y - g * 1.1 - j * g * .16)
+            ctx.set_source_rgba(1, 1, 1, .9 * min(v, 1)); ctx.set_line_width(lw * 1.1); ctx.stroke()
+    ctx.arc(x + g * .72, y - g * .35, g * .32, -math.pi / 2, math.pi / 2)
+    ctx.set_source_rgb(*kw.kontur(COLORS["red"])); ctx.set_line_width(lw * 2.4); ctx.stroke()
+    ctx.arc(x + g * .72, y - g * .35, g * .32, -math.pi / 2, math.pi / 2)
+    ctx.set_source_rgb(*COLORS["red"]); ctx.set_line_width(lw * 1.1); ctx.stroke()
+    kw_rund(ctx, x - g * .7, y - g * .95, g * 1.4, g * 1.15, g * .18); fuell(ctx, COLORS["red"], lw)
+    ellipse(ctx, x, y - g * .92, g * .62, g * .14); fuell(ctx, rgb("7a4a21"))
+    for dx, dy in [(-.35, -.5), (.2, -.3), (-.1, -.05), (.4, -.65)]:
+        ellipse(ctx, x + dx * g, y + dy * g, g * .07, g * .07); fuell(ctx, kw.WEISS)
+
+
+def p_stone(ctx, x, y, r, o, v, t):
+    if r < 4:
+        return
+    ctx.move_to(x - r, y + r * .3); ctx.curve_to(x - r * 1.05, y - r * .5, x - r * .3, y - r * .75, x + r * .25, y - r * .65)
+    ctx.curve_to(x + r * .9, y - r * .55, x + r * 1.05, y + r * .1, x + r * .8, y + r * .45); ctx.curve_to(x + r * .3, y + r * .7, x - r * .7, y + r * .7, x - r, y + r * .3)
+    ctx.close_path(); fuell(ctx, rgb("9aa1ad"), max(5, r * .08), rgb("5d6370"))
+    ellipse(ctx, x - r * .3, y - r * .3, r * .22, r * .12, -.3); fuell(ctx, rgb("c4c9d2"))
+
+
+def p_leaf(ctx, x, y, r, o, v, t):
+    if r < 4:
+        return
+    f = _f(o["farbe"] or "green")
+    ctx.save(); ctx.translate(x, y); ctx.rotate(math.sin(t * 2 + o["seed"]) * .25 + o["seed"] * .7)
+    ctx.move_to(-r, 0); ctx.curve_to(-r * .5, -r * .7, r * .5, -r * .6, r, 0); ctx.curve_to(r * .5, r * .6, -r * .5, r * .7, -r, 0); ctx.close_path()
+    fuell(ctx, f, max(4, r * .08), kw.kontur(f))
+    ctx.move_to(-r * 1.25, 0); ctx.line_to(r * .8, 0)
+    ctx.set_source_rgb(*kw.kontur(f)); ctx.set_line_width(max(3, r * .07)); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    ctx.restore()
+
+
+def p_atree(ctx, x, y, g, o, v, t):
+    ctx.rectangle(x - 48, y - 470, 96, 480); fuell(ctx, rgb("b0733c"), 9)
+    teile = [(-190, 60, 150), (190, 60, 150), (-110, -110, 170), (120, -120, 170), (0, 40, 210), (0, -190, 150)]
+    for dx, dy, r in teile:
+        ellipse(ctx, x + dx, y - 590 + dy, r, r * .92); fuell(ctx, rgb("ff9a2e"), 9, rgb("b35a00"))
+    for dx, dy, r in teile:
+        ellipse(ctx, x + dx, y - 590 + dy, r - 9, r * .92 - 9)
+    fuell(ctx, rgb("ff9a2e"))
+    for i, (dx, dy) in enumerate([(-150, -40), (60, -160), (150, 20), (-40, 90), (-200, 90), (210, 110), (0, -250), (-90, -170)]):
+        ellipse(ctx, x + dx, y - 590 + dy, 34, 22, -.4); fuell(ctx, [COLORS["red"], COLORS["yellow"], rgb("a0612b")][i % 3])
+
+
+def p_pile(ctx, x, y, g, o, v, t):
+    if g < 5:
+        return
+    s = g / 100
+    ctx.move_to(x - 190 * s, y + 10 * s); ctx.curve_to(x - 150 * s, y - 150 * s, x + 150 * s, y - 150 * s, x + 190 * s, y + 10 * s); ctx.close_path()
+    fuell(ctx, rgb("e07b22"), 9, rgb("8a4a10"))
+    rnd = random.Random(2)
+    for i in range(16):
+        a = rnd.uniform(.15, .85) * math.pi; d = rnd.uniform(.2, .95)
+        lx, ly = x - math.cos(a) * 150 * s * d, y - math.sin(a) * 105 * s * d
+        f = [COLORS["red"], COLORS["yellow"], COLORS["orange"], rgb("a0612b")][i % 4]
+        ellipse(ctx, lx, ly, 30 * s, 16 * s, rnd.uniform(-1, 1)); fuell(ctx, f, 5, kw.kontur(f))
+
+
+SKAL = ("tree", "bush", "pond", "lily", "xtree", "light", "road", "seesaw", "mound", "bed", "sink", "tray", "atree")
 PROPS = dict(egg=p_egg, rocket=p_rocket, seesaw=p_seesaw, nest=p_nest, text=p_text, snowball=p_snowball, snowface=p_snowface, carrot=p_carrot, scarf=p_scarf, xtree=p_xtree, star=p_star, gift=p_gift,
              fish=p_fish, bone=p_bone, shape=p_shape, pond=p_pond, lily=p_lily, box=p_box, ball=p_ball, basket=p_basket, banana=p_banana,
-             orange=p_orange, letter=p_letter, light=p_light, road=p_road)
+             orange=p_orange, letter=p_letter, light=p_light, road=p_road,
+             grapes=p_grapes, hat=p_hat, icecream=p_icecream, mound=p_mound, raincloud=p_raincloud, umbrella=p_umbrella, wind=p_wind,
+             night=p_night, bed=p_bed, blanket=p_blanket, face=p_face, car=p_car, boat=p_boat, plane=p_plane, mud=p_mud, sink=p_sink,
+             bubbles=p_bubbles, towel=p_towel, drum=p_drum, card=p_card, cookie=p_cookie, tray=p_tray, mug=p_mug, stone=p_stone,
+             leaf=p_leaf, atree=p_atree, pile=p_pile)
 
 
 # ---------------- Zeitleiste ----------------
@@ -1229,6 +1999,8 @@ class Folge:
             self._tween(a[1], "s", t, .45, a[2])
         elif art == "tilt":
             self._tween(a[1], "v", t, .6, a[2])
+        elif art == "fade":  # Wert v langsam aendern (z. B. Nacht), a[3] = Dauer
+            self._tween(a[1], "v", t, a[3] if len(a) > 3 else 1.5, a[2])
         elif art == "spark":
             self.funken.append((a[1], a[2], t)); self.pops.append(t)
         elif art == "set":
@@ -1243,7 +2015,7 @@ class Folge:
         elif art == "away":
             self._tween(a[1], "y", t, .9, -400, "in")
         elif art in ("jump", "wave", "wiggle"):
-            self.emotes.append((a[1], art, t, {"jump": .55, "wiggle": .9}.get(art, max(1.0, zeilen_dauer))))
+            self.emotes.append((a[1], art, t, opt.get("d") or {"jump": .55, "wiggle": .9}.get(art, max(1.0, zeilen_dauer))))
         elif art == "word":
             self.words.append((t, a[1], a[2] if len(a) > 2 else None))
         elif art == "sparkle":
@@ -1300,9 +2072,15 @@ class Folge:
     def zeichne(self, ctx, i):
         t = i / FPS
         (welt_winter if self.ep.get("welt") == "winter" else kw.welt)(ctx, t, self.laut("sunny", i))
+        objekte = sorted(self.obj.items(), key=lambda kv: kv[1]["z"])
+        self.zeichne_objekte(ctx, t, i, [kv for kv in objekte if kv[1]["z"] < 0])  # z < 0: Hintergrund (z. B. Nacht)
         kw.titel(ctx, "MOTOJUMPER", 660, 92, 50, kw.WEISS, t, welle=0)  # Kanalname in jeder Folge
         kw.titel(ctx, self.ep["titel"], 660, 222, 118, REGENBOGEN, t, maxw=690)
-        for oid, o in sorted(self.obj.items(), key=lambda kv: kv[1]["z"]):
+        self.zeichne_objekte(ctx, t, i, [kv for kv in objekte if kv[1]["z"] >= 0])
+        self.zeichne_effekte(ctx, t)
+
+    def zeichne_objekte(self, ctx, t, i, objekte):
+        for oid, o in objekte:
             x, y, s, v = (self.wert(oid, a, t) for a in ATTR)
             j = self.emote(oid, "jump", t)
             if j is not None:
@@ -1330,6 +2108,8 @@ class Folge:
                         wink=self.emote(oid, "wave", t) is not None, sprech=lt)
             if skal:
                 ctx.restore()
+
+    def zeichne_effekte(self, ctx, t):
         for fx, fy, t0 in self.funken:
             kw.funkeln(ctx, fx, fy, t, t0, int(t0 * 10), R=230, n=10)
         wort = None
@@ -1360,13 +2140,17 @@ class Folge:
         p.stdin.close(); p.wait(); os.remove(wav)
         ep = self.ep
         with open(out.replace(".mp4", ".txt"), "w") as f:  # alles fuers Hochladen
-            ziele = f"\n\nLearning goals: {ep['ziele']}" if ep.get("ziele") else ""
-            f.write(f"TITEL:\n{ep['yt_titel']}\n\nBESCHREIBUNG:\n{ep['yt_text']}{ziele}\n\n"
-                    f"🌈 A new learning story every day on Motojumper, with Momo, Juju and friends!\n\n"
-                    f"#shorts {ep.get('hashtags', '#storyforkids')} #kidslearning #preschool #toddlerlearning #educationalvideos\n\n"
+            f.write(f"TITEL:\n{ep['yt_titel']}\n\nBESCHREIBUNG:\n{beschreibung(ep)}\n\n"
                     f"TAGS:\n{', '.join(ep['tags'])}\n\nLERNZIEL:\n{ep['lernziel']}\n\nDREHBUCH:\n"
                     + "\n".join(f"{z[0].capitalize()}: {z[1]}" for z in ep["zeilen"]) + "\n")
         return out
+
+
+def beschreibung(ep):
+    """YouTube-Beschreibung im Format aus CLAUDE.md."""
+    ziele = f"\n\n✨ What you learn: {ep['ziele']}" if ep.get("ziele") else ""
+    return (f"{ep['yt_text']}{ziele}\n\n🌈 New learning stories every day on Motojumper, with Momo, Juju and friends! 💛\n\n"
+            f"#shorts {ep.get('hashtags', '#storyforkids')} #kidslearning #preschool #toddlerlearning #educationalvideos")
 
 
 _K, _CACHE = None, {}
