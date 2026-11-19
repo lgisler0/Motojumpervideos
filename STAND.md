@@ -24,7 +24,7 @@ Auf Wunsch von Loris (19.11.) vorgezogen, jeweils 19:00 zusätzlich zum bisherig
 - 19.11. 19:00 ThrustSSC (`rekorde/3d/rekord_thrust_3d.mp4`)
 - 20.11. 19:00 Airbus A380 (`rekorde/3d/rekord_a380_3d.mp4`)
 - 21.11. 19:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
-- in Arbeit: BelAZ 75710 (grösster Muldenkipper, GWR largest two-axle dump truck) – `fakten/rekorde/belaz3d.py`, `belaz_schnitt.py`; Loris zuerst zeigen.
+- 22.11. 19:00 BelAZ 75710 (`rekorde/3d/rekord_belaz_3d.mp4`, Quellen `rekorde/belaz3d.py`, `belaz_schnitt.py`)
 Neue 3D-Rekord-Videos (ca. 2–3 h pro Video) immer zuerst Loris zeigen.
 Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D).
 
