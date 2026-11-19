@@ -346,3 +346,90 @@ def rendern(key, dauer, zeichne, wusch, ordner, nur=None):
         zeichne(ctx, f / FPS); filmlook(ctx, f); surf.flush(); p.stdin.write(bytes(surf.get_data()))
     p.stdin.close(); p.wait(); os.remove(wav)
     return out
+
+
+# ---------------------------------------------------------------- spannende Hintergrundmusik (leise, treibend)
+def _tp(x, k):
+    """einfacher Tiefpass (exponentiell), k 0..1"""
+    y = np.empty_like(x); a = 0.0
+    for i in range(len(x)):
+        a += k * (x[i] - a); y[i] = a
+    return y
+
+
+def musik_spannung(dauer, schnitte=(), seed=1, bpm=120):
+    rng = np.random.default_rng(seed)
+    n = int(dauer * SR); t = np.arange(n) / SR; out = np.zeros(n)
+    beat = 60 / bpm; achtel = beat / 2
+    # Akkordfolge a-Moll: Am F C G (je 2 Takte), Grundtoene im Bass
+    akk = [(55.0, [220.0, 261.63, 329.63]), (43.65, [174.61, 220.0, 261.63]), (65.41, [196.0, 261.63, 329.63]), (49.0, [196.0, 246.94, 293.66])]
+    takt = 4 * beat
+    # Bass: pulsierende Achtel, saegezahnartig, gefiltert
+    for i in range(int(dauer / achtel) + 1):
+        st = i * achtel; s0 = int(st * SR); L = int(achtel * SR * .9)
+        if s0 >= n:
+            break
+        grund = akk[int(st / (2 * takt)) % 4][0]
+        f = grund * (2 if i % 8 == 7 else 1)
+        tt = np.arange(min(L, n - s0)) / SR
+        ton_ = sum(np.sin(2 * np.pi * f * h * tt) / h for h in range(1, 6))
+        env = np.exp(-tt * 9) * (1 - np.exp(-tt * 400))
+        out[s0:s0 + len(tt)] += ton_ * env * (.55 if i % 2 == 0 else .4)
+    # Pad: weiche, leicht verstimmte Akkorde
+    pad = np.zeros(n)
+    for i in range(int(dauer / (2 * takt)) + 1):
+        st = i * 2 * takt; s0 = int(st * SR); L = int(2 * takt * SR)
+        tt = np.arange(min(L, n - s0)) / SR
+        if len(tt) == 0:
+            break
+        env = np.minimum(1, tt / 1.2) * np.minimum(1, (L / SR - tt) / .8)
+        for f in akk[i % 4][1]:
+            pad[s0:s0 + len(tt)] += (np.sin(2 * np.pi * f * tt) + .6 * np.sin(2 * np.pi * f * 1.004 * tt)) * env * .12
+    out += pad
+    # Ticken (Hi-Hat) auf Sechzehnteln, sehr leise, + weicher Kick auf 1 und 3
+    for i in range(int(dauer / (beat / 4)) + 1):
+        s0 = int(i * beat / 4 * SR); L = int(.04 * SR)
+        if s0 + L >= n:
+            break
+        nz = rng.standard_normal(L); nz = nz - _tp(nz, .3)
+        out[s0:s0 + L] += nz * np.exp(-np.arange(L) / SR * 90) * (.09 if i % 4 == 2 else .045)
+    for i in range(int(dauer / (2 * beat)) + 1):
+        s0 = int(i * 2 * beat * SR); L = int(.35 * SR)
+        if s0 + L >= n:
+            break
+        tt = np.arange(L) / SR; f = 50 + 70 * np.exp(-tt * 30)
+        out[s0:s0 + L] += np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt * 9) * .8
+    # Spannungsbogen vor jedem Schnitt + tiefer Schlag beim Schnitt
+    for sc_ in schnitte:
+        a = int(max(0, sc_ - 1.6) * SR); b = int(sc_ * SR)
+        if b - a > 10 and b <= n:
+            L = b - a; nz = rng.standard_normal(L); k = np.linspace(.02, .35, L)
+            y = np.empty(L); acc = 0.0
+            for j in range(L):
+                acc += k[j] * (nz[j] - acc); y[j] = acc
+            out[a:b] += y * np.linspace(0, 1, L) ** 2 * 1.4
+        L = int(1.2 * SR)
+        if b + L < n:
+            tt = np.arange(L) / SR
+            out[b:b + L] += np.sin(2 * np.pi * (42 + 30 * np.exp(-tt * 8)) * tt) * np.exp(-tt * 3.5) * 1.3
+    # langsamer Aufbau ueber das ganze Video
+    out *= .75 + .25 * (t / dauer)
+    return out / (np.abs(out).max() + 1e-9)
+
+
+def ton_spannung(key, dauer, schnitte, pfad, musik_laut=.16):
+    roh = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", os.path.join(HIER, "stimme", f"{key}.mp3"), "-f", "s16le", "-ac", "1", "-ar", str(SR), "-"],
+                         capture_output=True).stdout
+    voc = np.frombuffer(roh, np.int16).astype(np.float64) / 32768
+    n = int(dauer * SR); v = np.zeros(n); m = min(n, len(voc)); v[:m] = voc[:m]
+    mu_l = musik_spannung(dauer + .6, schnitte, abs(hash(key)) % 999)
+    L = int(.5 * SR); mu = mu_l[:n].copy(); mu[:L] = mu[:L] * np.linspace(0, 1, L) + mu_l[n:n + L] * np.linspace(1, 0, L)  # Loop-Naht
+    # Ducking: Musik leiser, wenn gesprochen wird
+    hull = np.convolve(np.abs(v), np.ones(int(.15 * SR)) / int(.15 * SR), "same")
+    duck = 1 - .45 * np.clip(hull / (hull.max() * .25 + 1e-9), 0, 1)
+    mix = v + mu * musik_laut * duck
+    for st in schnitte:
+        mix += fs.wusch(n, st - .2) * .1
+    mix = mix / np.abs(mix).max() * .92
+    with wave.open(pfad, "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix * 32767).astype(np.int16).tobytes())
