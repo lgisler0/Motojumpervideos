@@ -62,3 +62,9 @@ Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D
 ## 7. Analyse-Stand (17./18.11.)
 - Shorts bekommen ca. 200–1'000 Aufrufe; 60–66 % wischen weg, Wiedergabe Ø 0:17 → der Einstieg war das Problem → neuer Einstieg ab 17.11.
 - Kinderkanal stagniert (12 Abonnenten). Frage an Loris, ob neue Kinder-Folgen pausieren sollen, ist noch offen.
+
+
+## Kinderkanal Motojumper: PAUSIERT (19.11., Wunsch Loris)
+- Alle 29 geplanten Folgen (20.11.–19.12.) in Metricool auf Entwurf gesetzt (nichts gelöscht, kann wieder aktiviert werden).
+- Geplante Aufgaben «Motojumper Wochenfolgen» und «Motojumper: Auswertung nach 10 Videos» ausgeschaltet.
+- Fokus nur noch auf Wissenskanal / 3D-Weltrekorde. Tiefsee-3D: 52,5 % bis zum Ende angesehen (älter 2D: ~35–40 %).
