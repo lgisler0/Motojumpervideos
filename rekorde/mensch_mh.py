@@ -11,8 +11,8 @@ import bpy, bmesh, math, importlib, addon_utils, os, shutil, random
 from mathutils import Vector, Matrix
 
 P = math.pi
-MPFB_SRC = "/tmp/mpfb2_test/src/mpfb"
-MH_DATA = "/tmp/mh/makehuman/data"
+MPFB_SRC = "/home/claude/assets/mpfb2/src/mpfb"
+MH_DATA = "/home/claude/assets/mh/makehuman/data"
 
 
 def _mpfb():
@@ -120,7 +120,9 @@ class Arbeiter:
             hand = b.startswith(("wrist", "finger", "metacarpal"))
             bein = b.startswith(("upperleg", "lowerleg", "pelvis", "foot", "toe"))
             rumpf = b.startswith(("spine", "breast", "clavicle", "shoulder"))
-            kopf_frei = 1 - smooth(c.z, neck.z - .07, neck.z - .02)
+            hdist = math.hypot(c.x - neck.x, (c.y - neck.y) * 1.2)
+            kopf_frei = 1 - smooth(c.z, neck.z - .06, neck.z - .03) * (1 - smooth(hdist, .075, .1))
+            kopf_frei *= 1 - smooth(c.z, neck.z + .0, neck.z + .03)
             hand_d = min((c - hl).length, (c - hr).length)
             if not hand:
                 # Hemd: alles oberhalb der Huefte ausser Kopf/Hals und Haende (Aermel bis kurz vor die Hand)
