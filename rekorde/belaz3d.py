@@ -155,16 +155,16 @@ for s in (-1, 1):
     for x in (1.5, 3.5, 5.5, 7.0):
         zyl((x, s * 4.75, 5.55), (x, s * 4.75, 6.6), .035, GELB, 10)
 # Kabine links, Schaltschrank rechts
-kab = box(.35, 3.5, -4.55, -1.95, 5.55, 7.75, GELB, .14, 3)
-box(.28, .36, -4.4, -2.1, 6.45, 7.6, GLAS)            # Frontscheibe
-box(.6, 3.25, -4.6, -4.5, 6.45, 7.55, GLAS)           # Seitenfenster
-box(.6, 3.25, -2.0, -1.9, 6.45, 7.55, GLAS)
-box(1.2, 1.7, -4.6, -4.52, 5.7, 6.35, GLAS)           # Tuerfenster unten
-box(.3, .42, -4.5, -2.0, 7.6, 7.72, RAHMEN)           # Sonnenblende
+KABINE = [box(.35, 3.5, -4.55, -1.95, 5.55, 7.75, GELB, .14, 3),
+          box(.28, .36, -4.4, -2.1, 6.45, 7.6, GLAS),            # Frontscheibe
+          box(.6, 3.25, -4.6, -4.5, 6.45, 7.55, GLAS),           # Seitenfenster
+          box(.6, 3.25, -2.0, -1.9, 6.45, 7.55, GLAS),
+          box(1.2, 1.7, -4.6, -4.52, 5.7, 6.35, GLAS),           # Tuerfenster unten
+          box(.3, .42, -4.5, -2.0, 7.6, 7.72, RAHMEN)]           # Sonnenblende
 zyl((.3, -4.75, 7.2), (-.6, -5.1, 7.2), .04, RAHMEN, 8); box(-.75, -.6, -5.4, -5.0, 6.7, 7.3, GLAS)   # Spiegel
-box(.6, 3.1, 1.95, 4.45, 5.55, 6.95, GELB, .08)       # Schaltschrank
+SCHRANK = [box(.6, 3.1, 1.95, 4.45, 5.55, 6.95, GELB, .08)]       # Schaltschrank (Bremswiderstaende)
 for x in (.9, 1.6, 2.3):
-    box(x, x + .5, 4.45, 4.5, 5.75, 6.75, RAHMEN)      # Lueftungsgitter
+    SCHRANK.append(box(x, x + .5, 4.45, 4.5, 5.75, 6.75, RAHMEN))      # Lueftungsgitter
 box(4.0, 7.0, -1.9, 1.9, 5.55, 6.6, GELB, .1)         # Motorhaube hinten auf dem Deck
 for x in (4.4, 5.2, 6.0):
     zyl((x, 0, 6.6), (x, 0, 7.05), .16, RAHMEN, 16)    # Auspuff-Stutzen
