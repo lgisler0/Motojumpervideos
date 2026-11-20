@@ -78,3 +78,8 @@ Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D
   `git clone --depth 1 --filter=blob:none --sparse https://github.com/makehumancommunity/makehuman.git /tmp/mh && cd /tmp/mh && git sparse-checkout set makehuman/data`.
 - Posen über Knochen (`dreh(bone, x,y,z)`), z. B. Arme runter: `upperarm01.L` z=-0.72, `upperarm01.R` z=+0.72.
 - Regel von Loris: Figuren und Details in jedem neuen Clip so detailliert wie möglich.
+
+## Neue Richtung (21.11., Loris): spannende Rekorde, die MENSCHEN geschafft haben
+- Format bleibt: Person mit Aufgabe (Zack-D-Stil), realistische MPFB-Figur, Hope-Stimme, Loop, Zahlen geprüft (GWR zuerst).
+- Echte Rekordhalter werden mit Namen genannt, aber als allgemeine Figur gezeigt (kein Nachbau ihres Gesichts).
+- Themen-Ideen (geprüft 21.11.): höchster Fallschirm-Freifall Alan Eustace 41'422 m (2014); längstes Luftanhalten Vitomir Maričić 29:03 (2025, mit Sauerstoff-Vorbereitung); meiste Everest-Besteigungen Kami Rita Sherpa (32., Mai 2026).
