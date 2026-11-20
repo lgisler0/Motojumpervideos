@@ -68,3 +68,11 @@ Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D
 - Alle 29 geplanten Folgen (20.11.–19.12.) in Metricool auf Entwurf gesetzt (nichts gelöscht, kann wieder aktiviert werden).
 - Geplante Aufgaben «Motojumper Wochenfolgen» und «Motojumper: Auswertung nach 10 Videos» ausgeschaltet.
 - Fokus nur noch auf Wissenskanal / 3D-Weltrekorde. Tiefsee-3D: 52,5 % bis zum Ende angesehen (älter 2D: ~35–40 %).
+
+
+## Realistische Menschen (ab 20.11.)
+- Modul `rekorde/mensch_mh.py` (Klasse `Arbeiter`): MakeHuman/MPFB2-Basismensch (CC0) mit Skelett, Augen, Haut; Kleidung als Hüllen mit Alpha-Masken (Hemd mit Warnweste, Hose, Handschuhe), Stiefel, Helm, Augenbrauen, Bartschatten.
+- Vorher einrichten: `git clone --depth 1 https://github.com/makehumancommunity/mpfb2.git /tmp/mpfb2_test` und
+  `git clone --depth 1 --filter=blob:none --sparse https://github.com/makehumancommunity/makehuman.git /tmp/mh && cd /tmp/mh && git sparse-checkout set makehuman/data`.
+- Posen über Knochen (`dreh(bone, x,y,z)`), z. B. Arme runter: `upperarm01.L` z=-0.72, `upperarm01.R` z=+0.72.
+- Regel von Loris: Figuren und Details in jedem neuen Clip so detailliert wie möglich.
