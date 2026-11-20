@@ -25,6 +25,7 @@ Auf Wunsch von Loris (19.11.) vorgezogen, jeweils 19:00 zusätzlich zum bisherig
 - 20.11. 19:00 Airbus A380 (`rekorde/3d/rekord_a380_3d.mp4`)
 - 21.11. 19:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
 - 22.11. 19:00 BelAZ 75710 (`rekorde/3d/rekord_belaz_3d.mp4`, Quellen `rekorde/belaz3d.py`, `belaz_schnitt.py`)
+- 23.11. 19:00 Fahrer-Geschichte «How Do You Stop an 800-Tonne Truck?» (`rekorde/3d/rekord_fahrer_3d.mp4`, neuer Stil mit Person + Aufgabe)
 Neue 3D-Rekord-Videos (ca. 2–3 h pro Video) immer zuerst Loris zeigen.
 Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D).
 
