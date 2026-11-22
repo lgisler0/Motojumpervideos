@@ -85,3 +85,13 @@ Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D
 - Format bleibt: Person mit Aufgabe (Zack-D-Stil), realistische MPFB-Figur, Hope-Stimme, Loop, Zahlen geprüft (GWR zuerst).
 - Echte Rekordhalter werden mit Namen genannt, aber als allgemeine Figur gezeigt (kein Nachbau ihres Gesichts).
 - Themen-Ideen (geprüft 21.11.): höchster Fallschirm-Freifall Alan Eustace 41'422 m (2014); längstes Luftanhalten Vitomir Maričić 29:03 (2025, mit Sauerstoff-Vorbereitung); meiste Everest-Besteigungen Kami Rita Sherpa (32., Mai 2026).
+
+## Dauerauftrag (seit 22.11., Loris: «mache einfach in jeder freien Minute am Video»)
+Ablauf pro Durchgang (in dieser Sitzung, Arbeitsordner /home/claude/fakten/rekorde):
+1. Naechsten menschlichen Rekord waehlen (nicht wiederholen; Liste unten), Fakten pruefen (GWR zuerst).
+2. Text im Muster «This man/woman has one job: …» (~30 s), Stimme Hope (ElevenLabs), Wort-Zeiten mit whisper.
+3. Neue Szene `<key>3d.py` (MPFB-Mensch aus mensch_mh.py, viele Details, Schnitt alle 1–2 s) + `<key>_schnitt.py`; Standbilder pruefen, dann rendern (Hintergrund mit nohup setsid, Fortsetzen nach Neustart).
+4. Komprimieren (<100 MB), committen/pushen, in den naechsten freien Platz 13:00 oder 19:00 (max. 2 pro Tag, mind. 1 Tag im Voraus) bei Metricool 8066320 einplanen.
+5. Loris kurz melden, dann naechste Runde mit send_later anstossen.
+Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung.
+Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), weitere echte Menschen-Rekorde.
