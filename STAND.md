@@ -26,7 +26,9 @@ Auf Wunsch von Loris (19.11.) vorgezogen, jeweils 19:00 zusätzlich zum bisherig
 - 21.11. 19:00 Burj Khalifa (`rekorde/3d/rekord_burj_3d.mp4`)
 - 22.11. 19:00 BelAZ 75710 (`rekorde/3d/rekord_belaz_3d.mp4`, Quellen `rekorde/belaz3d.py`, `belaz_schnitt.py`)
 - 23.11. 19:00 Fahrer-Geschichte «How Do You Stop an 800-Tonne Truck?» (`rekorde/3d/rekord_fahrer_3d.mp4`, neuer Stil mit Person + Aufgabe)
-- fertig, noch nicht eingeplant (warten auf «poste»): Fensterputzer Burj (`rekorde/3d/rekord_putzer_3d.mp4`, Commit c26a91e) und Tankwart A380 (`rekorde/3d/rekord_tanker_3d.mp4`, Commit 15865d2). Vorschlag: 24.11. und 25.11. je 19:00.
+- 22.11.: Loris: «nur noch so» (3D, eine Person, ein Job) und **nur 2 Posts pro Tag** (13:00 + 19:00). Alle 46 alten 2D-Fakten-Posts (22.–30.11.) auf Entwurf gesetzt (nicht geloescht).
+- Eingeplant: 22.11. 19:00 BelAZ, 23.11. 13:00 Fensterputzer (c26a91e), 23.11. 19:00 BelAZ-Fahrer, 24.11. 13:00 Tankwart (15865d2), 24.11. 19:00 Stratosphaeren-Sprung (fa591f7). Ab 25.11. leer -> neue 3D-Videos noetig (Render ca. 5-6 h pro Video).
+- Naechste Ideen: Atem anhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x).
 Neue 3D-Rekord-Videos (ca. 2–3 h pro Video) immer zuerst Loris zeigen.
 Die 2D-Weltrekord-Videos werden **nicht** mehr verwendet (Loris will nur noch 3D).
 
