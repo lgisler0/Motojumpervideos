@@ -93,5 +93,5 @@ Ablauf pro Durchgang (in dieser Sitzung, Arbeitsordner /home/claude/fakten/rekor
 3. Neue Szene `<key>3d.py` (MPFB-Mensch aus mensch_mh.py, viele Details, Schnitt alle 1–2 s) + `<key>_schnitt.py`; Standbilder pruefen, dann rendern (Hintergrund mit nohup setsid, Fortsetzen nach Neustart).
 4. Komprimieren (<100 MB), committen/pushen, in den naechsten freien Platz 13:00 oder 19:00 (max. 2 pro Tag, mind. 1 Tag im Voraus) bei Metricool 8066320 einplanen.
 5. Loris kurz melden, dann naechste Runde mit send_later anstossen.
-Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung.
+Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung, Luftanhalten (78b1cfd, eingeplant 25.11. 13:00).
 Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), weitere echte Menschen-Rekorde.
