@@ -93,6 +93,13 @@ Ablauf pro Durchgang (in dieser Sitzung, Arbeitsordner /home/claude/fakten/rekor
 3. Neue Szene `<key>3d.py` (MPFB-Mensch aus mensch_mh.py, viele Details, Schnitt alle 1–2 s) + `<key>_schnitt.py`; Standbilder pruefen, dann rendern (Hintergrund mit nohup setsid, Fortsetzen nach Neustart).
 4. Komprimieren (<100 MB), committen/pushen, in den naechsten freien Platz 13:00 oder 19:00 (max. 2 pro Tag, mind. 1 Tag im Voraus) bei Metricool 8066320 einplanen.
 5. Loris kurz melden, dann naechste Runde mit send_later anstossen.
-Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung, Luftanhalten (78b1cfd, eingeplant 25.11. 13:00), Everest Kami Rita (eingeplant 25.11. 19:00), 100 m Usain Bolt (eingeplant 26.11. 13:00), Klippensprung Laso Schaller (eingeplant 26.11. 19:00), Thrust SSC (frueher), Velo-Rekord Denise Mueller-Korenek 296 km/h (eingeplant 27.11. 13:00).
+Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung, Luftanhalten (78b1cfd, eingeplant 25.11. 13:00), Everest Kami Rita (eingeplant 25.11. 19:00), 100 m Usain Bolt (eingeplant 26.11. 13:00), Klippensprung Laso Schaller (eingeplant 26.11. 19:00), Thrust SSC (frueher), Velo-Rekord Denise Mueller-Korenek 296 km/h (eingeplant 27.11. 13:00), Kreuzheben 511 kg Raul Flores (eingeplant 27.11. 19:00).
 Hinweis: mensch_mh.py setzt jetzt den Hautton passend zu haut (african/asian); frueher waren alle Figuren hell.
 Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), weitere echte Menschen-Rekorde.
+
+### Realismus (Loris 23.11.: «nicht nur Vierecke, realistischer»)
+- Foto-Texturen von ambientCG (CC0) in /home/claude/fakten/assets (Rubber004, WoodFloor041, Metal012, Fabric030, Leather037, Concrete034, Plastic010); neue per `curl -L "https://ambientcg.com/get?file=<Name>_1K-JPG.zip"`.
+- HDRI von Poly Haven (CC0): dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/<name>_1k.hdr (warehouse.hdr, studio.hdr liegen bereit); Modelle via api.polyhaven.com.
+- Helfer `pbr()` in heben3d.py (Box-Projektion Color/Roughness/NormalGL). Formen rund: Drehkoerper, Bevel, Subsurf statt Kaesten; Publikum aus runden Figuren.
+- Kleidung nicht trimmen (zackige Raender) - lieber Shirt/Tights; Huellen-Versatz gross genug gegen Durchstechen.
+- Vorlage: heben3d.py / heben_schnitt.py (Kreuzheben 511 kg Raul Flores, 5.9.2026).
