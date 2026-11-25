@@ -113,5 +113,5 @@ Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), w
 
 ## Ton ohne Rauschen (25.11.)
 - Loris: "Rauschen im Hintergrund weg". rk_basis.OHNE_RAUSCHEN = True: keine Rausch-Hi-Hats, keine Rausch-Riser/Wusch.
-- geraeusche() in neuen *_schnitt.py nur mit tonalen Klaengen, KEIN rng.normal-Rauschen (auch nicht fuer Publikum/Aufprall).
-- everest, sprint, klippe, velo, heben, hoch, weit neu abgemischt (Commit 42392bb), Metricool-Posts auf neue Videos umgestellt.
+- Loris 25.11.: KEINE Geraeusche-Effekte mehr (kein geraeusche(), kein Publikum, kein Knall/Aufprall). Nur Stimme + Musik.
+- everest, sprint, klippe, velo, heben, hoch, weit neu abgemischt (Commit 42392bb), Metricool-Posts auf neue Videos umgestellt. Danach sprint..weit nochmals ohne Effekte (Commit 8562016).
