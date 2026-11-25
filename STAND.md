@@ -110,3 +110,8 @@ Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), w
 - Shirt-Huelle weiter aussen als Hose (versatz hemd .011, hose .004), sonst Flecken.
 - Bewegungen glaubwuerdig (Kritik am Kreuzheben: Hebebewegung wirkte unecht) - Posen vor dem Rendern genau pruefen.
 - Assets: /home/claude/assets/mhsys (CC0, makehuman_system_assets).
+
+## Ton ohne Rauschen (25.11.)
+- Loris: "Rauschen im Hintergrund weg". rk_basis.OHNE_RAUSCHEN = True: keine Rausch-Hi-Hats, keine Rausch-Riser/Wusch.
+- geraeusche() in neuen *_schnitt.py nur mit tonalen Klaengen, KEIN rng.normal-Rauschen (auch nicht fuer Publikum/Aufprall).
+- everest, sprint, klippe, velo, heben, hoch, weit neu abgemischt (Commit 42392bb), Metricool-Posts auf neue Videos umgestellt.
