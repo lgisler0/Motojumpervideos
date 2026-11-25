@@ -357,6 +357,9 @@ def _tp(x, k):
     return y
 
 
+OHNE_RAUSCHEN = True          # Loris 25.11.: kein Rauschen im Hintergrund
+
+
 def musik_spannung(dauer, schnitte=(), seed=1, bpm=120):
     rng = np.random.default_rng(seed)
     n = int(dauer * SR); t = np.arange(n) / SR; out = np.zeros(n)
@@ -391,8 +394,9 @@ def musik_spannung(dauer, schnitte=(), seed=1, bpm=120):
         s0 = int(i * beat / 4 * SR); L = int(.04 * SR)
         if s0 + L >= n:
             break
-        nz = rng.standard_normal(L); nz = nz - _tp(nz, .3)
-        out[s0:s0 + L] += nz * np.exp(-np.arange(L) / SR * 90) * (.09 if i % 4 == 2 else .045)
+        if not OHNE_RAUSCHEN:
+            nz = rng.standard_normal(L); nz = nz - _tp(nz, .3)
+            out[s0:s0 + L] += nz * np.exp(-np.arange(L) / SR * 90) * (.09 if i % 4 == 2 else .045)
     for i in range(int(dauer / (2 * beat)) + 1):
         s0 = int(i * 2 * beat * SR); L = int(.35 * SR)
         if s0 + L >= n:
@@ -402,7 +406,11 @@ def musik_spannung(dauer, schnitte=(), seed=1, bpm=120):
     # Spannungsbogen vor jedem Schnitt + tiefer Schlag beim Schnitt
     for sc_ in schnitte:
         a = int(max(0, sc_ - 1.6) * SR); b = int(sc_ * SR)
-        if b - a > 10 and b <= n:
+        if b - a > 10 and b <= n and OHNE_RAUSCHEN:
+            L = b - a; tt = np.arange(L) / SR                     # tonaler Anstieg statt Rauschen
+            f = 110 * 2 ** (np.linspace(0, 1, L) * 1.0)
+            out[a:b] += np.sin(2 * np.pi * np.cumsum(f) / SR) * np.linspace(0, 1, L) ** 2 * .25
+        elif b - a > 10 and b <= n:
             L = b - a; nz = rng.standard_normal(L); k = np.linspace(.02, .35, L)
             y = np.empty(L); acc = 0.0
             for j in range(L):
@@ -428,8 +436,9 @@ def ton_spannung(key, dauer, schnitte, pfad, musik_laut=.16):
     hull = np.convolve(np.abs(v), np.ones(int(.15 * SR)) / int(.15 * SR), "same")
     duck = 1 - .45 * np.clip(hull / (hull.max() * .25 + 1e-9), 0, 1)
     mix = v + mu * musik_laut * duck
-    for st in schnitte:
-        mix += fs.wusch(n, st - .2) * .1
+    if not OHNE_RAUSCHEN:
+        for st in schnitte:
+            mix += fs.wusch(n, st - .2) * .1
     mix = mix / np.abs(mix).max() * .92
     with wave.open(pfad, "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((mix * 32767).astype(np.int16).tobytes())
