@@ -93,7 +93,7 @@ Ablauf pro Durchgang (in dieser Sitzung, Arbeitsordner /home/claude/fakten/rekor
 3. Neue Szene `<key>3d.py` (MPFB-Mensch aus mensch_mh.py, viele Details, Schnitt alle 1–2 s) + `<key>_schnitt.py`; Standbilder pruefen, dann rendern (Hintergrund mit nohup setsid, Fortsetzen nach Neustart).
 4. Komprimieren (<100 MB), committen/pushen, in den naechsten freien Platz 13:00 oder 19:00 (max. 2 pro Tag, mind. 1 Tag im Voraus) bei Metricool 8066320 einplanen.
 5. Loris kurz melden, dann naechste Runde mit send_later anstossen.
-Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung, Luftanhalten (78b1cfd, eingeplant 25.11. 13:00), Everest Kami Rita (eingeplant 25.11. 19:00), 100 m Usain Bolt (eingeplant 26.11. 13:00), Klippensprung Laso Schaller (eingeplant 26.11. 19:00), Thrust SSC (frueher), Velo-Rekord Denise Mueller-Korenek 296 km/h (eingeplant 27.11. 13:00), Kreuzheben 511 kg Raul Flores (eingeplant 27.11. 19:00), Hochsprung 2,45 m Sotomayor (eingeplant 28.11. 13:00), Weitsprung 8,95 m Mike Powell (eingeplant 28.11. 19:00), Speed-Klettern Emma Hunt 5,99 s (eingeplant 29.11. 13:00), Skiflug Domen Prevc 254,5 m (eingeplant 29.11. 19:00), Groesste Welle Sebastian Steudtner 26,21 m (eingeplant 30.11. 13:00), Highline Angel Falls Lukas Irmler + 5 (eingeplant 30.11. 19:00), Tieftauchen Alexey Molchanov 136 m (eingeplant 1.12. 13:00), Wingsuit Sebastian Alvarez 550 km/h (eingeplant 1.12. 19:00).
+Erledigte Rekorde: BelAZ, BelAZ-Fahrer, Burj-Fensterputzer, A380-Tankwart, Stratosphaeren-Sprung, Luftanhalten (78b1cfd, eingeplant 25.11. 13:00), Everest Kami Rita (eingeplant 25.11. 19:00), 100 m Usain Bolt (eingeplant 26.11. 13:00), Klippensprung Laso Schaller (eingeplant 26.11. 19:00), Thrust SSC (frueher), Velo-Rekord Denise Mueller-Korenek 296 km/h (eingeplant 27.11. 13:00), Kreuzheben 511 kg Raul Flores (eingeplant 27.11. 19:00), Hochsprung 2,45 m Sotomayor (eingeplant 28.11. 13:00), Weitsprung 8,95 m Mike Powell (eingeplant 28.11. 19:00), Speed-Klettern Emma Hunt 5,99 s (eingeplant 29.11. 13:00), Skiflug Domen Prevc 254,5 m (eingeplant 29.11. 19:00), Groesste Welle Sebastian Steudtner 26,21 m (eingeplant 30.11. 13:00), Highline Angel Falls Lukas Irmler + 5 (eingeplant 30.11. 19:00), Tieftauchen Alexey Molchanov 136 m (eingeplant 1.12. 13:00), Wingsuit Sebastian Alvarez 550 km/h (eingeplant 1.12. 19:00), Flugzeug ziehen Kevin Fast 188,83 t (eingeplant 2.12. 13:00).
 Hinweis: mensch_mh.py setzt jetzt den Hautton passend zu haut (african/asian); frueher waren alle Figuren hell.
 Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), weitere echte Menschen-Rekorde.
 
@@ -119,3 +119,8 @@ Ideen: Luftanhalten (Vitomir Maričić 29:03), Kami Rita Sherpa (Everest 32x), w
 ## Rendern (26.11.)
 - Hintergrundprozesse werden kurz nach jeder Antwort gestoppt -> in Etappen im Vordergrund rendern (/tmp/sf_etappe.sh: timeout 575 + --start). Viele gleichnamige Objekte und bpy.ops nach Tausenden Objekten machen den Aufbau langsam: eindeutige Namen, Wald/Publikum zuletzt bauen.
 - Titel verraten die Antwort nicht mehr (Frage statt Zahl).
+
+## Mehr Details (Loris 26.11. 19:00: «Grafik noch besser und detaillierter»)
+- Gilt fuer alle naechsten Videos. Rendern mit --skala 70 --samples 10 (statt 50/7).
+- Zuschauer: echte MakeHuman-Menschen in Pose "backen" (siehe flugzeug3d.py, ZUSCH_ME) und als Instanzen verteilen, keine Kegel-Figuren mehr.
+- Objekte mit Fugen/Nieten-Material, Fenstern, Beschriftung (Fantasie), Lichtern, Fahrzeugen, Flecken.
